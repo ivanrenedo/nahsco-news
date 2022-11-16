@@ -1,0 +1,13 @@
+import React from 'react';
+
+const Edit = () => (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.9306 5.79372L5.22432 16.5H1.66675V12.9424L12.373 2.23615C12.845 1.76477 13.4848 1.5 14.1518 1.5C14.8189 1.5 15.4586 1.76477 15.9306 2.23615C16.402 2.70812 16.6667 3.34789 16.6667 4.01493C16.6667 4.68198 16.402 5.32175 15.9306 5.79372Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+)
+
+const EditIcon = () => (
+    <Edit />
+)
+
+export default EditIcon;

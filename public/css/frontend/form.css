@@ -1,0 +1,40 @@
+
+
+
+
+.form-content-footer .input-form {
+    padding: 12px;
+    border-radius: 20px;
+    width: 300px;
+}
+.input-form::placeholder {
+    color: #777777;
+}
+
+.button-subscribe {
+    padding-inline: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 8px;
+    color: #ffffff;
+    margin-left: 12px;
+}
+
+
+
+.flex-gap-footer {
+    gap: 30px;
+}
+.wrap-footer-sec-1 {
+    flex-direction: column;
+}
+.footer-slogan {
+    max-width: 300px;
+}
+
+.footer-center {
+    justify-content: center;
+}
+.footer-text-center {
+    text-align: center;
+}

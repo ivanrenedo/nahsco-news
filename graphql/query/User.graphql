@@ -1,0 +1,32 @@
+query me{
+    me {
+        id
+        firstName
+        lastName
+        phone_number                           
+        email                  
+        password             
+        tokenversion         
+        role    
+        permission
+        createdAt                    
+    }
+}
+
+query AllUsers{
+    AllUsers {
+        id
+        firstName
+        lastName
+        phone_number                           
+        email                  
+        password             
+        tokenversion         
+        role    
+        permission
+        createdAt                    
+    }
+}
+
+
+

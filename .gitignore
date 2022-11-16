@@ -1,0 +1,47 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# ENV
+.env
+.env.local
+.env*.local
+.env.development
+.env.production
+.DS_Store
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+#taskkill /IM node.exe /F
+#lsof -i tcp:3000
+#kill -9 PID
+.netlify
+
+#yarn upgrade-interactive --latest
+
+
+#docker build -t dockerized-react 
+#--build-arg REACT_APP_GRAPHQL_ENDPOINT_ARG=http://localhost:4000/graphql 
+#--build-arg REACREACT_APP_GRAPHQL_ENDPOINT_WS_ARG=httpwsocalhost:4000/graphql 
+#--build-arg REACT_APP_SCHEMA_VERSION_ARG=1  
+#--build-arg REACT_APP_SCHEMA_VERSION_KEY_ARG=apollo-schema-version 
+#--build-arg NGINX_ENV_CONF=staging . 
+
+ "dev": "ts-node-dev --respawn --project tsconfig.server.json server/index.ts",

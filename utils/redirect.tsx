@@ -1,0 +1,12 @@
+
+export default (res: any, target: string) => {
+    if (res) {
+        // server
+        // 303: "See other"
+        res.writeHead(303, { Location: target });
+        res.end();
+    } else {
+        // In the browser, we just pretend like this never even happened ;)
+        location.replace(target);
+    }
+};

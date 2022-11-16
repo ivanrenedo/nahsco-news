@@ -1,0 +1,253 @@
+
+.landing-page{
+    flex: 1 1 0;
+}   
+.landing-page .section{
+    width: 100%;
+    max-width: 100%;
+}
+
+.landing-page :is(.section-news, .section-collab, .section-faq){
+    padding-bottom: 32px;
+    padding-top: 32px;
+}
+
+.section-news::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 100%;
+    position: absolute;
+    z-index: -2;
+    background-color: #ffffff;
+}
+.section-news::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    position: absolute;
+    z-index: -2;
+    background-color: #ffffff;
+}  
+
+.section-collab::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 100%;
+    position: absolute;
+    z-index: -2;
+    background-color: #06171f;
+}
+.section-collab::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    position: absolute;
+    z-index: -2;
+    background-color: #06171f;
+}
+
+
+.section-collab.section-jobs::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 100%;
+    position: absolute;
+    z-index: -2;
+    background-color: #ffffff;
+}
+.section-collab.section-jobs::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    position: absolute;
+    z-index: -2;
+    background-color: #ffffff;
+}
+
+
+.section-news :is(.section-news-contain), 
+.section-collab .section-collab-contain,
+.section-faq .section-faq-contain,
+.section-invited .section-invited-contain {
+    max-width: 100%;
+    width: 100%;
+}
+.post-news-contain {
+    flex-direction: row-reverse;
+}
+.contact-network-title{
+    color: #454545
+}
+
+hr{
+    border: 0;
+    display: block;
+    height: 1px;
+}
+
+/* news */
+.section-news-contain {
+    gap: 20px;
+}
+.grid-news-item {
+    grid-template-columns: repeat(1,minmax(0,1fr));
+}
+.section-event-wrap {
+    grid-template-columns: repeat(1,minmax(0,1fr));
+}
+
+.section-news-contain li.post-item:first-child .post-item-container{
+    flex-direction: column;
+}
+.section-news-contain li.post-item:first-child .post-item-image{
+    width: 100%;
+    height: 180px;
+}
+.section-news-contain li.post-item:first-child .post-body-wrap{
+    padding-top: 16px;
+    padding-bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.section-news-contain li.post-item:first-child .post-title{
+    font-size: clamp(1rem, 5vw , 1.05rem);
+}
+
+.post-item-image {
+    width: 100px;
+    height: 65px;
+}
+.post-item-image::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .2);
+}
+.post-item-image:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .3);
+}
+.post-title {
+    font-size: clamp(.7rem, 5vw , .85rem); 
+    max-width: 350px;
+}
+.post-title:hover {
+    color: #1D749B;
+}
+.event-title:hover {
+    color: #ffffff;
+}
+
+.post-item-container .post-item-image:hover ~ .post-title:hover {
+    color: #1D749B;
+}
+.post-item-image:hover .event-title:hover {
+    color: #ffffff;
+}
+
+.post-body-wrap {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.post-content {
+    display: none;
+}
+.post-date {
+    font-size: 0.781rem;
+}
+
+.icon-eye {
+    width: 16px;
+    height: 24px;
+}
+.latest-wrap {
+    gap: 10px;
+}
+.lastest-image {
+    width: 100px;
+    height: 67px;
+}
+
+.slider-promotion{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    will-change: transform;
+    user-select: none;
+}
+
+.post-image::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 1;
+}
+
+.service-container {
+    width: 250px;
+}
+.post-image-people {
+    width: 250px;
+    height: 250px;
+}
+.people-gap {
+    gap: 20px;
+    transition: all ease;
+    transform-origin: left;
+}
+
+.service-image {
+    width: 100%;
+    height: 200px;
+}
+
+.banner-space {
+    margin-top: 24px;
+}
+
+.service-title {
+    font-size: 1rem;
+}
+.event-image-container {
+    height: 170px;
+}
+.event-item {
+    border-bottom: 1px solid #777777 ;
+}
+
+.job-item-container {
+    width: 250px;
+}

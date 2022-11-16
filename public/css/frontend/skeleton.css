@@ -1,0 +1,133 @@
+/* User */
+
+.skeleton-with-icon-wrap{
+    position: relative;
+}
+.skeleton-with-icon-wrap::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    animation: sweep 2s infinite;
+    background-image: linear-gradient(
+        to left,
+        transparent,
+        #DDDDDD,
+        transparent
+    )
+}
+@keyframes sweep {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(150%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.skeleton_title, .skeleton_item {
+    margin-bottom: 8px;
+}
+.skeleton_title {
+    width: 13%;
+    height: 20px;
+    background-color: #777777;
+}
+
+
+.skeleton_item, 
+.skeleton_expanding-grid_labels, 
+.skeleton-info-item--connection, 
+.upgrade-user-wrap_skeleton,
+.skeleton_expanding-grid_experience {
+    background-color: #888888;
+}
+
+.skeleton_expanding-grid_avatar,
+.skeleton_item_achievement, 
+.button_cta_skeleton {
+    background-color: #616161;
+}
+
+.skeleton_title, .skeleton_item, .skeleton_expanding-grid_labels, .upgrade-user-wrap_skeleton, .skeleton_expanding-grid_experience {
+    border-radius: 4px;
+}
+
+.button_outline_skeleton{
+    border: 2px solid #616161;
+}
+
+.skeleton_item {
+    width: 40%;
+    height: 18px;
+}
+.skeleton_item_2 {
+    width: 60% !important;
+}
+.skeleton_item_3 {
+    width: 80%;
+}
+.skeleton_item {
+    margin-bottom: 8px;
+}
+.skeleton_item:last-child {
+    margin-bottom: 0px;
+}
+
+.skeleton_expanding-grid_avatar, .button_cta_skeleton, .button_outline_skeleton {
+    border-radius: 10px;
+}
+
+.skeleton_expanding-grid_labels {
+    min-height: 18px;
+    width: 70%;
+}
+.skeleton_expanding-grid_experience{
+    width: 100%;
+    height: 36px;
+}
+
+.button_cta_skeleton, .button_outline_skeleton {
+    height: 36px;
+}
+.slide-grid-skeleton .button_cta_skeleton, .slide-grid-skeleton .button_outline_skeleton {
+    height: 28px;
+}
+.button_outline_skeleton {
+    width: 100px;
+}
+.slide-grid-skeleton .button_outline_skeleton {
+    width: 35px;
+}
+.slide-grid-skeleton .skeleton_item {
+    width: 150px;
+}
+
+.skeleton-info-item--connection{
+    height: 48px;
+}
+
+.skeleton_recomm {
+    width: 100%;
+    height: 16px;
+}
+
+.button_cta_skeleton_width {
+    width: 100px;
+}
+
+.upgrade-user-wrap_skeleton {
+    width: 180px;
+    height: 18px;
+}
+.upgrade-user-wrap_skeleton:first-child {
+    width: 100px;
+    margin-bottom: 8px;
+}
+

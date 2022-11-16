@@ -1,0 +1,150 @@
+
+.logo-size {
+    height: 48px;
+}
+.logo-size-img {
+    width: 42px;
+    height: 100%;
+    object-fit: cover;
+}
+.p-inl-header {
+    padding-left: 45px;
+}
+
+.brandname.text-error:active {
+    color: #e5746f;
+}
+.logo-contain {
+    display: none;
+}
+
+.border-primary {
+    border: 1px solid #1D749B;
+}
+
+.main-page{
+    width: 100%;
+    min-height: calc(100vh);
+    box-sizing: border-box;
+}
+.window-full{
+    width: 100%;
+    height: 100%;
+}
+
+/* Header */
+.scrollhost::-webkit-scrollbar{
+    display: none;
+}
+.scrollhost-container{
+    height: 100%;
+}
+.scrollhost{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+}
+
+.scroll-bar{
+    width: 10px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    border-radius: 7px;
+}
+.scroll-bar.active:active{
+    opacity: 1;
+}
+.scroll-bar .scroll-thumb{
+    width: 8px;
+    height: 20px;
+    margin-left: 1px;
+    position: absolute;
+    border-radius: 7px;
+    opacity: 1;
+    top: 0;
+    background-color: #535353;
+}
+
+.header-p-l {
+    padding-left: 16px;
+}
+.header-p-r {
+    padding-right: 16px;
+}
+
+.navegation-wrap {
+    display: none;
+}   
+.contact-wrap{
+    display: none;
+}
+
+@keyframes spanWidth {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+}
+.tab__item span::after{
+    content: "";
+    display: block;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+}
+.tab__item.tab__item--active span::after {
+    content: "";
+    display: block;
+    position: relative;
+    transform-origin: left;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #1D749B;
+    border-radius: 50px;
+    will-change: width;
+    animation: spanWidth 400ms cubic-bezier(0.215,  0.610, 0.355, 1.000);
+} 
+.tab__item span:hover  {
+    color: #1D749B;
+}
+.tab__item.tab__item--active span:active  {
+    color: rgba(29, 116, 155, .8);
+    font-weight: 600;
+}
+.tab__item.tab__item--active span {
+    color: #1D749B;
+    font-weight: 600;
+}
+
+button.contact-us:hover {
+    background-color: rgba(29, 116, 155, .2);
+    will-change: background-color;
+    transition: background-color 100ms ease;
+}
+button.contact-us:active {
+    transform: scale(.98);
+}
+
+.menu-button {
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 4px;
+}
+.menu-button:active {
+    background-color: rgba(0, 0, 0, .1);
+    will-change:  background-color;
+    transition: background-color linear;
+}
+
+.right-content {
+    display: none;
+}
+

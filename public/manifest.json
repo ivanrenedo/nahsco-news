@@ -1,0 +1,11 @@
+{
+    "short_name": "Networking",
+    "name": "Malabo loteria",
+    "description": "Malabo loteria | ",
+    "background_color": "#FAFAFA",
+    "theme_color": "#FAFAFA",
+    "start_url": "/",
+    "scope": "/",
+    "display": "fullscreen",
+    "icons": []
+}
