@@ -5,7 +5,6 @@
 .form-content-footer .input-form {
     padding: 12px;
     border-radius: 20px;
-    width: 300px;
 }
 .input-form::placeholder {
     color: #777777;
