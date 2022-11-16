@@ -84,9 +84,6 @@
     max-width: 100%;
     width: 100%;
 }
-.post-news-contain {
-    flex-direction: row-reverse;
-}
 .contact-network-title{
     color: #454545
 }
@@ -171,7 +168,7 @@ hr{
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 16px;
-    padding-right: 16px;
+    padding-right: 0px;
 }
 .post-content {
     display: none;
