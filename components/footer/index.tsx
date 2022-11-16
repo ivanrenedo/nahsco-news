@@ -63,7 +63,7 @@ const FooterComponent = () => {
                     <div className="footer-slogan line-height-3 footer-text-center m-in-auto p-b-12">Subscribe to our newsletter to be updated by email.</div>
                     <div className="form-content-footer footer-center display-flex">
                         <input type="email" name="email" placeholder='jhondoe@gmail.com' className='input-form' />
-                        <button className='secundary-var-1 button-subscribe font-size-4'>Subscribe</button>
+                        <button className='secundary-var-1 button-subscribe'>Subscribe</button>
                     </div>
                 </div>
             </div> 
