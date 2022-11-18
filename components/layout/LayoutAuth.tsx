@@ -15,15 +15,16 @@ const LayoutMain: React.FC<LayoutMain> = ({ children, title }) => {
         <>
             <HeadComponent titulo={title}/>
             <HeaderMainComponent />
-            <main className="position-rel main-page z-index-0 font-inherit" role="main">
-                <div className='position-rel box-sizing'>
-                    <div className="position-rel box-sizing font-inherit text-black-var-1">
-                        {children}
+            <div className=" width-100 min-width-0 max-width-100 overflow-h-x">
+                <main className="position-rel main-page z-index-0 font-inherit" role="main">
+                    <div className='position-rel box-sizing'>
+                        <div className="position-rel box-sizing font-inherit text-black-var-1">
+                            {children}
+                        </div>
                     </div>
-                </div>
-            </main>
-            
-            <FooterComponent />
+                </main>
+                <FooterComponent />
+            </div>
         </>
     )
 }

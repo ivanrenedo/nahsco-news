@@ -9,7 +9,7 @@ const FooterComponent = () => {
     
     return (    
 
-        <footer className="display-block position-rel footer footer-container font-inherit neutral-var-1 p-t-64 font-size-6">
+        <footer className="display-block position-rel footer footer-container font-inherit neutral-var-1 p-t-64 font-size-6 width-100">
             <div className="display-flex header-p-l header-p-r p-b-64 wrap-footer-sec-1 flex-gap-footer">
                 <div className="display-flex wrap-footer-sec-1 flex-gap-footer">
                     <div className="display-block font-inherit position-rel box-sizing">
