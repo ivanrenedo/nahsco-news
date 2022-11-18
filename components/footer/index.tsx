@@ -60,14 +60,15 @@ const FooterComponent = () => {
                     </div>
                 </div>
                 <div className="display-flex flex-col flex-justify-center box-sizing font-inherit text-white-var-1">
-                    <div className="footer-slogan line-height-3 footer-text-center m-in-auto p-b-12">Subscribe to our newsletter to be updated by email.</div>
-                    <div className="form-content-footer footer-center display-flex">
-                        <input type="email" name="email" placeholder='jhondoe@gmail.com' className='input-form' />
-                        <button className='secundary-var-1 button-subscribe'>Subscribe</button>
+                    <div className="footer-slogan line-height-3 footer-text-center m-in-auto p-b-24">Subscribe to our newsletter to be updated by email.</div>
+                    <div className="form-content-footer footer-center display-flex flex-col flex-algn-center footer-slogan m-in-auto footer-text-center">
+                        <input type="text" name="fullname" placeholder='Jhon Doe' className='input-form width-100 m-b-12' />
+                        <input type="email" name="email" placeholder='jhondoe@gmail.com' className='input-form width-100 m-b-16' />
+                        <button className='secundary-var-1 button-subscribe width-100 font-size-5 font-weight-2'>Subscribe</button>
                     </div>
                 </div>
             </div> 
-            <div className="display-flex flex-algn-center flex-justify-center flex-wrap primary-bg-1 width-100 p-b-16 p-t-16 header-p-l">
+            <div className="display-flex flex-algn-center flex-justify-center flex-wrap primary-bg-1 width-100 p-b-16 p-t-16 header-p-l position-rel">
                 <div className="footer-logo cursor-initial display-flex wrap-footer-sec-1">
                     <div className="display-flex flex-algn-center footer-center">
                         <Link  href="/" as="/">

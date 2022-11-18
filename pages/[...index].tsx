@@ -21,7 +21,9 @@ function IndexPage() {
 
                 return(
                     <LayoutMain title='News'>
-                        News
+                        <div className="landing-page">
+                            
+                        </div>
                     </LayoutMain>  
                 )
 
