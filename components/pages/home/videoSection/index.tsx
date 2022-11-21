@@ -11,8 +11,8 @@ const VideoBackgroundSection = () => {
         <div className="content position-rel">
             <SocialMedia />
             <h1 className='title-video display-flex'>
-              <span className='first-title'>EG'S LEADING HIDROCARBONS</span>
-              <span className='second-title'><span className="first-title">SECTOR</span> NEWS HUB</span>
+              <span className='first-title'>EG'S LEADING HIDROCARBONS SECTOR</span>
+              <span className='second-title'>NEWS HUB</span>
             </h1>
         </div>
     </section>
