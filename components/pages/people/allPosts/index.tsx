@@ -48,9 +48,9 @@ const AllPeople = () => {
     }
 
     useEffect(() => {
-        (async() => {
+        /* (async() => {
             await fetchGetBayer()
-        })()
+        })() */
         setAllPosts(ListPeoplesArr)
     }, [router.query, allPosts])
     

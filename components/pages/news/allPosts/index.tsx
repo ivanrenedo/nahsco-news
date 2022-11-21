@@ -48,9 +48,9 @@ const AllPosts = () => {
     }
 
     useEffect(() => {
-        (async() => {
+        /* (async() => {
             await fetchGetBayer()
-        })()
+        })() */
         setAllPosts(allPost)
     }, [router.query, allPosts])
     
