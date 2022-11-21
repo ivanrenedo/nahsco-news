@@ -6,8 +6,9 @@ import LayoutMain from '@components/layout/LayoutAuth';
 import MostWatches from '@components/pages/news/most-watches';
 import AdsLeaderBoard from '@components/ads/leaderBoard';
 import BaseShape from '@components/layout/general/baseShape';
-import AllPosts from '@components/pages/people/allPosts';
 import MostPeopleWatches from '@components/pages/people/most-watches';
+import AllPeople from '@components/pages/people/allPosts';
+import AllPosts from '@components/pages/news/allPosts';
 
 
 function IndexPage() {
@@ -75,7 +76,7 @@ function IndexPage() {
                                             <div className="display-block padding-top-slider width-100">
                                                 <div className="display-block">
                                                     <div className="content-wrap--width max-width-100 width-100 display-block position-rel">
-                                                        <AllPosts />
+                                                        <AllPeople />
                                                     </div>
                                                 </div>
                                             </div>

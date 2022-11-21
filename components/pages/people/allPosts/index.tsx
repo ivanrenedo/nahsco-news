@@ -15,7 +15,7 @@ import { posts } from '@components/pages/home/landing/data';
 
 
 
-const AllPosts = () => {
+const AllPeople = () => {
     const router = useRouter()
 
     const PageSize = 6
@@ -151,4 +151,4 @@ const AllPosts = () => {
     )
 }
 
-export default AllPosts;
+export default AllPeople;
