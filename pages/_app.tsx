@@ -4,34 +4,10 @@ import {DefaultSeo} from 'next-seo';
 import '../public/css/index.css';
 import '../public/css/normalize.css';
 import seo from '../seo.config';
-import { create, persist } from '@utils/ApolloLink';
-import withApollo from '@utils/witApollo';
 import { AppProvider } from '@components/hook/context/mainContext';
-import { updateHandlerByName } from 'graphql';
 
 
-function MyApp({ Component, pageProps, authenticated}) {
-
-    
-    const execute = async () => {
-        const trackedQueries = JSON.parse(window.localStorage.getItem('trackedQueries')!) || []
-
-        const promises = trackedQueries.map(({ variables, query, context, operationName }: any) => create({}).mutate({
-            context,
-            variables,
-            mutation: query,
-            update: updateHandlerByName[operationName],
-            optimisticResponse: context.optimisticResponse
-        }))
-
-        try {
-            await Promise.all(promises)
-        } catch (error) {
-            // A good place to show notification
-            console.log(error)
-        }
-        window.localStorage.setItem('trackedQueries', JSON.stringify([]))
-    }
+function MyApp({ Component, pageProps}) {
 
     useEffect(() => {
         const isLocalhost = Boolean(
@@ -159,13 +135,7 @@ function MyApp({ Component, pageProps, authenticated}) {
             }
         }
 
-        unregister()
-        
-        const persists = async () => {
-            await (await persist())
-        }
-        persists();
-        execute();
+        unregister();
 
         return () => {
             function register(config?:any) {
@@ -212,7 +182,7 @@ function MyApp({ Component, pageProps, authenticated}) {
 
     return (
         
-        <AppProvider authenticated={authenticated}>
+        <AppProvider>
             <DefaultSeo {...seo} />
             <Component {...pageProps} />
         </AppProvider>
@@ -220,4 +190,4 @@ function MyApp({ Component, pageProps, authenticated}) {
 }
 
 
-export default withApollo(MyApp);
+export default MyApp

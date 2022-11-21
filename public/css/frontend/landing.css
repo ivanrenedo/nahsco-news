@@ -7,7 +7,7 @@
     max-width: 100%;
 }
 
-.landing-page :is(.section-news, .section-collab, .section-faq){
+.landing-page :is(.section-news, .section-collab, .section-list-post){
     padding-bottom: 32px;
     padding-top: 32px;
 }
@@ -151,14 +151,14 @@ hr{
     max-width: 350px;
 }
 .post-title:hover {
-    color: #1D749B;
+    color: #1D79A7;
 }
 .event-title:hover {
     color: #ffffff;
 }
 
 .post-item-container .post-item-image:hover ~ .post-title:hover {
-    color: #1D749B;
+    color: #1D79A7;
 }
 .post-item-image:hover .event-title:hover {
     color: #ffffff;

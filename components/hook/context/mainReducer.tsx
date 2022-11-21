@@ -22,9 +22,9 @@ type ToggleMenuType = {
 };
 type ConfigPrivacyType = {
     config?: boolean;
-    email?: boolean;
-    deleteAccount?: boolean;
-    privacy?: boolean;
+    editProp?: boolean;
+    addPaid?: boolean;
+    deletePaid?: boolean;
 };
 type LoadingTicketType = {
     isLoading: boolean;
@@ -41,9 +41,9 @@ type ToggleMenuPayload = {
 type ConfigPrivacyPayload = {
     [Types.config]: {
         config?: boolean;
-        email?: boolean;
-        deleteAccount?: boolean;
-        privacy?: boolean;
+        editProp?: boolean;
+        addPaid?: boolean;
+        deletePaid?: boolean;
     };
 };
 type LoadingTicketPayload = {
@@ -96,9 +96,9 @@ export const configPrivacyReducer = (
             return{
                 ...state,
                 config: action.payload.config,
-                email: action.payload.email,
-                deleteAccount: action.payload.deleteAccount,
-                privacy: action.payload.privacy 
+                editProp: action.payload.editProp,
+                deletePaid: action.payload.deletePaid,
+                addPaid: action.payload.addPaid 
             };
         default:
             return state;

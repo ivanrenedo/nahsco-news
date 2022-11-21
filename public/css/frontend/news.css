@@ -1,0 +1,22 @@
+.section-list-post {
+    flex-direction: column;
+}
+
+.list-post-wrap {
+    grid-template-columns: repeat(1,minmax(0,1fr));
+    gap: 15px;
+}
+
+.list-post-container .post-title {
+    font-size: 15px;
+    max-width: 400px;
+}
+
+.post-title.small-post {
+    font-size: clamp(.7rem, 5vw , .85rem);
+}
+
+.post-item-image.people-item-image {
+    width: 160px;
+    height: 100px;
+}

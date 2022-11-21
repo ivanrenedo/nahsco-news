@@ -24,60 +24,60 @@
 }
 
 .primary-var-1 {
-    background-color: #1D749B;
+    background-color: #1D79A7;
     will-change: background-color;
 }
 .primary-var-2 {
-    background-color: #3482a5;
+    background-color: #3486b0;
     will-change: background-color;
 }
 .primary-var-3 {
-    background-color: #4a90af;
+    background-color: #4a94b9;
     will-change: background-color;
 }
 .primary-var-4 {
-    background-color: #619eb9;
+    background-color: #61a1c1;
     will-change: background-color;
 }
 .primary-var-5 {
-    background-color: #8ebacd;
+    background-color: #8ebcd3;
 }
 .primary-var-6 {
-    background-color: #bbd5e1;
+    background-color: #bbd7e5;
 }
 .primary-var-7 {
-    background-color: #d2e3eb;
+    background-color: #d2e4ed;
 }
 
 
 
 .text-primary-var-1 {
-    color: #1D749B;
+    color: #1D79A7;
 }
 .text-primary-var-2 {
-    color: #4a90af;
+    color: #4a94b9;
 }
 .text-primary-var-3 {
-    color: #bbd5e1;
+    color: #bbd7e5;
 }
 .text-primary-var-4 {
-    color: #e8f1f5;
+    color: #e8f2f6;
 }
 
 button.primary-var-1:active, .fast-nav-size:active .primary-var-3 {
-    background-color: #3482a5;
+    background-color: #3486b0;
     transition: background-color linear;
 }
 button.primary-var-2:active {
-    background-color: #4a90af;
+    background-color: #4a94b9;
     transition: background-color linear;
 }
 button.primary-var-3:active {
-    background-color: #619eb9;
+    background-color: #61a1c1;
     transition: background-color linear;
 }
 button.secundary-var-1:active {
-    background-color: #46B15B;
+    background-color: #43a763;
     transition: background-color linear;
 }
 button.background-var1:active {
@@ -86,33 +86,33 @@ button.background-var1:active {
 }
 
 .secundary-var-1 {
-    background-color: #00933A;
+    background-color: #14913c;
     will-change: background-color;
 }
 .secundary-var-2 {
-    background-color: #33a961;
+    background-color: #2c9c50;
     will-change: background-color;
 }
 .secundary-var-3 {
-    background-color: #66be89;
+    background-color: #5bb277;
     will-change: background-color;
 }
 
 .secundary-text-1 {
-    color: #00933A;
+    color: #14913c;
 }
 .secundary-text-2 {
-    color: #33a961;
+    color: #2c9c50;
 }
 .secundary-text-3 {
-    color: #66be89;
+    color: #72bd8a;
 }
 
 .background-error {
-    background-color: #D4170F;
+    background-color: #c11d18;
 }
 .text-error {
-    color: #dd453f;
+    color: #c11d18;
 }
 
 .neutral-var-1 {

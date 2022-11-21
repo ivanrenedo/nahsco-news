@@ -88,3 +88,20 @@ div.hr {
     width: 24px;
     height: 24px;
 }
+
+
+/* News */
+.section-mostwatch-container {
+    grid-template-columns: repeat(1,minmax(0,1fr));
+    gap: 10px;
+}
+.section-mostwatch-image {
+    height: 200px;
+}
+.section-mostwatch-container li.section-mostwatch-item .service-content{
+    display: none;
+}
+
+.section-mostwatch-container li:is(.section-mostwatch-item-3, .section-mostwatch-item-4, .section-mostwatch-item-5){
+    display: none;
+}

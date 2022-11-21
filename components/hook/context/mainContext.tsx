@@ -17,9 +17,9 @@ type ToggleMenuType = {
 };
 type ConfigPrivacyType = {
     config?: boolean;
-    email?: boolean;
-    deleteAccount?: boolean;
-    privacy?: boolean;
+    editProp?: boolean;
+    addPaid?: boolean;
+    deletePaid?: boolean;
 };
 type LoadingTicketType = {
     isLoading: boolean;
@@ -37,7 +37,6 @@ type InitialStateType = {
 
 type AppProvider = {
     children: ReactNode;
-    authenticated: boolean;
 };
 
 const initialState = {
@@ -46,9 +45,9 @@ const initialState = {
     },
     configPrivacy: {
         config: false,
-        email: false,
-        deleteAccount: false,
-        privacy: false
+        editProp: false,
+        addPaid: false,
+        deletePaid: false
     },
     loadingTicket: {
         isLoading: false,
@@ -68,15 +67,11 @@ const AppContext = createContext<{
         >;
     openSidebar: Function;
     closeSidebar: Function;
-    isAuthenticated: boolean;
-    setAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
 }>({
     state: initialState,
     dispatch: () => null,
     openSidebar: () => {},
-    closeSidebar: () => {},
-    isAuthenticated: false,
-    setAuthenticated: () => {}
+    closeSidebar: () => {}
 });
 
 const mainReducer = (
@@ -92,10 +87,9 @@ const mainReducer = (
     loadingTicket: loadingTicketReducer(loadingTicket, action)
 });
 
-const AppProvider: React.FC<AppProvider> = ({ children, authenticated }) => {
+const AppProvider: React.FC<AppProvider> = ({ children }) => {
     
-    const [state, dispatch] = useReducer(mainReducer, initialState);
-    const [isAuthenticated, setAuthenticated] = React.useState<boolean>( authenticated );       
+    const [state, dispatch] = useReducer(mainReducer, initialState);      
 
     const openSidebar = () => {
         dispatch({
@@ -122,9 +116,7 @@ const AppProvider: React.FC<AppProvider> = ({ children, authenticated }) => {
                 state, 
                 dispatch, 
                 openSidebar,
-                closeSidebar, 
-                isAuthenticated, 
-                setAuthenticated
+                closeSidebar
             }}
         >
         {children}

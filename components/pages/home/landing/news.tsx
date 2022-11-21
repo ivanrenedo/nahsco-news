@@ -34,7 +34,7 @@ const NewsSection = () => {
                                             <div className="display-flex flex-algn-center flex-grow post-news-contain flex-algn-stretch width-100 post-item-container">
                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
                                                     <Link  href="/" as="/">
-                                                        <a className="post-item-image border-r-10 overflow-h-x overflow-h-y position-rel">
+                                                        <a className="post-item-image overflow-h-x overflow-h-y position-rel">
                                                             <img src={post.photo} alt={post.title} srcSet={post.photo} className="image" />
                                                         </a>
                                                     </Link>   
@@ -86,7 +86,7 @@ const NewsSection = () => {
                                                     <div className="display-flex flex-algn-center flex-grow displey-flex flex-algn-stretch width-100">
                                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                             <Link  href="/" as="/">
-                                                                <a className="border-r-10 overflow-h-x overflow-h-y position-rel lastest-image">
+                                                                <a className="overflow-h-x overflow-h-y position-rel lastest-image">
                                                                     <img src={post.photo} alt={post.title} srcSet={post.photo} className="image" />
                                                                 </a>
                                                             </Link> 
@@ -95,7 +95,7 @@ const NewsSection = () => {
                                                             <div className="post-body-container position-rel display-block box-sizing">
                                                                 <div className="position-rel display-block box-sizing line-height-2">
                                                                     <Link  href="/" as="/">
-                                                                        <a className="font-weight-3 font-size-5 post-title text-black-var-1">
+                                                                        <a className="font-weight-3 font-size-5 post-title small-post text-black-var-1">
                                                                             <div className="m-b-4">{post.title}</div>
                                                                         </a>
                                                                     </Link>

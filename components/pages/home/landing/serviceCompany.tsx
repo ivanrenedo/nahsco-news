@@ -29,7 +29,7 @@ const ServiceCompanies = () => {
                                             <div className="display-flex flex-algn-center flex-grow flex-algn-stretch width-100 post-item-container">
                                                 <Link  href="/" as="/">
                                                     <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container width-100">
-                                                        <div className="border-r-10 overflow-h-x overflow-h-y position-rel post-image service-image">
+                                                        <div className="overflow-h-x overflow-h-y position-rel post-image service-image">
                                                             <img src={post.photo} alt={post.title} srcSet={post.photo} className="image" />
                                                         </div>
                                                         <div className="service-title font-weight-2 position-abs bottom-0 left-0 right-0 text-white-var-1 p-l-8 p-b-8 p-r-8 z-index-10">{post.title}</div>
