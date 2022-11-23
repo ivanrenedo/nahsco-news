@@ -134,7 +134,13 @@ const HeaderMainComponent = ({openSidebar}) => {
                                                 </a>
                                             </Link>
                                         </li>
-                                        
+                                        <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20 contact-us-container'>
+                                            <Link href="/[...index]" as="/contact-us">
+                                                <a aria-label='Contact us' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
+                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>Contact us</span>
+                                                </a>
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
