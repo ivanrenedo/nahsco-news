@@ -52,7 +52,7 @@ const AllPosts = () => {
             await fetchGetBayer()
         })() */
         setAllPosts(allPost)
-    }, [router.query, allPosts])
+    }, [router.query, allPost])
     
 
 

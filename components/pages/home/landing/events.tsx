@@ -34,7 +34,7 @@ const EventSection = () => {
                                                 <a className="overflow-h-x overflow-h-y position-rel height-100">
                                                     <img src={event.photo} alt={event.title} srcSet={event.photo} className="image" />
                                                 </a>
-                                            </Link>
+                                            </Link> 
                                         </div>
                                         <div className="display-flex flex-col flex-grow p-t-12 p-b-16 p-l-8 p-r-8">
                                             <div className="post-body-container position-rel display-block box-sizing">

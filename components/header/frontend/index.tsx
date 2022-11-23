@@ -6,10 +6,10 @@ import Menu from '@components/icons/menu';
 
 
 
-const HeaderMainComponent = () => {
+const HeaderMainComponent = ({openSidebar}) => {
     let [windowWidth, setWindowWidth] = React.useState<number | undefined>();
 
-    const { query } = useRouter();
+    const { query, push } = useRouter();
 
     React.useEffect(() => {
         /* Tab indicator */
@@ -53,19 +53,19 @@ const HeaderMainComponent = () => {
                     <div className='logo-size logo-size header-p-l'>
                         <div className="font-inherit box-sizing position-rel display-flex flex-col z-index-0 logo-size background-var1">
                             <div className="font-inherit box-sizing position-rel display-flex flex-algn-center z-index-0">
-                                <div className="z-index-10 logo-size hamburguer-wrap p-t-8 p-b-8">
+                                {/* <div className="z-index-10 logo-size hamburguer-wrap p-t-8 p-b-8">
                                     <div className="font-inherit box-sizing position-rel display-flex flex-col z-index-0 background-var1 ">
                                         <div className="font-inherit box-sizing position-rel display-flex flex-col flex-justify-center z-index-0">
                                             <div className='font-inherit box-sizing position-rel display-flex flex-col z-index-0'>
                                                 <div className='display-flex flex-algn-center flex-grow flex-justify-center'>
-                                                    <button className='border-r-50per menu-button display-flex flex-justify-center flex-algn-center'>
+                                                    <button className='border-r-50per menu-button display-flex flex-justify-center flex-algn-center' onClick={openSidebar}>
                                                         <Menu />
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className='font-inherit box-sizing position-rel display-flex flex-col z-index-0 logo-size'>
                                     <div className='display-flex flex-algn-center flex-grow flex-justify-center'>
                                         <Link href="/" as="/">
@@ -84,56 +84,57 @@ const HeaderMainComponent = () => {
                             <div className="font-inherit box-sizing position-rel display-flex flex-col flex-justify-center z-index-0">
                                 <div className='font-inherit box-sizing position-rel display-flex flex-col z-index-0 logo-size'>
                                     <div className='display-flex flex-algn-center flex-grow flex-justify-center'>
-                                    <button className='p-l-24 p-r-24 p-b-12 p-t-12 border-r-20 border-primary text-primary-var-1 contact-us'>
-                                            <span className='font-weight-3'>Contact us</span>
-                                    </button>
+                                        <button className='p-l-24 p-r-24 p-b-12 p-t-12 border-r-20 border-primary text-primary-var-1 contact-us' onClick={() => push('contact-us')}>
+                                                <span className='font-weight-3'>Contact us</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <nav className="navegation-wrap width-100">
-                    <div className="font-inherit box-sizing position-rel display-flex flex-col z-index-0 logo-size background-var1">
+                <nav className="display-block width-100">
+                    <div className="font-inherit box-sizing position-rel display-flex flex-col z-index-0 logo-size background-var1 width-100">
                         <div className="font-inherit box-sizing position-rel display-flex flex-col flex-justify-center z-index-0">
                             <div className='font-inherit box-sizing position-rel display-flex flex-col z-index-0 logo-size'>
-                                <div className='display-flex flex-algn-center flex-grow flex-justify-center p-inl-header'>
-                                    <ul className='position-rel box-sizing font-inherit display-flex'>
+                                <div className='display-flex flex-algn-center flex-grow flex-justify-center'>
+                                    <ul className='display-flex follow-request navegation-container slider-promotion position-rel overflow-auto-x overflow-h-y width-100'>
                                         <li className='m-l-8 tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
-                                            <Link  href="/[...index]" as="/news">
+                                            <Link href="/[...index]" as="/news">
                                                 <a aria-label='news' className="p-b-8 p-t-8 p-l-8 p-r-8">
                                                     <span className='font-size-4 font-weight-3 text-black-var-1'>News</span>
                                                 </a>
                                             </Link>
                                         </li>
-                                        <li className='m-l-8 tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
-                                            <Link  href="/[...index]" as="/people">
+                                        <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
+                                            <Link href="/[...index]" as="/people">
                                                 <a aria-label='people' className="p-b-8 p-t-8 p-l-8 p-r-8 font-size-4 font-weight-3">
                                                     <span className='font-size-4 font-weight-3 text-black-var-1'>People</span>
                                                 </a>
                                             </Link>
                                         </li>
-                                        <li className='m-l-8 tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
-                                            <Link  href="/[...index]" as="/service-companies">
+                                        <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
+                                            <Link href="/[...index]" as="/service-companies">
                                                 <a aria-label='Service companies' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
                                                     <span className='font-size-4 font-weight-3 text-black-var-1'>Service companies</span>
                                                 </a>
                                             </Link>
                                         </li>
-                                        <li className='m-l-8 tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
-                                            <Link  href="/[...index]" as="/service-companies">
-                                                <a aria-label='Service companies' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
+                                        <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
+                                            <Link href="/[...index]" as="/events">
+                                                <a aria-label='Events' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
                                                     <span className='font-size-4 font-weight-3 text-black-var-1'>Events</span>
                                                 </a>
                                             </Link>
                                         </li>
-                                        <li className='m-l-8 tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
-                                            <Link  href="/[...index]" as="/Jobs">
+                                        <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
+                                            <Link href="/[...index]" as="/jobs">
                                                 <a aria-label='Jobs' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
                                                     <span className='font-size-4 font-weight-3 text-black-var-1'>Jobs</span>
                                                 </a>
                                             </Link>
                                         </li>
+                                        
                                     </ul>
                                 </div>
                             </div>

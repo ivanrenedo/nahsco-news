@@ -54,12 +54,12 @@ class MyDocument extends Document {
         `;
 
         return (
-            <Html lang='es' id="networking">
+            <Html lang='es' >
                 <Head >
                     <link rel="preconnect" href="https://fonts.gstatic.com"/>
                     <link rel="manifest" href="/manifest.json"/>
                 </Head>
-                <body className="body-class">
+                <body className="body-class" id="nahsco">
                     <script
                         dangerouslySetInnerHTML={{
                             __html: blockingSetInitialColorMode

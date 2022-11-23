@@ -10,11 +10,19 @@
 .box-shadow-2 {
     box-shadow: 0 6px 24px rgba(224, 224, 224, 0.16), 0 0 0 1px rgba(23, 23, 23, .10);
 }  
-
-
-.background {
-    background-color: #DDE4FF;
+.rad-shadow {
+    border: 1px solid hsl(200 10% 50% / 15%);
+    box-shadow: 0 1rem .5rem -.5rem;
+    box-shadow:
+      0 2.8px 2.2px hsl(200 10% 20% / calc(.02 + .03)),
+      0 6.7px 5.3px hsl(200 10% 20% / calc(.02 + .01)),
+      0 12.5px 10px hsl(200 10% 20% / calc(.02 + .02)),
+      0 22.3px 17.9px hsl(200 10% 20% / calc(.02 + .02)),
+      0 41.8px 33.4px hsl(200 10% 20% / calc(.02 + .03)),
+      0 100px 80px hsl(200 10% 20% / .02)
+    ;
 }
+
 .background-var1 {
     background-color: #ffffff;
 }

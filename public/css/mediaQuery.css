@@ -61,6 +61,10 @@
         overflow-anchor: none;
     }
 
+    .logo-contain {
+        display: inline;
+    }
+
     /* news */
     .grid-news-item {
         grid-template-columns: repeat(2,minmax(0,1fr));
@@ -155,6 +159,10 @@
     .section-list-post {
         flex-direction: row;
     }
+
+    .navegation-container {
+        justify-content: center;
+    }
 }
 
 /* Medium devices (landscape tablets, 901px and up) */
@@ -190,10 +198,6 @@
     }
     .font-size-5{
         font-size: 0.8125rem;
-    }
-
-    .logo-contain {
-        display: inline;
     }
 
     .header-p-l {

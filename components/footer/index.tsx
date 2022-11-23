@@ -21,37 +21,37 @@ const FooterComponent = () => {
                     </div>
                     <div className="display-block position-rel font-inherit box-sizing">
                         <ul className='position-rel box-sizing font-inherit display-flex flex-col footer-center-nav'>
-                            <li className='tab__item display-flex footer-center'>
+                            <li className='display-flex footer-center'>
                                 <Link  href="/[...index]" as="/news">
                                     <a aria-label='news' className="p-b-8 p-t-8 p-l-8 p-r-8">
                                         <span className='font-size-5 font-weight-3 text-white-var-1'>News</span>
                                     </a>
                                 </Link>
                             </li>
-                            <li className='tab__item display-flex footer-center'>
+                            <li className='display-flex footer-center'>
                                 <Link  href="/[...index]" as="/people">
                                     <a aria-label='people' className="p-b-8 p-t-8 p-l-8 p-r-8">
                                         <span className='font-size-5 font-weight-3 text-white-var-1'>People</span>
                                     </a>
                                 </Link>
                             </li>
-                            <li className='tab__item display-flex footer-center'>
+                            <li className='display-flex footer-center'>
                                 <Link  href="/[...index]" as="/service-companies">
                                     <a aria-label='Service companies' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
                                         <span className='font-size-5 font-weight-3 text-white-var-1'>Service companies</span>
                                     </a>
                                 </Link>
                             </li>
-                            <li className='tab__item display-flex footer-center'>
-                                <Link  href="/[...index]" as="/service-companies">
-                                    <a aria-label='Service companies' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
+                            <li className='display-flex footer-center'>
+                                <Link  href="/[...index]" as="/events">
+                                    <a aria-label='events' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
                                         <span className='font-size-5 font-weight-3 text-white-var-1'>Events</span>
                                     </a>
                                 </Link>
                             </li>
-                            <li className='tab__item display-flex footer-center'>
-                                <Link  href="/[...index]" as="/Jobs">
-                                    <a aria-label='Jobs' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
+                            <li className='display-flex footer-center'>
+                                <Link  href="/[...index]" as="/jobs">
+                                    <a aria-label='jobs' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
                                         <span className='font-size-5 font-weight-3 text-white-var-1'>Jobs</span>
                                     </a>
                                 </Link>

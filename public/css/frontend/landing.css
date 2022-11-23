@@ -190,8 +190,8 @@ hr{
 }
 
 .slider-promotion{
-    overflow-x: scroll;
-    overflow-y: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
     overscroll-behavior-x: contain;
     scrollbar-width: none;
     -ms-overflow-style: none;

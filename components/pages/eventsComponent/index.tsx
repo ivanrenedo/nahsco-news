@@ -6,7 +6,7 @@ import {useRouter} from 'next/router';
 import { BASE_URL } from '@components/api';
 import Pagination from '@components/pagination';
 import PostListComponent from './postList';
-import { ListPeoplesArr } from '@components/pages/home/people/data';
+import { EventsDataArr } from '@components/pages/home/people/data';
 import AsideComponent from '@components/layout/general/asideComponent';
 import PubSpace from '@components/espacioPub';
 import { posts } from '@components/pages/home/landing/data';
@@ -15,10 +15,10 @@ import { posts } from '@components/pages/home/landing/data';
 
 
 
-const AllPeople = () => {
+const AllEventComponent = () => {
     const router = useRouter()
 
-    const PageSize = 6
+    const PageSize = 9
 
     const [currentPostList, setCurrentPostList] = useState(1);
 
@@ -51,8 +51,8 @@ const AllPeople = () => {
         /* (async() => {
             await fetchGetBayer()
         })() */
-        setAllPosts(ListPeoplesArr)
-    }, [router.query, ListPeoplesArr])
+        setAllPosts(EventsDataArr)
+    }, [router.query, allPosts])
     
 
 
@@ -68,7 +68,7 @@ const AllPeople = () => {
         <section className="section-list-post  z-index-0 font-inherit min-height-inherit box-sizing display-flex">
             <div className="font-inherit display-block">
                 <div className="display-block position-rel font-inherit">
-                    <h2 className="font-size-1 font-weight-2 let-Spac-sub landing-page-center m-r-8">People</h2>
+                    <h2 className="font-size-1 font-weight-2 let-Spac-sub landing-page-center m-r-8">Events</h2>
                     <div className="hr"></div>
                 </div>
                 <div className="position-rel display-block m-t-16 m-b-32">
@@ -80,7 +80,7 @@ const AllPeople = () => {
                     currentPage={currentPostList}
                     totalCount={allPosts?.length}
                     pageSize={PageSize}
-                    onPageChange={page => setCurrentPostList(page)}
+                    onPageChange={page => setCurrentPostList(page)} 
                 />
             </div>
             <aside className="top-0 content-posts-aside z-index-0 font-inherit min-height-inherit box-sizing p-t-16 p-l-16">
@@ -151,4 +151,4 @@ const AllPeople = () => {
     )
 }
 
-export default AllPeople;
+export default AllEventComponent;
