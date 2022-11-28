@@ -185,7 +185,7 @@ const allPost = [
 ]
 
 
-const mostPeoplesArr = [
+const mostPeoplesArr = [ 
     {
         id: 0,
         name: "María Concepción Esuba Renedo",

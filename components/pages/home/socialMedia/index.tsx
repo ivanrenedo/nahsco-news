@@ -1,7 +1,7 @@
 import LinkedIndIcon from '@components/icons/linkedin';
 import TwitterIcon from '@components/icons/twitter';
 import WorldIcon from '@components/icons/world'
-import React from 'react'
+import React from 'react';
 
 const SocialMedia = () => {
 

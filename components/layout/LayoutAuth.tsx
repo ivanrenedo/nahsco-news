@@ -73,7 +73,7 @@ const LayoutMain: React.FC<LayoutMain> = ({ children, title }) => {
                                                 </div>
                                                 <button className="wrap-close menu-button border-r-50per display-flex flex-justify-center flex-algn-center" onClick={onCloseSidebar}>
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M6.758 17.2431L12.001 12.0001M17.244 6.75708L12 12.0001M12 12.0001L6.758 6.75708M12.001 12.0001L17.244 17.2431" stroke="#87878C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M6.758 17.2431L12.001 12.0001M17.244 6.75708L12 12.0001M12 12.0001L6.758 6.75708M12.001 12.0001L17.244 17.2431" stroke="#87878C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                                     </svg>
                                                 </button>
                                             </div>
@@ -83,35 +83,42 @@ const LayoutMain: React.FC<LayoutMain> = ({ children, title }) => {
                                         <div className="display-block position-rel font-inherit box-sizing m-t-16">
                                             <ul className='position-rel box-sizing font-inherit display-flex flex-col aside-nav'>
                                                 <li className='display-flex tab__item' onClick={onCloseSidebar}>
-                                                    <Link href="/[...index]" as="/news">
+                                                    <Link href="/news" as="/news">
                                                         <a aria-label='news' className="p-b-8 p-t-8 p-l-8 p-r-8">
                                                             <span className='font-size-4 font-weight-3 text-black-var-2'>News</span>
                                                         </a>
                                                     </Link>
                                                 </li>
                                                 <li className='display-flex tab__item' onClick={onCloseSidebar}>
-                                                    <Link  href="/[...index]" as="/people">
+                                                    <Link  href="/people" as="/people">
                                                         <a aria-label='people' className="p-b-8 p-t-8 p-l-8 p-r-8">
                                                             <span className='font-size-4 font-weight-3 text-black-var-2'>People</span>
                                                         </a>
                                                     </Link>
                                                 </li>
                                                 <li className='display-flex tab__item' onClick={onCloseSidebar}>
-                                                    <Link  href="/[...index]" as="/service-companies">
+                                                    <Link  href="/service-companies" as="/service-companies">
                                                         <a aria-label='Service companies' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
                                                             <span className='font-size-4 font-weight-3 text-black-var-2'>Service companies</span>
                                                         </a>
                                                     </Link>
                                                 </li>
                                                 <li className='display-flex tab__item' onClick={onCloseSidebar}>
-                                                    <Link  href="/[...index]" as="/events">
+                                                    <Link  href="/iocs" as="/iocs">
+                                                        <a aria-label='Service companies' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
+                                                            <span className='font-size-4 font-weight-3 text-black-var-2'>IOCs</span>
+                                                        </a>
+                                                    </Link>
+                                                </li>
+                                                <li className='display-flex tab__item' onClick={onCloseSidebar}>
+                                                    <Link  href="/events" as="/events">
                                                         <a aria-label='events' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
                                                             <span className='font-size-4 font-weight-3 text-black-var-2'>Events</span>
                                                         </a>
                                                     </Link>
                                                 </li>
                                                 <li className='display-flex tab__item' onClick={onCloseSidebar}>
-                                                    <Link  href="/[...index]" as="/jobs">
+                                                    <Link  href="/jobs" as="/jobs">
                                                         <a aria-label='jobs' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
                                                             <span className='font-size-4 font-weight-3 text-black-var-2'>Jobs</span>
                                                         </a>

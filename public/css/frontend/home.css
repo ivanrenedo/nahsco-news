@@ -163,3 +163,97 @@ div.hr {
     z-index: -1;
     visibility: hidden;
 }
+
+.nav-list-section {
+    border-bottom: 1px solid #eeeeee;
+}
+
+/* Search job */
+.search-bar-position {
+    right: 0;
+}
+.search-bar-wrapper{
+    width: 75px;
+}
+.search-bar-wrapper-focus {
+    width:100%;
+    max-width: 100%; 
+    z-index: 99;
+}
+.space-search {
+    width: 10px;
+}
+.search-bar-position .search-container-padd{
+    padding-inline: 16px;
+}
+.search-result {
+    top: 45px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    height: 100vh;
+}
+
+.search-container::before, .search-result::before{
+    content: "";
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    opacity: 0;
+    box-shadow: 0 2.8px 2.2px hsl(200 10% 20% / calc(.02 + .03)), 0 6.7px 5.3px hsl(200 10% 20% / calc(.02 + .01)), 0 12.5px 10px hsl(200 10% 20% / calc(.02 + .02)), 0 22.3px 17.9px hsl(200 10% 20% / calc(.02 + .02)), 0 41.8px 33.4px hsl(200 10% 20% / calc(.02 + .03)), 0 100px 80px hsl(200 10% 20% / .02);
+    transition: opacity 0.1ms linear;
+}
+.search-container.show::before, .search-result::before{
+    content: "";
+    position: absolute;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: opacity 0.1ms linear;
+}
+
+.deco-button {
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: 167ms;
+    align-items: center;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    display: inline-flex;
+    justify-content: center;
+    min-width: 6.4rem;
+    max-width: 480px;
+    overflow: hidden;
+    text-align: center;
+    transition-property: background-color,box-shadow,color;
+    vertical-align: middle;
+}
+.inputSearch-container{
+    min-width: 40px;
+    background-color: #efefef;
+    border-radius: 50px;
+    min-height: 40px;
+    outline: none;
+}
+.input-search{
+    height: 40px;
+    background: transparent;
+    border-radius: 50px;
+    border: 0;
+    outline: none;
+    font-weight: normal;
+}
+.input-search--transition {
+    transition: margin-right, opacity, transform 100ms linear;
+}
+.input-search--transitionWidth {
+    transition: width 100ms linear;
+}
+
+.text-search:hover {
+    color: #1D79A7;
+}
