@@ -39,7 +39,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                         >
                             <div className="display-flex flex-algn-center flex-grow list-post-container flex-algn-stretch width-100">
                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
-                                    <Link  href="[...index]/" as="/news">
+                                    <Link href="/news/[slug]" as={`/news/${post.slug}`}>
                                         <a className="post-item-image overflow-h-x overflow-h-y position-rel">
                                             <img src={post.photo} alt={post.title} srcSet={post.photo} className="image" />
                                         </a>
@@ -48,7 +48,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                 <div className="display-flex flex-col flex-grow post-body-wrap">
                                     <div className="post-body-container position-rel display-block box-sizing">
                                         <div className="position-rel display-block box-sizing line-height-2">
-                                            <Link  href="[...index]/" as="/">
+                                            <Link href="/news/[slug]" as={`/news/${post.slug}`}>
                                                 <a className="font-weight-3 text-black-var-1">
                                                     <div className='post-title font-inherit position-rel'>{post.title}</div>
                                                 </a>

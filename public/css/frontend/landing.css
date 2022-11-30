@@ -147,7 +147,6 @@ hr{
     background-color: rgba(0, 0, 0, .3);
 }
 .post-title {
-    font-size: clamp(.7rem, 5vw , .85rem); 
     max-width: 350px;
 }
 .post-title:hover {
@@ -182,7 +181,7 @@ hr{
     height: 24px;
 }
 .latest-wrap {
-    gap: 10px;
+    gap: 20px;
 }
 .lastest-image {
     width: 100px;

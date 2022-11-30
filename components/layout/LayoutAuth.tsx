@@ -66,7 +66,7 @@ const LayoutMain: React.FC<LayoutMain> = ({ children, title }) => {
                                                 <div className='logo-size logo-size display-flex flex-algn-center' onClick={onCloseSidebar}>
                                                     <Link href="/" as="/">
                                                         <a className="display-flex flex-algn-center">
-                                                            <img src="img/logo.png" alt="NAHSCO" srcSet='img/logo.png' className='logo-size-img logo-contain float-left' />
+                                                            <img src="/img/logo.png" alt="NAHSCO" srcSet='/img/logo.png' className='logo-size-img logo-contain float-left' />
                                                             <h1 className="brandname font-size-3 font-weight-1 p-l-4 text-error display-inline float-right">NAHSCO NEWS</h1>
                                                         </a>
                                                     </Link>

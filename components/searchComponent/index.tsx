@@ -46,7 +46,7 @@ const SearchComponent: React.FC<Props> = ({searchArr, placeholder = 'Buscar en n
   
     return(
       <div 
-      className={`font-inherit width-0 box-sizing logo-size display-flex flex-algn-center m-t-4 position-fix top-0 search-bar-position ${hasFocus ? " search-bar-wrapper-focus background-v1" : " search-bar-wrapper"}`}
+      className={`font-inherit width-0 box-sizing display-flex flex-algn-center m-r-8 position-abs top-0 height-100 search-bar-position ${hasFocus ? " search-bar-wrapper-focus background-v1" : " search-bar-wrapper"}`}
       onFocus={handleFocus}
       onBlur={handleBlur}
       

@@ -28,7 +28,7 @@ const JobSection = () => {
                     {jobsArr.map((job, i) => (
                         <li key={i} className="position-rel cursor-initial flex-algn-stretch" > 
                           <div className="display-block job-item-container">
-                            <Link  href="/" as="/">
+                            <Link href="/job/[slug]" as={`/job/${job.slug}`}>
                               <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-image event-image-container">
                                 <div className="position-rel height-100 z-index-0">
                                     <img src={job.photo} alt={job.title} srcSet={job.photo} className="image" />

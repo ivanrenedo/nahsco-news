@@ -4,9 +4,9 @@
     height: calc(100vh - 200px)
 }
 
-.content-wrap-post {
-    display: flex;
-    flex-direction: column;
+.top-body-post {
+    top: -60px;
+    padding-inline: 16px;
 }
   
 video {

@@ -30,7 +30,7 @@ const EventSection = () => {
                                 <li className={`cursor-initial flex-algn-stretch event-item post-item-${i}`} key={event.id}>
                                     <div className="display-flex flex-algn-center flex-grow flex-col flex-algn-stretch width-100 post-item-container">
                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel event-image-container">
-                                            <Link  href="/" as="/">
+                                            <Link  href="/event/[slug]" as={`/event/${event.slug}`}>
                                                 <a className="overflow-h-x overflow-h-y position-rel height-100">
                                                     <img src={event.photo} alt={event.title} srcSet={event.photo} className="image" />
                                                 </a>
@@ -39,7 +39,7 @@ const EventSection = () => {
                                         <div className="display-flex flex-col flex-grow p-t-12 p-b-16 p-l-8 p-r-8">
                                             <div className="post-body-container position-rel display-block box-sizing">
                                                 <div className="position-rel display-block box-sizing line-height-2">
-                                                    <Link  href="/" as="/">
+                                                    <Link  href="/event/[slug]" as={`/event/${event.slug}`}>
                                                         <a className="font-size-4 font-weight-2 text-white-var-2 event-title">
                                                             <div className="m-b-8">{event.title}</div>
                                                         </a>

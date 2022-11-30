@@ -30,6 +30,13 @@ function LandingPage() {
                                 <div className="display-block padding-top-slider width-100">
                                     <div className="display-block">
                                         <div className="content-wrap--width max-width-100 width-100 display-block position-rel">
+                                            <AdsLeaderBoard>
+                                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                                                    <div className="position-rel">
+                                                        <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />
+                                                    </div>
+                                                </div> 
+                                            </AdsLeaderBoard>
                                             <NewsSection />
                                             <PeopleSection />
                                             <AdsLeaderBoard>

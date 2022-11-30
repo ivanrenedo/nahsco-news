@@ -9,7 +9,7 @@ import PostListComponent from './postList';
 import { allPost } from '@components/pages/home/people/data';
 import AsideComponent from '@components/layout/general/asideComponent';
 import PubSpace from '@components/espacioPub';
-import { posts } from '@components/pages/home/landing/data';
+import { jobsArr, posts } from '@components/pages/home/landing/data';
 
 
 
@@ -83,7 +83,7 @@ const AllPosts = () => {
                     onPageChange={page => setCurrentPostList(page)}
                 />
             </div>
-            <aside className="top-0 content-posts-aside z-index-0 font-inherit min-height-inherit box-sizing p-t-16 p-l-16">
+            <aside className="top-0 content-posts-aside z-index-0 font-inherit min-height-inherit box-sizing p-t-16 aside-wrap-padd">
                 <AsideComponent pagelet="rightRail">
                     <div className="font-inherit scroll-aside scrollhost pespective-origin-rt transf-style overscroll-bihavior-y display-block" >
                         <div className="position-rel box-sizing">
@@ -95,39 +95,33 @@ const AllPosts = () => {
                                 </div>
                             </PubSpace>
                         </div>
-                        <div className="position-rel m-t-16">
+                        <div className="position-rel m-t-32">
                             <div className="display-flex flex-algn-center">
                                 <div className="display-flex m-r-8 flex-grow">
-                                    <h3 className="font-weight-2 let-Spac-sub landing-page-center width-100">Most read</h3>
+                                    <h3 className="font-weight-2 let-Spac-sub landing-page-center width-100">Latest jobs</h3>
                                 </div>
                             </div>
-                            <ul className="display-flex flex-col p-t-16 latest-wrap">
-                                {posts.map((post, i) => (
-                                    <li className=" cursor-initial" key={i}>
-                                        <div className="display-flex flex-algn-center flex-grow displey-flex flex-algn-stretch width-100">
+                            <ul className="display-flex flex-col p-t-16 popular-wrap-post-view display-grid">
+                                {jobsArr.slice(0,).map((job, i) => (
+                                    <li className={`cursor-initial popular-wrap-post-item popular-wrap-post-${i}`} key={i}>
+                                        <div className="display-flex flex-algn-center flex-grow displey-flex flex-algn-stretch width-100 popular-post-container">
                                             <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
-                                                <Link  href="/" as="/">
+                                                <Link href="/job/[slug]" as={`/job/${job.slug}`}>
                                                     <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                        <img src={post.photo} alt={post.title} srcSet={post.photo} className="image" />
+                                                        <img src={job.photo} alt={job.title} srcSet={job.photo} className="image" />
                                                     </a>
                                                 </Link> 
                                             </div>
                                             <div className="display-flex flex-col flex-grow post-body-wrap">
                                                 <div className="post-body-container position-rel display-block box-sizing">
                                                     <div className="position-rel display-block box-sizing line-height-2">
-                                                        <Link  href="/" as="/">
-                                                            <a className="font-weight-3 font-size-5 post-title small-post text-black-var-1">
-                                                                <div className="m-b-4">{post.title}</div>
+                                                        <Link href="/job/[slug]" as={`/job/${job.slug}`}>
+                                                            <a className="font-weight-3 font-size-5 post-title text-black-var-1">
+                                                                <div className="m-b-4 overflow-wrap">{job.companyName}</div>
                                                             </a>
                                                         </Link>
                                                     </div>
-                                                    <div className="display-flex flex-algn-center font-size-6 neutral-color-2">
-                                                        <div className="display-flex flex-grow">{getCurrentDate(post.createdAt)}</div>
-                                                        <div className="display-flex flex-justify-center flex-algn-center flex-row-reverse">
-                                                            views
-                                                            <span className="m-r-2">{post.views}</span>
-                                                        </div>
-                                                    </div>
+                                                    <div className="font-size-6 overflow-wrap">{job.title}</div>
                                                 </div>
                                             </div>
                                         </div>

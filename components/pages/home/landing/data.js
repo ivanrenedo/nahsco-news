@@ -66,28 +66,32 @@ const peoplesSectionArr = [
         name: "María Concepción Esuba Renedo",
         title: "El arte de saber vender",
         sector: "Marketing y comunicación",
-        photo: "/img/avata1.jpg"
+        photo: "/img/avata1.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 1,
         name: "Ramón Osa Mba",
         title: "Biodiversidad de especies",
         sector: "Geología del petróleo y gas natural",
-        photo: "/img/avatar2.jpg"
+        photo: "/img/avatar2.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 3,
         name: "Inmaculada Seriche",
         title: "Conservación de estanques petrolíferos",
         sector: "Ingeniería de Reservorios",
-        photo: "/img/avatar3.jpg"
+        photo: "/img/avatar3.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id:4,
         name: "Petra Siafa",
         title: "Industrialización y Refinación de Hidrocarburos",
         sector: "Perforación de Pozos",
-        photo: "/img/avatar4.jpg"
+        photo: "/img/avatar4.jpg",
+        slug: "el-arte-de-saber-vender"
     }
 ]
 
@@ -131,6 +135,7 @@ const EventsArr = [
         photo: "/img/event1.jpg",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 1,
@@ -143,6 +148,7 @@ const EventsArr = [
         photo: "/img/event2.png",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 2,
@@ -155,6 +161,7 @@ const EventsArr = [
         photo: "/img/webinar.png",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 3,
@@ -167,6 +174,7 @@ const EventsArr = [
         photo: "/img/event4.jpg",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
 ]
 
@@ -182,7 +190,8 @@ const jobsArr = [
         companyName: "Marathon",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 1,
@@ -195,7 +204,8 @@ const jobsArr = [
         companyName: "Total Energy",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 2,
@@ -208,7 +218,8 @@ const jobsArr = [
         companyName: "Toptal",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
 ]
 

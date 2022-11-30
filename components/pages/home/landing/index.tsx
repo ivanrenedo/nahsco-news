@@ -23,7 +23,7 @@ const PeopleSection = () => {
                     {peoplesSectionArr.map((people, i) => (
                         <li key={i} className="position-rel cursor-initial"> 
                           <div className="display-block service-container">
-                            <Link  href="/" as="/">
+                            <Link href="/people/[slug]" as={`/people/${people.slug}`}>
                               <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-image">
                                 <div className="position-rel height-100 post-image-people z-index-0">
                                     <img src={people.photo} alt={people.title} srcSet={people.photo} className="image" />
@@ -36,7 +36,7 @@ const PeopleSection = () => {
                             <div className="p-l-8 p-t-8 p-b-8">
                               <div className="font-weight-3 m-b-2">{people.name}</div>
                               <div className="display-block box-sizing font-inherit neutral-color-2">
-                                <div className="">{people.sector}</div>
+                                <div className="font-size-4">{people.sector}</div>
                               </div>
                             </div>
                           </div>

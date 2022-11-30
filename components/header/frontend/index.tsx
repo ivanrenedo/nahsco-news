@@ -53,7 +53,7 @@ const HeaderMainComponent = ({openSidebar}) => {
         <>
             <header className="display-flex flex-col flex-algn-center width-100 background-var1 position-stic top-0 z-index-10">
                 <div className="display-flex flex-algn-center flex-justify-between width-100 position-rel z-index-12">
-                    <div className='logo-size header-p-l m-t-4 m-b-4 display-flex flex-algn-center'>
+                    <div className='logo-size header-p-l display-flex flex-algn-center'>
                         <div className="font-inherit box-sizing position-rel display-flex flex-col z-index-0">
                             <div className="font-inherit box-sizing position-rel display-flex flex-algn-center z-index-0">
                                 {/* <div className="z-index-10 hamburguer-wrap p-t-8 p-b-8">
@@ -73,7 +73,7 @@ const HeaderMainComponent = ({openSidebar}) => {
                                     <div className='display-flex flex-algn-center flex-grow flex-justify-center'>
                                         <Link href="/" as="/">
                                             <a className=" display-flex flex-algn-center" href="/">
-                                                <img src="img/logo.png" alt="NAHSCO" srcSet='img/logo.png' className='logo-size-img logo-contain float-left' />
+                                                <img src="/img/logo.png" alt="NAHSCO" className='logo-size-img logo-contain float-left' />
                                                 <h1 className="brandname font-size-3 font-weight-1 p-l-4 text-error display-inline float-right">NAHSCO NEWS</h1>
                                             </a>
                                         </Link>
@@ -82,7 +82,7 @@ const HeaderMainComponent = ({openSidebar}) => {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className='p-t-4 p-b-4'>
                          <SearchComponent searchArr={allPost} />
                     </div>
                     <div className="header-p-r display-block position-rel">

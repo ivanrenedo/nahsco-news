@@ -65,7 +65,7 @@
         display: inline;
     }
     .logo-size {
-        height: 48px;
+        height: 52px;
     }
 
     /* search component */
@@ -122,12 +122,8 @@
         grid-column: span 2;
     }
     
-    .post-title {
-        font-size: clamp(1rem, 5vw , 1.1rem); 
+    .post-title { 
         max-width: 450px;
-    }
-    .section-news-contain li.post-item:not(.post-item-0, .post-item-1) .post-title{
-        font-size: clamp(.8rem, 5vw , .95rem);
     }
     .post-content {
         display: -webkit-box;
@@ -193,6 +189,17 @@
     .navegation-container {
         justify-content: center;
     }
+
+
+    /* item page */
+    .post-item-container-page {
+        height: 300px;
+        width: 100%;
+    }
+    
+    .aside-wrap-padd {
+        padding-left: 24px;
+    }
 }
 
 /* Medium devices (landscape tablets, 901px and up) */
@@ -211,7 +218,7 @@
     }
 
     body {
-        font-size: 0.90625rem;
+        font-size: 1rem;
     }
 
     /* general */
@@ -222,12 +229,8 @@
         font-size: 1.35rem;
     }
     .font-size-4{
-        font-size: .96875rem;
+        font-size: clamp(0.85rem, 5vw , .95rem);
     }
-    .font-size-5{
-        font-size: 0.8125rem;
-    }
-
     .header-p-l {
         padding-left: 24px;
     }
@@ -336,7 +339,6 @@
     }
 
     .section-news-contain li.post-item:not(.post-item-0) .post-title{
-        font-size: clamp(.8rem, 5vw , .85rem);
         margin: 0;
     }
     .post-body-wrap {
@@ -414,6 +416,15 @@
     }
     .list-post-wrap .list-post-container{
         flex-direction: column;
+    }
+
+    /* item page */
+    .post-item-container-page {
+        height: 400px;
+        width: 100%;
+    }
+    .top-body-post-container {
+        padding: 24px;
     }
 }  
 
@@ -505,6 +516,21 @@
     .list-post-wrap {
         grid-template-columns: repeat(3,minmax(0,1fr));
         gap: 15px;
+    }
+
+    /* item page */
+    .post-item-container-page {
+        height: 500px;
+        width: 100%;
+    }
+
+    .popular-wrap-post-view .popular-wrap-post-0 .lastest-image{
+        width: 100%;
+        height: 200px;
+    }
+    .popular-wrap-post-view .popular-wrap-post-0 .post-body-wrap{
+        padding-left: 0;
+        padding-top: 16px;
     }
     
 }

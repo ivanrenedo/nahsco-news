@@ -33,7 +33,7 @@ const NewsSection = () => {
                                         <li className={`cursor-initial flex-algn-stretch post-item post-item-${i}`} key={post.id}>
                                             <div className="display-flex flex-algn-center flex-grow post-news-contain flex-algn-stretch width-100 post-item-container">
                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
-                                                    <Link  href="/" as="/">
+                                                    <Link href="/news/[slug]" as={`/news/${post.slug}`}>
                                                         <a className="post-item-image overflow-h-x overflow-h-y position-rel">
                                                             <img src={post.photo} alt={post.title} srcSet={post.photo} className="image" />
                                                         </a>
@@ -42,7 +42,7 @@ const NewsSection = () => {
                                                 <div className="display-flex flex-col flex-grow post-body-wrap">
                                                     <div className="post-body-container position-rel display-block box-sizing">
                                                         <div className="position-rel display-block box-sizing line-height-2">
-                                                            <Link  href="/" as="/">
+                                                            <Link href="/news/[slug]" as={`/news/${post.slug}`}>
                                                                 <a className="post-title font-weight-2 text-black-var-1">
                                                                     <div className="m-b-8">{post.title}</div>
                                                                 </a>
@@ -85,7 +85,7 @@ const NewsSection = () => {
                                                 <li className=" cursor-initial" key={i}>
                                                     <div className="display-flex flex-algn-center flex-grow displey-flex flex-algn-stretch width-100">
                                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
-                                                            <Link  href="/" as="/">
+                                                            <Link href="/news/[slug]" as={`/news/${post.slug}`}>
                                                                 <a className="overflow-h-x overflow-h-y position-rel lastest-image">
                                                                     <img src={post.photo} alt={post.title} srcSet={post.photo} className="image" />
                                                                 </a>
@@ -94,9 +94,9 @@ const NewsSection = () => {
                                                         <div className="display-flex flex-col flex-grow post-body-wrap">
                                                             <div className="post-body-container position-rel display-block box-sizing">
                                                                 <div className="position-rel display-block box-sizing line-height-2">
-                                                                    <Link  href="/" as="/">
+                                                                    <Link href="/news/[slug]" as={`/news/${post.slug}`}>
                                                                         <a className="font-weight-3 font-size-5 post-title small-post text-black-var-1">
-                                                                            <div className="m-b-4">{post.title}</div>
+                                                                            <div className="m-b-4 overflow-wrap">{post.title}</div>
                                                                         </a>
                                                                     </Link>
                                                                     <div className="display-flex flex-algn-center font-size-6 neutral-color-2">

@@ -195,7 +195,9 @@ const mostPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Marketing y comunicación",
-        photo: "/img/avata1.jpg"
+        photo: "/img/avata1.jpg",
+        slug: "el-arte-de-saber-vender",
+
     },
     {
         id: 1,
@@ -206,7 +208,8 @@ const mostPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Geología del petróleo y gas natural",
-        photo: "/img/avatar2.jpg"
+        photo: "/img/avatar2.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 2,
@@ -217,7 +220,8 @@ const mostPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Ingeniería de Reservorios",
-        photo: "/img/avatar3.jpg"
+        photo: "/img/avatar3.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id:3,
@@ -228,7 +232,8 @@ const mostPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Perforación de Pozos",
-        photo: "/img/avatar4.jpg"
+        photo: "/img/avatar4.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id:4,
@@ -239,7 +244,8 @@ const mostPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Perforación de Pozos",
-        photo: "/img/avata1.jpg"
+        photo: "/img/avata1.jpg",
+        slug: "el-arte-de-saber-vender",
     },
     {
         id:5,
@@ -250,7 +256,8 @@ const mostPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Perforación de Pozos",
-        photo: "/img/avatar2.jpg"
+        photo: "/img/avatar2.jpg",
+        slug: "el-arte-de-saber-vender"
     }
 ]
 
@@ -264,7 +271,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Marketing y comunicación",
-        photo: "/img/avata1.jpg"
+        photo: "/img/avata1.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 1,
@@ -275,7 +283,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Geología del petróleo y gas natural",
-        photo: "/img/avatar2.jpg"
+        photo: "/img/avatar2.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 2,
@@ -297,7 +306,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Perforación de Pozos",
-        photo: "/img/avatar4.jpg"
+        photo: "/img/avatar4.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id:4,
@@ -308,7 +318,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Perforación de Pozos",
-        photo: "/img/avata1.jpg"
+        photo: "/img/avata1.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id:5,
@@ -319,7 +330,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Perforación de Pozos",
-        photo: "/img/avatar2.jpg"
+        photo: "/img/avatar2.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 6,
@@ -330,7 +342,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Marketing y comunicación",
-        photo: "/img/avata1.jpg"
+        photo: "/img/avata1.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 7,
@@ -341,7 +354,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Geología del petróleo y gas natural",
-        photo: "/img/avatar2.jpg"
+        photo: "/img/avatar2.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 8,
@@ -352,7 +366,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Ingeniería de Reservorios",
-        photo: "/img/avatar3.jpg"
+        photo: "/img/avatar3.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id:9,
@@ -363,7 +378,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Perforación de Pozos",
-        photo: "/img/avatar4.jpg"
+        photo: "/img/avatar4.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id:10,
@@ -374,7 +390,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Perforación de Pozos",
-        photo: "/img/avata1.jpg"
+        photo: "/img/avata1.jpg",
+        slug: "el-arte-de-saber-vender"
     },
     {
         id:11,
@@ -385,7 +402,8 @@ const ListPeoplesArr = [
         Iste illum consequatur, autem qui nesciunt debitis? Veritatis perferendis saepe aspernatur nihil reprehenderit facere eius numquam fugiat asperiores dolorum ad nobis, tempore officia illo delectus perspiciatis, suscipit nam amet? Rerum?
         Facere corrupti non dolor assumenda. Ab ipsa voluptatum totam explicabo inventore quam illum error autem, itaque, rerum, facilis commodi et! Sint culpa temporibus sit quibusdam voluptates facere dolorem nostrum aperiam?`,
         sector: "Perforación de Pozos",
-        photo: "/img/avatar2.jpg"
+        photo: "/img/avatar2.jpg",
+        slug: "el-arte-de-saber-vender"
     }
 ]
 
@@ -401,6 +419,7 @@ const EventsDataArr = [
         photo: "/img/event1.jpg",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 1,
@@ -413,6 +432,7 @@ const EventsDataArr = [
         photo: "/img/event2.png",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 2,
@@ -425,6 +445,7 @@ const EventsDataArr = [
         photo: "/img/webinar.png",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 3,
@@ -437,6 +458,7 @@ const EventsDataArr = [
         photo: "/img/event4.jpg",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 4,
@@ -449,6 +471,7 @@ const EventsDataArr = [
         photo: "/img/event1.jpg",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 5,
@@ -461,6 +484,7 @@ const EventsDataArr = [
         photo: "/img/event2.png",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 6,
@@ -473,6 +497,7 @@ const EventsDataArr = [
         photo: "/img/webinar.png",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 7,
@@ -485,6 +510,7 @@ const EventsDataArr = [
         photo: "/img/event4.jpg",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 8,
@@ -497,6 +523,7 @@ const EventsDataArr = [
         photo: "/img/event1.jpg",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 9,
@@ -509,6 +536,7 @@ const EventsDataArr = [
         photo: "/img/event2.png",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 10,
@@ -521,6 +549,7 @@ const EventsDataArr = [
         photo: "/img/webinar.png",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 11,
@@ -533,6 +562,7 @@ const EventsDataArr = [
         photo: "/img/event4.jpg",
         dateFrom: '2022-03-12',
         dateTo: '2022-03-15',
+        slug: "el-arte-de-saber-vender"
     },
 ]
 
@@ -548,7 +578,8 @@ const jobsDataArr = [
         companyName: "Marathon",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 1,
@@ -561,7 +592,8 @@ const jobsDataArr = [
         companyName: "Total Energy",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 2,
@@ -574,7 +606,8 @@ const jobsDataArr = [
         companyName: "Toptal",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 3,
@@ -587,7 +620,8 @@ const jobsDataArr = [
         companyName: "Marathon",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 4,
@@ -600,7 +634,8 @@ const jobsDataArr = [
         companyName: "Total Energy",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 5,
@@ -613,7 +648,8 @@ const jobsDataArr = [
         companyName: "Toptal",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 6,
@@ -626,7 +662,8 @@ const jobsDataArr = [
         companyName: "Marathon",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 7,
@@ -639,7 +676,8 @@ const jobsDataArr = [
         companyName: "Total Energy",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 8,
@@ -652,7 +690,8 @@ const jobsDataArr = [
         companyName: "Toptal",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 9,
@@ -665,7 +704,8 @@ const jobsDataArr = [
         companyName: "Marathon",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 10,
@@ -678,7 +718,8 @@ const jobsDataArr = [
         companyName: "Total Energy",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
     {
         id: 11,
@@ -691,7 +732,8 @@ const jobsDataArr = [
         companyName: "Toptal",
         location: "Malabo, Equatorial Guinee",
         workPlace: "En remoto",
-        dateFrom: '2022-03-12'
+        dateFrom: '2022-03-12',
+        slug: "el-arte-de-saber-vender"
     },
 ]
 
