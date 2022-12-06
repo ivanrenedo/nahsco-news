@@ -4,8 +4,7 @@ import Document, {DocumentContext, Html, Head, Main, NextScript } from 'next/doc
 class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
         const initialProps = await Document.getInitialProps(ctx)
-        
-        return {...initialProps}
+        return { ...initialProps, locale: ctx?.locale || "en" };
     }
 
     render() {
@@ -54,7 +53,7 @@ class MyDocument extends Document {
         `;
 
         return (
-            <Html lang='es' >
+            <Html lang={this.props.locale}>
                 <Head >
                     <link rel="preconnect" href="https://fonts.gstatic.com"/>
                     <link rel="manifest" href="/manifest.json"/>

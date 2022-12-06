@@ -17,7 +17,10 @@ function LandingPage() {
     function goto(url) {
         window.open(url);
     }
-  
+
+
+ 
+
 
     return(
         <LayoutMain title='Inicio'> 
@@ -47,7 +50,7 @@ function LandingPage() {
                                                 </div>
                                             </AdsLeaderBoard>
                                             <ServiceCompanies />
-                                            <EventSection />
+                                            <EventSection  />
                                             <AdsLeaderBoard>
                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
                                                     <div className="position-rel">
@@ -66,6 +69,14 @@ function LandingPage() {
             </div>
         </LayoutMain>
     );
+}
+
+export async function getStaticProps(context) {
+    
+    
+    return {
+        props: {}, // will be passed to the page component as props
+    }
 }
 
 export default LandingPage;

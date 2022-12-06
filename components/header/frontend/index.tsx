@@ -1,27 +1,32 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
+import { t } from '@lingui/macro';
+
 import Menu from '@components/icons/menu';
 import SearchComponent from '@components/searchComponent';
-import { allPost } from '@components/pages/home/people/data';
+import LocaleSwitcher from './locale-switcher';
+
 
 
 
 const HeaderMainComponent = ({openSidebar}) => {
     let [windowWidth, setWindowWidth] = React.useState<number | undefined>();
-    const [search, setSearch] = React.useState<any[]>([]);
 
-    const { push, asPath } = useRouter();
+    const { push, asPath, locale } = useRouter();
+
+
+
 
     React.useEffect(() => {
         /* Tab indicator */
         let navItem = document.querySelectorAll('.tab__item');
     
         navItem.forEach(item => {
-            const router = item.children[0].getAttribute('href')
-
-            if (asPath === router ) {
+            const router = item.children[0].getAttribute('href');
+            const activePath = locale !== "en" ? `/${locale}${asPath}` : asPath;
+           
+            if (activePath === router ) {
                
                 item.classList.add('tab__item--active')
             }else{
@@ -45,7 +50,7 @@ const HeaderMainComponent = ({openSidebar}) => {
             clearTimeout(timer)
         }
 
-    }, [windowWidth, asPath]);
+    }, [windowWidth, asPath, locale]);
 
 
 
@@ -82,15 +87,10 @@ const HeaderMainComponent = ({openSidebar}) => {
                             </div>
                         </div>
                     </div>
-                    <div className='p-t-4 p-b-4'>
-                         <SearchComponent searchArr={allPost} />
+                    <div className='display-flex flex-algn-center'>
+                        <div className="lingui-trans position-abs"><LocaleSwitcher /></div>
+                        {/* <SearchComponent searchArr={allPost} /> */}
                     </div>
-                    <div className="header-p-r display-block position-rel">
-                        <button className='p-l-24 p-r-24 p-b-12 p-t-12 contact-wrap border-r-20 border-primary text-primary-var-1 contact-us' onClick={() => push('contact-us')}>
-                            <span className='font-weight-3'>Contact us</span>
-                        </button>
-                    </div>
-                    
                 </div>
                 <nav className="display-block width-100 nav-list-section">
                     <div className="font-inherit box-sizing position-rel display-flex flex-col z-index-0 background-var1 width-100">
@@ -100,8 +100,8 @@ const HeaderMainComponent = ({openSidebar}) => {
                                     <ul className='display-flex follow-request navegation-container slider-promotion position-rel overflow-auto-x overflow-h-y width-100'>
                                         <li className='m-l-8 tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
                                             <Link href="/news" as="/news">
-                                                <a aria-label='news' className="p-b-8 p-t-8 p-l-8 p-r-8">
-                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>News</span>
+                                                <a aria-label={t`News`} className="p-b-8 p-t-8 p-l-8 p-r-8">
+                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>{t`News`}</span>
                                                 </a>
                                             </Link>
                                         </li>
@@ -114,36 +114,29 @@ const HeaderMainComponent = ({openSidebar}) => {
                                         </li>
                                         <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
                                             <Link href="/service-companies" as="/service-companies">
-                                                <a aria-label='Service companies' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
-                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>Service companies</span>
+                                                <a aria-label={t`Service companies`} className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
+                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>{t`Service companies`}</span>
                                                 </a>
                                             </Link>
                                         </li>
                                         <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
                                             <Link href="/people" as="/people">
-                                                <a aria-label='people' className="p-b-8 p-t-8 p-l-8 p-r-8 font-size-4 font-weight-3">
-                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>People</span>
+                                                <a aria-label={t`People`} className="p-b-8 p-t-8 p-l-8 p-r-8 font-size-4 font-weight-3">
+                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>{t`People`}</span>
                                                 </a>
                                             </Link>
                                         </li>
                                         <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
                                             <Link href="/events" as="/events">
-                                                <a aria-label='Events' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
-                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>Events</span>
+                                                <a aria-label={t`Events`} className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
+                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>{t`Events`}</span>
                                                 </a>
                                             </Link>
                                         </li>
                                         <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20'>
                                             <Link href="/jobs" as="/jobs">
-                                                <a aria-label='Jobs' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
-                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>Jobs</span>
-                                                </a>
-                                            </Link>
-                                        </li>
-                                        <li className='tab__item display-flex flex-justify-center flex-algn-center border-r-20 contact-us-container'>
-                                            <Link href="/contact-us" as="/contact-us">
-                                                <a aria-label='Contact us' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
-                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>Contact us</span>
+                                                <a aria-label={t`Jobs`} className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10 font-size-4 font-weight-3">
+                                                    <span className='font-size-4 font-weight-3 text-black-var-1'>{t`Jobs`}</span>
                                                 </a>
                                             </Link>
                                         </li>

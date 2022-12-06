@@ -190,16 +190,16 @@ button.background-var1:active {
 }
 
 .font-size-1{
-    font-size: clamp(1.4rem, 5vw , 1.6rem);
+    font-size: clamp(1.2rem, 5vw , 1.3rem);
 }
 .font-size-2{
-    font-size: clamp(1.3rem, 5vw , 1.5rem);
+    font-size: clamp(1.01rem, 5vw , 1.05rem);
 }
 .font-size-3{
-    font-size: clamp(1.1rem, 5vw , 1.3rem); 
+    font-size: clamp(.90rem, 5vw , 1rem); 
 }
 .font-size-4{
-    font-size: clamp(.9rem, 5vw , .95rem);
+    font-size: clamp(.8rem, 5vw , .9rem);
 }
 .font-size-5{
     font-size: clamp(0.8rem, 5vw ,0.85rem);

@@ -1,5 +1,6 @@
 import React from 'react'
-import SocialMedia from '../socialMedia'
+import SocialMedia from '../socialMedia';
+import { t } from '@lingui/macro';
 
 const VideoBackgroundSection = () => {
 
@@ -11,8 +12,8 @@ const VideoBackgroundSection = () => {
         <div className="content position-rel">
             <SocialMedia />
             <h1 className='title-video display-flex'>
-              <span className='first-title'>EG'S LEADING HIDROCARBONS SECTOR</span>
-              <span className='second-title'>NEWS HUB</span>
+              <span className='first-title'>{t`EG'S LEADING HIDROCARBONS SECTOR`}</span>
+              <span className='second-title'>{t`NEWS HUB`}</span>
             </h1>
         </div>
     </section>

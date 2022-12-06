@@ -1,7 +1,4 @@
 
-
-
-
 .form-content-footer .input-form {
     padding: 12px;
     border-radius: 20px;
@@ -18,8 +15,6 @@
     color: #ffffff;
 }
 
-
-
 .flex-gap-footer {
     gap: 30px;
 }
@@ -35,4 +30,12 @@
 }
 .footer-text-center {
     text-align: center;
+}
+
+
+
+/* Portable text */
+
+.paragraphe-post {
+    margin-bottom: 8px;
 }

@@ -1,5 +1,8 @@
-import React, { useEffect, useState }   from 'react';
+import React  from 'react';
 import _ from 'lodash';
+import { t } from '@lingui/macro';
+
+
 import Results from './results';
 import SearchInput from './searchInput';
 import useSearchForm from './useSearchForm';
@@ -8,11 +11,10 @@ import useSearchForm from './useSearchForm';
 
 interface Props {
     searchArr: Array<any>;
-    placeholder?: string;
 }
 
 
-const SearchComponent: React.FC<Props> = ({searchArr, placeholder = 'Buscar en nahsco news'}) => {
+const SearchComponent: React.FC<Props> = ({searchArr}) => {
 
 
   const {
@@ -27,7 +29,6 @@ const SearchComponent: React.FC<Props> = ({searchArr, placeholder = 'Buscar en n
     showClear,
     handleSetHighlightedItem,
     hasFocus,
-    setHasFocus,
     results,
     handleBlur,
     handleFocus,
@@ -46,12 +47,12 @@ const SearchComponent: React.FC<Props> = ({searchArr, placeholder = 'Buscar en n
   
     return(
       <div 
-      className={`font-inherit width-0 box-sizing display-flex flex-algn-center m-r-8 position-abs top-0 height-100 search-bar-position ${hasFocus ? " search-bar-wrapper-focus background-v1" : " search-bar-wrapper"}`}
+      className={`font-inherit width-0 box-sizing display-flex flex-algn-center position-abs top-0 height-100 search-bar-position ${hasFocus ? " search-bar-wrapper-focus" : " search-bar-wrapper"}`}
       onFocus={handleFocus}
       onBlur={handleBlur}
       
       >
-        <div className={`search-container background-var1 display-flex flex-col  position-rel box-sizing width-100 min-width-0${hasFocus ? " show border-0 border-radius-b-5" : ""}`}> 
+        <div className={`search-container display-flex flex-col position-rel box-sizing width-100 min-width-0${hasFocus ? " show border-0 border-radius-b-5" : ""}`}> 
             <SearchInput
             inputContainerRef={inputContainerRef}
             inputRef={inputEl}
@@ -60,7 +61,7 @@ const SearchComponent: React.FC<Props> = ({searchArr, placeholder = 'Buscar en n
             autoFocus={autoFocus}
             onFocus={handleFocus}
             onClear={OnClear}
-            placeholder={placeholder}
+            placeholder={t`Search on nahsco news`}
             showIcon={showIcon}
             showClear={showClear}
             setHighlightedItem={handleSetHighlightedItem}

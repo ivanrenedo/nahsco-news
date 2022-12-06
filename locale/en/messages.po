@@ -1,0 +1,182 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2022-12-02 07:46+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: components/footer/index.tsx:77
+msgid "Contact us"
+msgstr "Contact us"
+
+#: components/pages/home/videoSection/index.tsx:15
+msgid "EG'S LEADING HIDROCARBONS SECTOR"
+msgstr "E.G'S LEADING HIDROCARBONS SECTOR"
+
+#: components/footer/index.tsx:91
+msgid "EG's leading hydrocarbons sector news hub"
+msgstr "E.G's leading hydrocarbons sector news hub"
+
+#: components/header/frontend/locale-switcher.tsx:8
+msgid "English"
+msgstr "English"
+
+#: components/footer/index.tsx:49
+#: components/header/frontend/index.tsx:131
+#: components/header/frontend/index.tsx:132
+#: components/pages/eventsComponent/index.tsx:59
+#: components/pages/home/landing/events.tsx:31
+msgid "Events"
+msgstr "Events"
+
+#: components/footer/index.tsx:56
+#: components/header/frontend/index.tsx:138
+#: components/header/frontend/index.tsx:139
+#: components/pages/home/landing/jobs.tsx:30
+#: components/pages/jobsComponent/index.tsx:62
+msgid "Jobs"
+msgstr "Jobs"
+
+#: components/pages/home/landing/news.tsx:94
+#: components/pages/jobsComponent/index.tsx:92
+#: pages/ioc/[slug].tsx:139
+msgid "Latest IOCs"
+msgstr "Latest IOCs"
+
+#: components/pages/eventsComponent/index.tsx:89
+#: pages/people/[slug].tsx:147
+#: pages/service-company/[slug].tsx:140
+msgid "Latest companies"
+msgstr "Latest companies"
+
+#: components/pages/service-company/allPosts/index.tsx:89
+#: pages/event/[slug].tsx:148
+#: pages/job/[slug].tsx:150
+msgid "Latest events"
+msgstr "Latest events"
+
+#: components/pages/news/allPosts/index.tsx:89
+msgid "Latest jobs"
+msgstr "Latest jobs"
+
+#: components/pages/people/allPosts/index.tsx:91
+msgid "Latest news"
+msgstr "Latest news"
+
+#: components/pages/iocs/allPosts/index.tsx:91
+msgid "Latest people"
+msgstr "Latest people"
+
+#: components/footer/index.tsx:18
+msgid "NAHSCO NEWS is a Equatorial Guinea's leading hydrocarbons sector news hub."
+msgstr "NAHSCO NEWS is a Equatorial Guinea's leading hydrocarbons sector news hub."
+
+#: components/pages/home/videoSection/index.tsx:16
+msgid "NEWS HUB"
+msgstr "NEWS HUB"
+
+#: components/footer/index.tsx:28
+#: components/header/frontend/index.tsx:103
+#: components/header/frontend/index.tsx:104
+#: components/pages/home/landing/news.tsx:36
+#: components/pages/news/allPosts/index.tsx:59
+msgid "News"
+msgstr "News"
+
+#: components/searchComponent/useSearchForm.tsx:32
+msgid "No results"
+msgstr "No results"
+
+#: components/footer/index.tsx:35
+#: components/header/frontend/index.tsx:124
+#: components/header/frontend/index.tsx:125
+#: components/pages/home/landing/index.tsx:26
+#: components/pages/people/allPosts/index.tsx:61
+msgid "People"
+msgstr "People"
+
+#: pages/news/[slug].tsx:142
+#: pages/search/[slug].tsx:137
+msgid "Popular news"
+msgstr "Popular news"
+
+#: pages/event/[slug].tsx:89
+#: pages/ioc/[slug].tsx:87
+#: pages/job/[slug].tsx:90
+#: pages/news/[slug].tsx:90
+#: pages/people/[slug].tsx:87
+#: pages/search/[slug].tsx:75
+#: pages/service-company/[slug].tsx:88
+msgid "Published at"
+msgstr "Published at"
+
+#: components/footer/index.tsx:64
+msgid "Receive an email a day with the articles of NAHSCO NEWS"
+msgstr "Receive an email a day with the articles of NAHSCO NEWS"
+
+#: components/searchComponent/index.tsx:64
+msgid "Search on nahsco news"
+msgstr "Search on nahsco news"
+
+#: components/footer/index.tsx:42
+#: components/header/frontend/index.tsx:117
+#: components/header/frontend/index.tsx:118
+#: components/pages/home/landing/serviceCompany.tsx:28
+#: components/pages/service-company/allPosts/index.tsx:59
+msgid "Service companies"
+msgstr "Service companies"
+
+#: pages/event/[slug].tsx:106
+#: pages/ioc/[slug].tsx:97
+#: pages/job/[slug].tsx:108
+#: pages/news/[slug].tsx:100
+#: pages/people/[slug].tsx:105
+#: pages/search/[slug].tsx:95
+#: pages/service-company/[slug].tsx:98
+msgid "Share in"
+msgstr "Share in"
+
+#: components/header/frontend/locale-switcher.tsx:9
+msgid "Spanish"
+msgstr "Spanish"
+
+#: components/footer/index.tsx:68
+msgid "Subscribe"
+msgstr "Subscribe"
+
+#: components/footer/index.tsx:73
+msgid "Website created by"
+msgstr "Website created by"
+
+#: pages/ioc/[slug].tsx:87
+msgid "on IOCs"
+msgstr "on IOCs"
+
+#: pages/event/[slug].tsx:89
+#: pages/search/[slug].tsx:75
+msgid "on event"
+msgstr "on event"
+
+#: pages/job/[slug].tsx:90
+msgid "on jobs"
+msgstr "on jobs"
+
+#: pages/news/[slug].tsx:90
+msgid "on news"
+msgstr "on news"
+
+#: pages/people/[slug].tsx:87
+msgid "on people"
+msgstr "on people"
+
+#: pages/service-company/[slug].tsx:88
+msgid "on service companies"
+msgstr "on service companies"

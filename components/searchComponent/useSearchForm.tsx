@@ -1,7 +1,8 @@
 import React, {FocusEvent, KeyboardEvent, useEffect, useState, useRef} from 'react';
 import _ from 'lodash';
-import { default as Fuse } from 'fuse.js'
-import Link from 'next/link';
+import { default as Fuse } from 'fuse.js';
+import { t } from '@lingui/macro';
+import { useRouter } from 'next/router';
 
 
 export const DEFAULT_INPUT_DEBOUNCE = 300;
@@ -28,7 +29,7 @@ const useSearchForm = (searchArr) => {
         showNoResults = true,
         showItemsOnFocus = false,
         resultStringKeyName = 'title',
-        showNoResultsText = 'No results'
+        showNoResultsText = t`No results`
 
     const inputEl = useRef<HTMLInputElement>(null);
     const inputContainerRef = useRef<HTMLLabelElement>(null);
@@ -43,6 +44,9 @@ const useSearchForm = (searchArr) => {
   
     const fuse = new Fuse(searchArr, options)
     fuse.setCollection(searchArr)
+    
+
+    const { push, asPath, locale } = useRouter();
 
 
     useEffect(() => {

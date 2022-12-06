@@ -1,13 +1,23 @@
 import React, {useEffect} from 'react';
 import {DefaultSeo} from 'next-seo';
+import { I18nProvider } from '@lingui/react';
+import { i18n } from '@lingui/core';
+import { useRouter } from 'next/router'
 
 import '../public/css/index.css';
 import '../public/css/normalize.css';
 import seo from '../seo.config';
 import { AppProvider } from '@components/hook/context/mainContext';
+import { activate } from '@utils/i18n';
 
 
 function MyApp({ Component, pageProps}) {
+    const { locale } = useRouter()
+
+    useEffect(() => {
+        // Activate the default locale on page load
+        activate(locale!);
+    }, [locale]);
 
     useEffect(() => {
         const isLocalhost = Boolean(
@@ -178,16 +188,16 @@ function MyApp({ Component, pageProps}) {
     }, [])
 
 
-
-
     return (
-        
-        <AppProvider>
-            <DefaultSeo {...seo} />
-            <Component {...pageProps} />
-        </AppProvider>
+        <I18nProvider i18n={i18n} forceRenderOnLocaleChange={true}>
+            <AppProvider>
+                <DefaultSeo {...seo} />
+                <Component {...pageProps} />
+            </AppProvider> 
+        </I18nProvider>
     )
 }
 
 
-export default MyApp
+
+export default MyApp;

@@ -1,6 +1,7 @@
-import SocialMedia from '@components/pages/home/socialMedia';
 import Link from 'next/link';
 import React from 'react';
+import { t } from '@lingui/macro';
+import SocialMedia from '@components/pages/home/socialMedia';
 
 
 const FooterComponent = () => {
@@ -14,7 +15,7 @@ const FooterComponent = () => {
                 <div className="display-flex wrap-footer-sec-1 flex-gap-footer">
                     <div className="display-block font-inherit position-rel box-sizing">
                         <div className="text-error font-size-3 font-weight-2 p-b-16 footer-text-center">NAHSCO NEWS</div>
-                        <div className="text-white-var-1 footer-text-center footer-slogan m-in-auto p-b-16">NAHSCO NEWS is a Equatorial Guinea's leading hydrocarbons sector news hub.</div>
+                        <div className="text-white-var-1 footer-text-center footer-slogan m-in-auto p-b-16">{t`NAHSCO NEWS is a Equatorial Guinea's leading hydrocarbons sector news hub.`}</div>
                         <div className="social-media-footer">
                             <SocialMedia />
                         </div>
@@ -24,35 +25,35 @@ const FooterComponent = () => {
                             <li className='display-flex footer-center'>
                                 <Link  href="/[...index]" as="/news">
                                     <a aria-label='news' className="p-b-8 p-t-8 p-l-8 p-r-8">
-                                        <span className='font-size-5 font-weight-3 text-white-var-1'>News</span>
+                                        <span className='font-size-5 font-weight-3 text-white-var-1'>{t`News`}</span>
                                     </a>
                                 </Link>
                             </li>
                             <li className='display-flex footer-center'>
                                 <Link  href="/[...index]" as="/people">
                                     <a aria-label='people' className="p-b-8 p-t-8 p-l-8 p-r-8">
-                                        <span className='font-size-5 font-weight-3 text-white-var-1'>People</span>
+                                        <span className='font-size-5 font-weight-3 text-white-var-1'>{t`People`}</span>
                                     </a>
                                 </Link>
                             </li>
                             <li className='display-flex footer-center'>
                                 <Link  href="/[...index]" as="/service-companies">
                                     <a aria-label='Service companies' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
-                                        <span className='font-size-5 font-weight-3 text-white-var-1'>Service companies</span>
+                                        <span className='font-size-5 font-weight-3 text-white-var-1'>{t`Service companies`}</span>
                                     </a>
                                 </Link>
                             </li>
                             <li className='display-flex footer-center'>
                                 <Link  href="/[...index]" as="/events">
                                     <a aria-label='events' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
-                                        <span className='font-size-5 font-weight-3 text-white-var-1'>Events</span>
+                                        <span className='font-size-5 font-weight-3 text-white-var-1'>{t`Events`}</span>
                                     </a>
                                 </Link>
                             </li>
                             <li className='display-flex footer-center'>
                                 <Link  href="/[...index]" as="/jobs">
                                     <a aria-label='jobs' className="p-b-8 p-t-8 p-l-8 p-r-8 border-r-10">
-                                        <span className='font-size-5 font-weight-3 text-white-var-1'>Jobs</span>
+                                        <span className='font-size-5 font-weight-3 text-white-var-1'>{t`Jobs`}</span>
                                     </a>
                                 </Link>
                             </li>
@@ -60,11 +61,21 @@ const FooterComponent = () => {
                     </div>
                 </div>
                 <div className="display-flex flex-col flex-justify-center box-sizing font-inherit text-white-var-1">
-                    <div className="footer-slogan line-height-3 footer-text-center m-in-auto p-b-24">Subscribe to our newsletter to be updated by email.</div>
+                    <div className="footer-slogan line-height-3 footer-text-center m-in-auto p-b-24">{t`Receive an email a day with the articles of NAHSCO NEWS`}</div>
                     <div className="form-content-footer footer-center display-flex flex-col flex-algn-center footer-slogan m-in-auto footer-text-center">
                         <input type="text" name="fullname" placeholder='Jhon Doe' className='input-form width-100 m-b-12' />
                         <input type="email" name="email" placeholder='jhondoe@gmail.com' className='input-form width-100 m-b-16' />
-                        <button className='secundary-var-1 button-subscribe width-100 font-size-5 font-weight-2'>Subscribe</button>
+                        <button className='secundary-var-1 button-subscribe width-100 font-size-5 font-weight-2'>{t`Subscribe`}</button>
+                    </div>
+                </div>
+                <div className="display-flex flex-col box-sizing font-inherit text-white-var-1">
+                    <div className="display-flex flex-algn-center m-b-12">
+                        {t`Website created by`}
+                        <div className="font-size-4 font-weight-2 m-l-4">SOLTEC SL</div>
+                    </div>
+                    <div className="display-block">
+                        <span className=''>{t`Contact us`}</span>
+                        <div className=' font-size-4 m-t-4'>tel: +240 222 626418</div>
                     </div>
                 </div>
             </div> 
@@ -77,7 +88,7 @@ const FooterComponent = () => {
                             </a>
                         </Link>
                     </div>
-                    <span className="footer-copy-text neutral-color-2 font-size-7 text-align-c">{`© ${date.getFullYear()}`} - EG's leading hydrocarbons sector news hub</span>   
+                    <span className="footer-copy-text neutral-color-2 font-size-7 text-align-c">{`© ${date.getFullYear()}`} - {t`EG's leading hydrocarbons sector news hub`}</span>   
                 </div>
             </div>
         </footer>

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import moment from 'moment';
+import { urlFor } from '@utils/sanity';
 
 
 interface PostListComponent {
@@ -42,7 +43,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                     <Link href="/people/[slug]" as={`/people/${people.slug}`}>
                                         <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-image">
                                             <div className="position-rel height-100 post-item-image people-item-image z-index-0">
-                                                <img src={people.photo} alt={people.name} srcSet={people.photo} className="image" />
+                                                <img src={urlFor(people.image)} alt={people.title} srcSet={urlFor(people.image)} className="image" />
                                             </div>
                                             <div className="text-white-var-1 display-block position-abs left-0 bottom-0 p-l-8 p-b-8 z-index-1">
                                                 <span className='font-weight-3 font-size-4 line-height-2'>{people.name}</span>

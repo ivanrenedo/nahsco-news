@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import moment from 'moment';
+import { urlFor } from '@utils/sanity';
 
 
 interface PostListComponent {
@@ -16,9 +17,12 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
         return moment(date).format("DD MMM YYYY")
     }
 
+    
+
     useEffect(() => {
       
     }, [data])
+    
     
 
     return (
@@ -41,7 +45,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
                                     <Link href="/news/[slug]" as={`/news/${post.slug}`}>
                                         <a className="post-item-image overflow-h-x overflow-h-y position-rel">
-                                            <img src={post.photo} alt={post.title} srcSet={post.photo} className="image" />
+                                            <img src={urlFor(post.image)} alt={post.title} srcSet={urlFor(post.image)} className="image" />
                                         </a>
                                     </Link>   
                                 </div>
@@ -53,9 +57,13 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                                     <div className='post-title font-inherit position-rel'>{post.title}</div>
                                                 </a>
                                             </Link>
-                                            <p className="mask-text-line3 m-t-8 post-content">{post.content}</p>
-                                            <div className="display-flex flex-algn-center post-date neutral-color-2">
-                                                <div className="display-flex m-t-4 font-size-5">{getCurrentDate(post.createdAt)}</div>
+                                            <p className="mask-text-line3 m-t-8 post-content">{post.metadata}</p>
+                                            <div className="display-flex flex-algn-center post-date neutral-color-2 m-t-4">
+                                                <div className="display-flex font-size-5">{getCurrentDate(post.publishedAt)}</div>
+                                                <div className="display-flex flex-justify-center flex-algn-center flex-row-reverse height-100 m-l-32">
+                                                    views
+                                                    <span className="">{post.visitas}</span> 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

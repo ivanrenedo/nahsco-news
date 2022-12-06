@@ -32,6 +32,15 @@
     height: 100%;
 }
 
+.flag-size {
+    width: 28px;
+    height: 28px;
+}
+
+.lingui-trans {
+    right: 65px;
+}
+
 /* Header */
 .scrollhost::-webkit-scrollbar{
     display: none;

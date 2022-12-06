@@ -22,7 +22,7 @@ const EventPage = () => {
                 <AdsLeaderBoard>
                     <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
                         <div className="position-rel">
-                            <img src="img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="img/publicidad.jpeg" className="image" />
+                            <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />
                         </div>
                     </div> 
                 </AdsLeaderBoard>

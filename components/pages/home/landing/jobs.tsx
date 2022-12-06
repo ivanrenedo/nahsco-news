@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
+import { t } from '@lingui/macro';
 import scrollHorizontal from '@components/hook/scrollHorizontal'
-import { jobsArr } from './data';
+import { urlFor } from '@utils/sanity';
+import jobsApi from '@components/api/jobs';
 
 
 const JobSection = () => {
@@ -13,25 +15,30 @@ const JobSection = () => {
     const getCurrentDate = (date) => {
         return moment(date).format("DD MMM YYYY")
     }
+
+    const {jobs, loading} = jobsApi();
+    
    
 
   return (
-    <section className='section-collab section-jobs position-rel'>
-        <div className="display-block width-100 box-sizing font-inherit section-collab-contain">
-          <div className="format-div-2">
-              <div className="display-block position-rel font-inherit">
-                  <h2 className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8">JOBS</h2>
-                  <div className="hr"></div>
-              </div>
-              <div className="display-block box-sizing position-rel font-inherit p-t-24">
+    <>
+      {jobs && (
+        <section className='section-collab section-jobs position-rel'>
+          <div className="display-block width-100 box-sizing font-inherit section-collab-contain">
+            <div className="format-div-2">
+                <div className="display-block position-rel font-inherit">
+                    <h2 className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8">{t`Jobs`}</h2>
+                    <div className="hr"></div>
+                </div>
+                <div className="display-block box-sizing position-rel font-inherit p-t-24">
                   <ul className="position-rel display-flex overflow-auto-x overflow-h-y people-gap section-event-contain section-event-wrap" ref={scrollRef}>
-                    {jobsArr.map((job, i) => (
+                    {jobs.map((job, i) => (
                         <li key={i} className="position-rel cursor-initial flex-algn-stretch" > 
                           <div className="display-block job-item-container">
                             <Link href="/job/[slug]" as={`/job/${job.slug}`}>
                               <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-image event-image-container">
                                 <div className="position-rel height-100 z-index-0">
-                                    <img src={job.photo} alt={job.title} srcSet={job.photo} className="image" />
+                                  <img src={urlFor(job.image)} alt={job.title} srcSet={urlFor(job.image)} className="image" />
                                 </div>
                               </a>
                             </Link>
@@ -49,10 +56,12 @@ const JobSection = () => {
                         </li>
                     ))}
                   </ul>
-              </div>
-          </div>
-      </div>
-    </section>
+                </div>
+            </div>
+        </div>
+      </section>
+      )}
+    </>
   )
 }
 
