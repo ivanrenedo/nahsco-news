@@ -87,6 +87,9 @@ class MyDocument extends Document {
                     <NextScript />
                     <div id="modal-root" style={{zIndex: 2000, position: "fixed", top: 0, bottom: 0}}/>
                     <div id="modal-confirm-action" style={{zIndex: 2000, position: "fixed", top: 0, bottom: 0}}/>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </body>
             </Html>
         )

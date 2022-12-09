@@ -1,5 +1,5 @@
 const SEO = {
-    description: "Gepetrol Networking | Tu plataforma digital para crear tus redes de contactos"
+    description: "NAHSCO NEWS is a Equatorial Guinea's leading hydrocarbons sector news hub."
 };
 
 export default SEO;

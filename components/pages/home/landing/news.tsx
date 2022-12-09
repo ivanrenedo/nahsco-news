@@ -74,13 +74,12 @@ const NewsSection = () => {
                             <div className="content-posts-aside">
                                 <div className="space-pub-container">
                                     <div className="position-rel box-sizing">
-                                        <PubSpace>
-                                            <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
-                                                <div className="position-rel">
-                                                    <img src="img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="img/pubnashco.jpeg" className="image" />
-                                                </div>
-                                            </div>
-                                        </PubSpace>
+                                    <ins className="adsbygoogle"
+                                        style={{display: "block"}}
+                                        data-ad-client="ca-pub-2621121538375000"
+                                        data-ad-slot="1761305707"
+                                        data-ad-format="auto"
+                                        data-full-width-responsive="true"></ins>
                                     </div>
                                     <div className="position-rel m-t-24">
                                         {recentIocs.length > 0 && (
