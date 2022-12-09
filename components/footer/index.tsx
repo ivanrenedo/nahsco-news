@@ -60,22 +60,22 @@ const FooterComponent = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="display-flex flex-col flex-justify-center box-sizing font-inherit text-white-var-1">
+               {/*  <div className="display-flex flex-col flex-justify-center box-sizing font-inherit text-white-var-1">
                     <div className="footer-slogan line-height-3 footer-text-center m-in-auto p-b-24">{t`Receive an email a day with the articles of NAHSCO NEWS`}</div>
                     <div className="form-content-footer footer-center display-flex flex-col flex-algn-center footer-slogan m-in-auto footer-text-center">
                         <input type="text" name="fullname" placeholder='Jhon Doe' className='input-form width-100 m-b-12' />
                         <input type="email" name="email" placeholder='jhondoe@gmail.com' className='input-form width-100 m-b-16' />
                         <button className='secundary-var-1 button-subscribe width-100 font-size-5 font-weight-2'>{t`Subscribe`}</button>
                     </div>
-                </div>
-                <div className="display-flex flex-col box-sizing font-inherit text-white-var-1">
-                    <div className="display-flex flex-algn-center m-b-12">
+                </div> */}
+                <div className="display-flex flex-col text-white-var-1">
+                    <div className="display-flex flex-algn-center footer-center m-b-12">
                         {t`Website created by`}
                         <div className="font-size-4 font-weight-2 m-l-4">SOLTEC SL</div>
                     </div>
-                    <div className="display-block">
-                        <span className=''>{t`Contact us`}</span>
-                        <div className=' font-size-4 m-t-4'>tel: +240 222 626418</div>
+                    <div className="display-flex flex-col">
+                        <span className='display-flex footer-center'>{t`Contact us`}</span>
+                        <div className='display-flex footer-center font-size-4 m-t-4'>tel: +240 222 626418</div>
                     </div>
                 </div>
             </div> 

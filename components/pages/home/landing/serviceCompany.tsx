@@ -28,8 +28,8 @@ const ServiceCompanies = () => {
                                 <div className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8 display-flex flex-grow text-error">{t`Service companies`}</div>
                                 <div className="hr flex-shrink-1"></div>
                             </div>
-                            <div className="content-wrap-post">
-                                <div className="">
+                            <div className="content-wrap-post width-100">
+                                <div className=" width-100">
                                     <ul className="display-grid grid-news-item grid-news-item grid-service-item p-t-24 people-gap">
                                         {serviceCompany.map((post, i) => (
                                             <li className={`cursor-initial flex-algn-stretch service-item service-item-${i}`} key={post._id}>

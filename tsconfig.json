@@ -45,5 +45,5 @@
   "include": [
     "**/*.ts",
     "**/*.tsx"
-  ]
+, "utils/gtag.js", "utils/gtag.js"  ]
 }

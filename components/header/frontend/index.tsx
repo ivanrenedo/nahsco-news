@@ -88,7 +88,8 @@ const HeaderMainComponent = ({openSidebar}) => {
                         </div>
                     </div>
                     <div className='display-flex flex-algn-center'>
-                        <div className="lingui-trans position-abs"><LocaleSwitcher /></div>
+                    {/* class for local lingui-trans */}
+                        <div className="position-abs right-0 header-p-r"><LocaleSwitcher /></div>
                         {/* <SearchComponent searchArr={allPost} /> */}
                     </div>
                 </div>

@@ -36,8 +36,8 @@ const NewsSection = () => {
                             <h2 className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8 text-primary-var-1">{t`News`}</h2>
                             <div className="hr"></div>
                         </div>
-                        <div className="content-wrap-post">
-                            <div className="">
+                        <div className="content-wrap-post width-100">
+                            <div className=" width-100">
                                 {popularNews && (
                                     <ul className="section-news-contain display-grid grid-news-item p-t-24">
                                         {popularNews?.map((post, i) => (
@@ -61,10 +61,6 @@ const NewsSection = () => {
                                                                 <p className="mask-text-line3 m-b-12 post-content">{post.metadata}</p>
                                                                 <div className="display-flex flex-algn-center font-size-6 post-date m-t-4 neutral-color-2">
                                                                     <div className="display-flex m-r-32 font-size-5">{getCurrentDate(post.publishedAt)}</div>
-                                                                    <div className="display-flex flex-justify-center flex-algn-center flex-row-reverse height-100">
-                                                                        views
-                                                                        <span className="m-r-2">{post.visitas}</span> 
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -115,10 +111,6 @@ const NewsSection = () => {
                                                                             </Link>
                                                                             <div className="display-flex flex-algn-center font-size-6 neutral-color-2">
                                                                                 <div className="display-flex flex-grow">{getCurrentDate(post.publishedAt)}</div>
-                                                                                <div className="display-flex flex-justify-center flex-algn-center flex-row-reverse">
-                                                                                    views
-                                                                                    <span className="m-r-2">{post.visitas}</span>
-                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>

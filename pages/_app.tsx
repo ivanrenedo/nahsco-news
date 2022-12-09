@@ -9,15 +9,27 @@ import '../public/css/normalize.css';
 import seo from '../seo.config';
 import { AppProvider } from '@components/hook/context/mainContext';
 import { activate } from '@utils/i18n';
+import * as gtag from '@utils/gtag';
 
 
 function MyApp({ Component, pageProps}) {
-    const { locale } = useRouter()
+    const { locale, events } = useRouter()
 
     useEffect(() => {
         // Activate the default locale on page load
         activate(locale!);
     }, [locale]);
+
+    // Google analitic
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+          gtag.pageview(url)
+        }
+        events.on('routeChangeComplete', handleRouteChange)
+        return () => {
+          events.off('routeChangeComplete', handleRouteChange)
+        }
+    }, [events])
 
     useEffect(() => {
         const isLocalhost = Boolean(

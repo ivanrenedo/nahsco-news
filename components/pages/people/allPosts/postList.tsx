@@ -46,7 +46,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                                 <img src={urlFor(people.image)} alt={people.title} srcSet={urlFor(people.image)} className="image" />
                                             </div>
                                             <div className="text-white-var-1 display-block position-abs left-0 bottom-0 p-l-8 p-b-8 z-index-1">
-                                                <span className='font-weight-3 font-size-4 line-height-2'>{people.name}</span>
+                                                <span className='font-weight-3 font-size-4 line-height-2'>{people.fullname}</span>
                                             </div>
                                         </a>
                                     </Link>   
@@ -59,9 +59,9 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                                     <div className='post-title font-inherit position-rel overflow-wrap'>{people.title}</div>
                                                 </a>
                                             </Link>
-                                            <p className="mask-text-line3 m-t-8 post-content">{people.content}</p>
+                                            <p className="mask-text-line3 m-t-8 post-content">{people.metadata}</p>
                                             <div className="display-flex flex-algn-center post-date neutral-color-2">
-                                                <div className="display-flex m-t-4 font-size-5 overflow-wrap">{getCurrentDate(people.createdAt)}</div>
+                                                <div className="display-flex m-t-4 font-size-5 overflow-wrap">{getCurrentDate(people.publishedAt)}</div>
                                             </div>
                                         </div>
                                     </div>

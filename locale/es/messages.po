@@ -116,7 +116,7 @@ msgstr "Noticias populares"
 #: pages/search/[slug].tsx:75
 #: pages/service-company/[slug].tsx:88
 msgid "Published at"
-msgstr "Publicado en"
+msgstr "Publicado el"
 
 #: components/footer/index.tsx:64
 msgid "Receive an email a day with the articles of NAHSCO NEWS"
