@@ -74,12 +74,23 @@ const NewsSection = () => {
                             <div className="content-posts-aside">
                                 <div className="space-pub-container">
                                     <div className="position-rel box-sizing">
-                                    <ins className="adsbygoogle"
-                                        style={{display: "block"}}
-                                        data-ad-client="ca-pub-2621121538375000"
-                                        data-ad-slot="1761305707"
-                                        data-ad-format="auto"
-                                        data-full-width-responsive="true"></ins>
+                                    <PubSpace>
+                                        <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2621121538375000"
+                                            crossOrigin="anonymous"></script>
+                                        
+                                        <ins className="adsbygoogle"
+                                            style={{display:"block"}}
+                                            data-ad-client="ca-pub-2621121538375000"
+                                            data-ad-slot="1761305707"
+                                            data-ad-format="auto"
+                                            data-full-width-responsive="true"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                        </script>
+
+                                        </div>
+                                    </PubSpace>
                                     </div>
                                     <div className="position-rel m-t-24">
                                         {recentIocs.length > 0 && (
