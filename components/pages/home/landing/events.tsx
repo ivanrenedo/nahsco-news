@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { t } from '@lingui/macro';
 
 import scrollHorizontal from '@components/hook/scrollHorizontal'
-import { urlFor } from '@utils/sanity';
 import eventsApi from '@components/api/events';
+import useApi from '@utils/strapi/useApi';
+import { baseURL } from '@utils/strapi/client';
 
 
 const EventSection = () => {
@@ -17,13 +18,24 @@ const EventSection = () => {
         return moment(date).format("DD MMM YYYY")
     }
 
-    const {events, loading} = eventsApi();
+    const {fetchPopularEvents} = eventsApi();
+
+    //popular events
+    const getPopulaEventApi = useApi(fetchPopularEvents);
+
+
+    React.useEffect(() => {
+       
+        getPopulaEventApi.request();
+       
+    }, []);
+
     
    
 
   return (
     <>
-        {events.length > 0 && (
+        {getPopulaEventApi.data && (
             <section className='section-collab position-rel primary-bg-1'>
                 <div className="display-block width-100 box-sizing font-inherit section-collab-contain">
                     <div className="format-div-2">
@@ -34,27 +46,27 @@ const EventSection = () => {
                         <div className="content-wrap-post">
                             <div className="">
                                 <ul className="section-event-contain display-grid section-event-wrap people-gap p-t-24">
-                                    {events.map((event, i) => (
-                                        <li className={`cursor-initial flex-algn-stretch event-item post-item-${i}`} key={event._id}>
+                                    {getPopulaEventApi.data.map((event, i) => (
+                                        <li className={`cursor-initial flex-algn-stretch event-item post-item-${i}`} key={event.id}>
                                             <div className="display-flex flex-algn-center flex-grow flex-col flex-algn-stretch width-100 post-item-container">
                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel event-image-container">
-                                                    <Link  href="/event/[slug]" as={`/event/${event.slug}`}>
+                                                    <Link  href="/event/[slug]" as={`/event/${event.attributes.Slug}`}>
                                                         <a className="overflow-h-x overflow-h-y position-rel height-100">
-                                                            <img src={urlFor(event.image)} alt={event.title} srcSet={urlFor(event.image)} className="image" />
+                                                            <img src={`${baseURL}${event.attributes.image.data.attributes.url}`} alt={event.attributes.title} srcSet={`${baseURL}${event.attributes.image.data.attributes.url}`} className="image" />
                                                         </a>
                                                     </Link> 
                                                 </div>
                                                 <div className="display-flex flex-col flex-grow p-t-12 p-b-16 p-l-8 p-r-8">
                                                     <div className="post-body-container position-rel display-block box-sizing">
                                                         <div className="position-rel display-block box-sizing line-height-2">
-                                                            <Link  href="/event/[slug]" as={`/event/${event.slug}`}>
+                                                            <Link  href="/event/[slug]" as={`/event/${event.attributes.Slug}`}>
                                                                 <a className="font-size-4 font-weight-2 text-white-var-2 event-title">
-                                                                    <div className="m-b-8">{event.title}</div>
+                                                                    <div className="m-b-8">{event.attributes.title}</div>
                                                                 </a>
                                                             </Link> 
-                                                            <p className="mask-text-line3 font-size-5 event-content neutral-color-3">{event.location}</p>
+                                                            <p className="mask-text-line3 font-size-5 event-content neutral-color-3">{event.attributes.location}</p>
                                                             <div className="display-flex flex-algn-center font-size-6 post-date m-t-4 neutral-color-2">
-                                                                <div className="display-flex m-r-32 font-size-5">{getCurrentDate(event.dateFrom)} - {getCurrentDate(event.dateTo)}</div>
+                                                                <div className="display-flex m-r-32 font-size-5">{getCurrentDate(event.attributes.dateFrom)} - {getCurrentDate(event.attributes.dateTo)}</div>
                                                             </div>
                                                         </div>
                                                     </div>

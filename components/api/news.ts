@@ -1,187 +1,103 @@
-import React, {useState} from 'react';
+import React from 'react';
+const qs = require('qs');
 import {useRouter} from 'next/router';
-import { getSanityClient } from '@utils/sanity/sanity-server';
+
+
+import {apiClient} from '@utils/strapi/client';
 
 const newsApi = () => {
     const router = useRouter();
 
-    const [popularNews, setPopularNews] = useState<any[]>([])
-    const [recentIocs, setIocs] = useState<any[]>([]);
-    const [recentNews, setRecentNews] = useState<any[]>([]);
-    const [allIocs, setallIocs] = useState<any[]>([]);
+    const {locale, query} = router;
 
-    const [postCount, setPostCount] = useState(1);
+    const localeState = locale == "es" ? `${locale}-ES` : locale;
 
-    const [loadingPopularNews, setLoadingPopularNews] = useState(true)
-    const [loadingNews, setLoadingNews] = useState(true)
-    const [lodingRecentIocs, setLodingIocs] = useState(true);
-
-    const {locale} = router
-
-
-    const fetchPopularNews = async() => {
-
-        try {
-            setLoadingPopularNews(true);
-
-            const result = await getSanityClient(true).fetch(`
-                *[_type == "post" && language == $locale && "news" in categories[]->name ][0...5] | order(visitas desc) {
-                    _id, 
-                    title,
-                    body,
-                    visitas, 
-                    language,
-                    metadata,
-                    image,
-                    "slug": slug.current,
-                    publishedAt,
-                    "category": categories[]-> {name}
+      //populatePostNews
+      const queryPopularNews = qs.stringify({
+        sort: ['visitas:desc'],
+        filters: {
+            tags: {
+                name: {
+                    $eq: "news"
                 }
-            `,{locale})
+            }
+        },
+        pagination: {
+            start: 0,
+            limit: 6,
+        },
+        populate: '*'
+      }, {
+        encodeValuesOnly: true, // prettify URL
+      });
+      
+    const fetchPopularNews = () => apiClient.get(`/posts?locale=${localeState}&${queryPopularNews}`);
 
-            setLoadingPopularNews(false)
-            setPopularNews(result)
-            
-        } catch (error) {
-            console.log(error)
-            setLoadingPopularNews(false)
-        }
-        
-    }
-
-    const fetchRecentNews = async() => {
-        setLoadingNews(true)
-        try {
-            /* offset: router.query.offset, limit: router.query.limit */
-            const result = await getSanityClient(true).fetch(`
-                *[_type == "post" && language == $locale && "news" in categories[]->name ] | order(publishedAt desc) {
-                    _id, 
-                    title, 
-                    body,
-                    visitas, 
-                    language,
-                    metadata,
-                    image,
-                    "slug": slug.current,
-                    publishedAt,
-                    "category": categories[]-> {name}
+    //populatePostNews
+    const queryRecentNews = qs.stringify({
+        sort: ['publishedAt:desc'],
+        filters: {
+            tags: {
+                name: {
+                    $eq: "news"
                 }
-            `,{locale})
+            }
+        },
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
 
-            setRecentNews(result)
-            setLoadingNews(false)
-            
-        } catch (error) {
-            console.log(error)
-            setLoadingPopularNews(false)
-        }
-        
-    }
+    const fetchRecentNews = () => apiClient.get(`/posts?locale=${localeState}&${queryRecentNews}`);
 
-    const fetchAllIocs = async() => {
-
-        try {
-            setLodingIocs(true);
-            /* offset: router.query.offset, limit: router.query.limit */
-            const result = await getSanityClient(true).fetch(`
-                *[_type == "post" && language == $locale && "iocs" in categories[]->name ] | order(publishedAt desc) {
-                    _id, 
-                    title, 
-                    body,
-                    visitas, 
-                    language,
-                    metadata,
-                    image,
-                    "slug": slug.current,
-                    publishedAt,
-                    "category": categories[]-> {name}
+    //populatePostIOCs
+    const queryPopularIocs = qs.stringify({
+        sort: ['visitas:desc'],
+        filters: {
+            tags: {
+                name: {
+                    $eq: "iocs"
                 }
-            `,{locale})
+            }
+        },
+        pagination: {
+            start: 0,
+            limit: 6,
+        },
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
+    const fetchPopularIocs = () => apiClient.get(`/posts?locale=${localeState}&${queryPopularIocs}`);
 
-            setallIocs(result)
-            setLodingIocs(false);
-        } catch (error) {
-            console.log(error)
-            setLodingIocs(false);
-        }
-        
-    }
-
-    const fetchRecentIocs = async() => {
-
-        try {
-            setLodingIocs(true);
-
-            const result = await getSanityClient(true).fetch(`
-                *[_type == "post" && language == $locale && "iocs" in categories[]->name && publishedAt < now() ][0...3] | order(publishedAt desc) {
-                    _id, 
-                    title,
-                    body,
-                    visitas, 
-                    language,
-                    metadata,
-                    image,
-                    "slug": slug.current,
-                    publishedAt,
-                    "category": categories[]-> {name}
+    //RecentPostIOCs
+    const queryRecentIocs = qs.stringify({
+        sort: ['publishedAt:desc'],
+        filters: {
+            tags: {
+                name: {
+                    $eq: "iocs"
                 }
-            `,{locale})
+            }
+        },
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
 
-            setIocs(result)
-            setLodingIocs(false)
-            
-        } catch (error) {
-            console.log(error)
-            setLodingIocs(false)
-        }
-        
-    }
+    const fetchRecentIocs = () => apiClient.get(`/posts?locale=${localeState}&${queryRecentIocs}`);
 
-    const countNews = async() => {
 
-        try {
-
-            const count = await getSanityClient(true).fetch(`
-                count(*[_type == "post" && language == $locale && "news" in categories[]->name ])
-            `,{locale})
-
-            setPostCount(count)
-            
-        } catch (error) {
-            console.log(error)
-        }
-        
-    }
 
     React.useEffect(() => {
-        ( async() => {
-            await fetchPopularNews();
-            await fetchRecentIocs();
-            await fetchAllIocs();
-            await fetchRecentNews();
-            await countNews();
-        })();
-
-        return () => {
-            ( async() => {
-                await fetchPopularNews();
-                await fetchRecentIocs();
-                await fetchAllIocs();
-                await fetchRecentNews()
-                await countNews()
-            })();
-        }
-    }, [locale])
+       
+    }, [locale, query])
 
     return {
-        popularNews,
-        recentIocs,
-        loadingPopularNews,
-        lodingRecentIocs,
-        loadingNews,
-        postCount,
-        recentNews,
-        allIocs
+        fetchPopularNews,
+        fetchPopularIocs,
+        fetchRecentNews,
+        fetchRecentIocs
     }
 }
 

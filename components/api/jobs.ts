@@ -1,97 +1,47 @@
-import React, {useState} from 'react';
+import React from 'react';
+const qs = require('qs');
 import {useRouter} from 'next/router';
-import { getSanityClient } from '@utils/sanity/sanity-server';
+import { apiClient } from '@utils/strapi/client';
 
 const jobsApi = () => {
     const router = useRouter()
-
-    const [jobs, setJobs] = useState<any[]>([])
-    const [allJobs, setAllJobs] = useState<any[]>([])
-  
-    const [loading, setLoading] = useState(true)
   
     const {locale} = router
 
+    const localeState = locale == "es" ? `${locale}-ES` : locale;
+     
 
+    //populatePostService
+    const queryPopularJobs = qs.stringify({
+        sort: ['publishedAt:desc'],
+        pagination: {
+            start: 0,
+            limit: 6,
+        },
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
+      
+    const fetchPopularJobs = () => apiClient.get(`/jobs?locale=${localeState}&${queryPopularJobs}`);
 
-    const fetchEvents = async() => {
-
-        try {
-            setLoading(true);
-  
-            const result = await getSanityClient(true).fetch(`
-              *[_type == "job" && publishedAt < now() ][0...6] | order(publishedAt desc) {
-                  _id, 
-                  companyName,
-                  title,
-                  body,
-                  image,
-                  location,
-                  jobType,
-                  workPlace,
-                  "slug": slug.current,
-                  publishedAt
-              }
-          `)
-  
-            setJobs(result)
-            setLoading(false)
-            
-        } catch (error) {
-            console.log(error)
-            setLoading(false)
-        }
-        
-    }
-
-    const fetchAllEvents = async() => {
-
-        try {
-            setLoading(true);
-  
-            const result = await getSanityClient(true).fetch(`
-              *[_type == "job" && publishedAt < now() ][0...6] | order(publishedAt desc) {
-                  _id, 
-                  companyName,
-                  title,
-                  body,
-                  image,
-                  location,
-                  jobType,
-                  workPlace,
-                  "slug": slug.current,
-                  publishedAt
-              }
-          `)
-  
-            setAllJobs(result)
-            setLoading(false)
-            
-        } catch (error) {
-            console.log(error)
-            setLoading(false)
-        }
-        
-    }
+    //populatePostService
+    const queryRecentJobs = qs.stringify({
+        sort: ['publishedAt:desc'],
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
+      
+    const fetchRecentJobs = () => apiClient.get(`/jobs?locale=${localeState}&${queryRecentJobs}`);
   
     React.useEffect(() => {
-        ( async() => {
-            await fetchEvents();
-            await fetchAllEvents()
-        })();
-  
-        return () => {
-            ( async() => {
-                await fetchEvents();
-                await fetchAllEvents()
-            })();
-        }
+       
     }, [locale])
 
     return {
-        jobs,
-        allJobs,
-        loading
+        fetchPopularJobs,
+        fetchRecentJobs
     }
 }
 

@@ -93,6 +93,10 @@ button.background-var1:active {
     transition: background-color linear;
 }
 
+.bg-hightlight {
+    background-color: #f8a604;
+}
+
 .secundary-var-1 {
     background-color: #14913c;
     will-change: background-color;

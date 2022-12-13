@@ -58,9 +58,9 @@ class MyDocument extends Document {
                 <Head >
                     <link rel="preconnect" href="https://fonts.gstatic.com"/>
                     <link rel="manifest" href="/manifest.json"/>
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2621121538375000" crossOrigin="anonymous"></script>
                 </Head>
                 <body className="body-class" id="nahsco">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2621121538375000" crossOrigin="anonymous"></script>
                     <script
                         dangerouslySetInnerHTML={{
                             __html: blockingSetInitialColorMode

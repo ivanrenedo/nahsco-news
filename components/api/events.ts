@@ -1,95 +1,48 @@
-import React, {useState} from 'react';
+import React from 'react';
+const qs = require('qs');
 import {useRouter} from 'next/router';
-import { getSanityClient } from '@utils/sanity/sanity-server';
+import { apiClient } from '@utils/strapi/client';
 
 const eventsApi = () => {
     const router = useRouter()
-
-    const [events, setEvents] = useState<any[]>([])
-    const [allEvents, setAllEvents] = useState<any[]>([])
   
-    const [loading, setLoading] = useState(true)
-  
-    const {locale} = router
+    const {locale} = router 
 
+    const localeState = locale == "es" ? `${locale}-ES` : locale;
+     
 
+      //populatePostService
+      const queryPopularEvents = qs.stringify({
+        sort: ['publishedAt:desc'],
+        populate: '*',
+        pagination: {
+            start: 0,
+            limit: 6,
+        },
+      }, {
+        encodeValuesOnly: true, // prettify URL
+      });
+      
+    const fetchPopularEvents = () => apiClient.get(`/events?locale=${localeState}&${queryPopularEvents}`);
 
-    const fetchEvents = async() => {
-
-        try {
-            setLoading(true);
-  
-            const result = await getSanityClient(true).fetch(`
-            *[_type == "event" && publishedAt < now() ][0...6] | order(publishedAt desc) {
-                _id, 
-                title,
-                body,
-                image,
-                location,
-                dateFrom,
-                dateTo,
-                "slug": slug.current,
-                publishedAt
-            }
-        `)
-  
-            setEvents(result)
-            setLoading(false)
-            
-        } catch (error) {
-            console.log(error)
-            setLoading(false)
-        }
-        
-    }
-
-    const fetchAllEvents = async() => {
-
-        try {
-            setLoading(true);
-  
-            const result = await getSanityClient(true).fetch(`
-            *[_type == "event" && publishedAt < now() ] | order(publishedAt desc) {
-                _id, 
-                title,
-                body,
-                image,
-                location,
-                dateFrom,
-                dateTo,
-                "slug": slug.current,
-                publishedAt
-            }
-        `)
-  
-            setAllEvents(result)
-            setLoading(false)
-            
-        } catch (error) {
-            console.log(error)
-            setLoading(false)
-        }
-        
-    }
+    //RecentPostService
+    const queryRecentEvents = qs.stringify({
+        sort: ['publishedAt:desc'],
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+      });
+      
+    const fetchRecentEvents = () => apiClient.get(`/events?locale=${localeState}&${queryRecentEvents}`);
+ 
   
     React.useEffect(() => {
-        ( async() => {
-            await fetchEvents();
-            await fetchAllEvents()
-        })();
-  
-        return () => {
-            ( async() => {
-                await fetchEvents();
-                await fetchAllEvents()
-            })();
-        }
+
     }, [locale])
 
     return {
-        events,
-        allEvents,
-        loading
+        fetchPopularEvents,
+        fetchRecentEvents
     }
 }
 

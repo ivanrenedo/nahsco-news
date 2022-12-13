@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import moment from 'moment';
 import Link from "next/link";
 import { t } from '@lingui/macro';
+const qs = require('qs');
+import {useRouter} from "next/router";
+import ReactMarkdown from 'react-markdown'
 
 import BaseShape from "@components/layout/general/baseShape"
 import LayoutMain from "@components/layout/LayoutAuth"
@@ -10,27 +13,19 @@ import PubSpace from "@components/espacioPub";
 import {FacebookShareButton, TwitterShareButton, LinkedinShareButton, WhatsappShareButton, FacebookIcon, TwitterIcon, WhatsappIcon} from  'react-share';
 import LinkedIndIcon from "@components/icons/linkedin";
 import newsApi from "@components/api/news";
-import { urlFor } from "@utils/sanity";
-import { PortableText } from "@portabletext/react";
-import { getSanityClient } from "@utils/sanity/sanity-server";
+import useApi from "@utils/strapi/useApi";
+import { apiClient, baseURL } from "@utils/strapi/client";
 
-
-const BodyComponent = {
-    types: {
-        image: ({value}) => <img className="body-image-post" src={urlFor(value)} /> 
-    },
-    /* block: {
-        normal: ({children}) => <p className="paragraphe-post">{children}</p>
-    }, */
-    
-}
  
 
 const IocsListPage = ({post}) => {
+    const router = useRouter()
 
     const currentPage = "window.location.href";
 
-    const {recentIocs} = newsApi();
+    const {fetchPopularIocs} = newsApi()
+
+    const getPopularIocApi = useApi(fetchPopularIocs);
 
     function goto(url) {
         window.open(url);
@@ -38,6 +33,19 @@ const IocsListPage = ({post}) => {
 
     const getCurrentDate = (date) => {
         return moment(date).format("DD MMM YYYY")
+    }
+
+
+    useEffect(() => {
+        getPopularIocApi.request()
+    }, [])
+
+
+
+    
+    if (post === null) {
+        router.push('/404')
+        return <></>
     }
     
 
@@ -50,7 +58,7 @@ const IocsListPage = ({post}) => {
                             <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />
                         </div>
                     </div> 
-                </AdsLeaderBoard>
+                </AdsLeaderBoard> 
                 <BaseShape>
                     <div className="content-wrap mobile-event-wrap z-index-1 font-inherit min-height-inherit position-rel box-sizing display-flex">
                         <div className="position-rel min-width-0 width-100">
@@ -67,7 +75,7 @@ const IocsListPage = ({post}) => {
                                                                     <div className="position-rel flex-flow">
                                                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                                             <div className="position-rel post-item-container-page">
-                                                                                <img src={urlFor(post.image)} alt={post.title} srcSet={urlFor(post.image)} className="image" />
+                                                                                <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
                                                                             </div>
                                                                         </div>
                                                                         <div className="width-100 z-index-12 display-block position-rel top-body-post">
@@ -84,12 +92,12 @@ const IocsListPage = ({post}) => {
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div className="publishedAt display-flex font-weight-3 neutral-color-1 m-t-16 m-b-8">{`${t`Published at`} ${getCurrentDate(post.publishedAt)} ${t`on IOCs`}`}</div>
-                                                                                    <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.title}</div>
-                                                                                    <p className="m-b-12 font-size-2 line-height-2 neutral-color-1">{post.metadata}</p>
+                                                                                    <div className="publishedAt display-flex font-weight-3 neutral-color-1 m-t-16 m-b-8">{`${t`Published at`} ${getCurrentDate(post.attributes.publishedAt)} ${t`on IOCs`}`}</div>
+                                                                                    <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title}</div>
+                                                                                    <p className="m-b-12 font-size-2 line-height-2 neutral-color-1">{post.attributes.metadata}</p>
                                                                                     <div className="post-item-body">
                                                                                         <div className="post-item-body-container">
-                                                                                            <PortableText value={post.body} components={BodyComponent} />
+                                                                                            <ReactMarkdown children={post.attributes.body} />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div className="display-flex flex-col flex-algn-end flex-justify-center width-100 m-t-32 m-b-32">
@@ -111,10 +119,13 @@ const IocsListPage = ({post}) => {
                                                                                     </div>
                                                                                     <AdsLeaderBoard>
                                                                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
-                                                                                            <div className="position-rel">
-                                                                                                <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />
-                                                                                            </div>
-                                                                                        </div> 
+                                                                                            <ins className="adsbygoogle"
+                                                                                            style={{display: "block"}}
+                                                                                            data-ad-client="ca-pub-2621121538375000"
+                                                                                            data-ad-slot="5460592153"
+                                                                                            data-ad-format="auto"
+                                                                                            data-full-width-responsive="true"></ins>
+                                                                                        </div>
                                                                                     </AdsLeaderBoard>
                                                                                 </div>
                                                                             </div>
@@ -140,22 +151,22 @@ const IocsListPage = ({post}) => {
                                                                             </div>
                                                                         </div>
                                                                         <ul className="display-flex flex-col p-t-16 popular-wrap-post-view display-grid">
-                                                                            {recentIocs.slice(0,3).map((post, i) => (
+                                                                            {getPopularIocApi.data?.slice(0,3).map((post, i) => (
                                                                                 <li className={`cursor-initial popular-wrap-post-item popular-wrap-post-${i}`} key={i}>
                                                                                     <div className="display-flex flex-algn-center flex-grow displey-flex flex-algn-stretch width-100 popular-post-container">
                                                                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
-                                                                                            <Link href="/ioc/[slug]" as={`/ioc/${post.slug}`}>
+                                                                                            <Link href="/ioc/[slug]" as={`/ioc/${post.attributes.Slug}`}>
                                                                                                 <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                                                                    <img src={urlFor(post.image)} alt={post.title} srcSet={urlFor(post.image)} className="image" />
+                                                                                                    <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
                                                                                                 </a>
                                                                                             </Link> 
                                                                                         </div>
                                                                                         <div className="display-flex flex-col flex-grow post-body-wrap">
                                                                                             <div className="post-body-container position-rel display-block box-sizing">
                                                                                                 <div className="position-rel display-block box-sizing line-height-2">
-                                                                                                    <Link href="/ioc/[slug]" as={`/ioc/${post.slug}`}>
+                                                                                                    <Link href="/ioc/[slug]" as={`/ioc/${post.attributes.Slug}`}>
                                                                                                         <a className="font-weight-3 post-title text-black-var-1">
-                                                                                                            <div className="m-b-4">{post.title}</div>
+                                                                                                            <div className="m-b-4">{post.attributes.title}</div>
                                                                                                         </a>
                                                                                                     </Link>
                                                                                                 </div>
@@ -204,26 +215,26 @@ export async function getServerSideProps(context) {
         }
     }
 
-    console.log(pageSlug)
+    const localeState = context.locale == "es" ? `${context.locale}-ES` : context.locale;
 
-    const post = await getSanityClient(true).fetch(`
-        *[_type == "post" && slug.current == $pageSlug ] {
-            _id, 
-            title, 
-            body,
-            visitas, 
-            language,
-            metadata,
-            image,
-            "slug": slug.current,
-            publishedAt,
-            "category": categories[]-> {name}
-        }
-    `,{pageSlug})
+      //populatePostNews
+    const queryPopularNews = qs.stringify({
+        filters: {
+            Slug: {
+                $eq: pageSlug
+            }
+        },
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
+      
+    const result = await apiClient.get(`/posts?locale=${localeState}&${queryPopularNews}`);
+
     
     return {
         props: {
-            post: post[0]
+            post: result.data.data.length > 0 ? result.data.data[0] : null
         }, // will be passed to the page component as props
     }
 }

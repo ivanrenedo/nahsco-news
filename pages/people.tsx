@@ -5,6 +5,9 @@ import LayoutMain from "@components/layout/LayoutAuth"
 import AdsLeaderBoard from "@components/ads/leaderBoard";
 import MostPeopleWatches from "@components/pages/people/most-watches";
 import AllPeople from "@components/pages/people/allPosts";
+import useApi from "@utils/strapi/useApi";
+import AdsApi from "@components/api/Ads";
+import { baseURL } from "@utils/strapi/client";
 
 
 
@@ -23,10 +26,13 @@ const PeoplePage = () => {
                 <MostPeopleWatches />
                 <AdsLeaderBoard>
                     <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
-                        <div className="position-rel">
-                            <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />
-                        </div>
-                    </div> 
+                        <ins className="adsbygoogle"
+                        style={{display: "block"}}
+                        data-ad-client="ca-pub-2621121538375000"
+                        data-ad-slot="5460592153"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    </div>
                 </AdsLeaderBoard>
                 <BaseShape>
                     <div className="content-wrap mobile-event-wrap z-index-1 font-inherit min-height-inherit position-rel box-sizing display-flex">

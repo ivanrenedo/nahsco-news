@@ -38,7 +38,7 @@ const Pagination = props => {
   const onSelectPagination = 
     (pageNumber) => {
       onPageChange(pageNumber)
-      router.push({query: {...router.query, offset: pageNumber, limit: pageSize }})
+      router.push({query: {...router.query, offset: pageNumber }})
      
     }
 
@@ -58,7 +58,7 @@ const Pagination = props => {
         if (pageNumber === DOTS) {
           return <li key={index} className="pagination-item dots">&#8230;</li>;
         }
-        
+    
         return (
           <li
             key={index}

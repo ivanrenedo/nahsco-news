@@ -1,97 +1,48 @@
-import React, {useState} from 'react';
+import React from 'react';
+const qs = require('qs');
 import {useRouter} from 'next/router';
-import { getSanityClient } from '@utils/sanity/sanity-server';
+import { apiClient } from '@utils/strapi/client';
 
 const peopleApi = () => {
     const router = useRouter()
 
-  const [people, setPeople] = useState<any[]>([])
-  const [allPeople, setAllPeople] = useState<any[]>([])
+    const {locale} = router
 
-  const [loading, setLoading] = useState(true)
+    const localeState = locale == "es" ? `${locale}-ES` : locale;
+     
 
-  const {locale} = router
+      //populatePostNews
+      const queryPopularPeople = qs.stringify({
+        sort: ['visitas:desc'],
+        pagination: {
+            start: 0,
+            limit: 6,
+        },
+        populate: '*'
+      }, {
+        encodeValuesOnly: true, // prettify URL
+      });
+      
+    const fetchPopularPeople = () => apiClient.get(`/gentes?locale=${localeState}&${queryPopularPeople}`);
+
+    //populatePostNews
+    const queryRecentPeople = qs.stringify({
+        sort: ['publishedAt:desc'],
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+      });
+      
+    const fetchRecentPeople = () => apiClient.get(`/gentes?locale=${localeState}&${queryRecentPeople}`);
     
-  const fetchPeople = async() => {
-
-    try {
-        setLoading(true);
-
-        const result = await getSanityClient(true).fetch(`
-          *[_type == "people" && language == $locale ][0...6] | order(visitas desc) {
-              _id, 
-              fullname,
-              title,
-              body,
-              metadata,
-              image,
-              sector,
-              visitas, 
-              language,
-              "slug": slug.current,
-              publishedAt
-          }
-      `,{locale})
-
-        setPeople(result)
-        setLoading(false)
-        
-    } catch (error) {
-        console.log(error)
-        setLoading(false)
-    }
-    
-}
-
-const fetchAllPeople = async() => {
-
-    try {
-        setLoading(true);
-
-        const result = await getSanityClient(true).fetch(`
-          *[_type == "people" && language == $locale ] | order(publishedAt desc) {
-              _id, 
-              fullname,
-              title,
-              body,
-              metadata,
-              image,
-              sector,
-              visitas, 
-              language,
-              "slug": slug.current,
-              publishedAt
-          }
-      `,{locale})
-
-      setAllPeople(result)
-        setLoading(false)
-        
-    } catch (error) {
-        console.log(error)
-        setLoading(false)
-    }
-    
-}
-
+  
 React.useEffect(() => {
-    ( async() => {
-        await fetchPeople();
-        await fetchAllPeople()
-    })();
 
-    return () => {
-        ( async() => {
-            await fetchPeople();
-            await fetchAllPeople()
-        })();
-    }
 }, [locale])
 
     return {
-        people,
-        allPeople,
-        loading
+        fetchPopularPeople,
+        fetchRecentPeople
     }
 }
 

@@ -3,10 +3,11 @@ import React from "react";
 import BaseShape from "@components/layout/general/baseShape"
 import LayoutMain from "@components/layout/LayoutAuth";
 import AdsLeaderBoard from "@components/ads/leaderBoard";
-import MostServiceWatches from "@components/pages/service-company/most-watches";
 import AllIocsCompanies from "@components/pages/iocs/allPosts";
 import MostIocsWatches from "@components/pages/iocs/most-watches";
-
+import AdsApi from "@components/api/Ads";
+import useApi from "@utils/strapi/useApi";
+import { baseURL } from "@utils/strapi/client";
 
 
 
@@ -16,6 +17,16 @@ const IocsPage = () => {
     function goto(url) {
         window.open(url);
     }
+
+    const {fetchTopBannerIoc} = AdsApi();
+
+    //popular services
+    const getTopBannerApi = useApi(fetchTopBannerIoc);
+
+
+    React.useEffect(() => {
+        getTopBannerApi.request();
+    }, []);
     
 
     return(
@@ -23,9 +34,13 @@ const IocsPage = () => {
             <div className="landing-page">
                 <MostIocsWatches />
                 <AdsLeaderBoard>
-                    <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                    <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto(getTopBannerApi.data && getTopBannerApi.data[0].attributes.url)}>
                         <div className="position-rel">
-                            <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />
+                            {getTopBannerApi && getTopBannerApi?.data?.length > 0 ? (
+                            <>
+                                <img src={`${baseURL}${getTopBannerApi.data && getTopBannerApi.data[0].attributes.file.data.attributes.url}`} srcSet={`${baseURL}${getTopBannerApi.data && getTopBannerApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                            </>
+                            ) : <img src="/img/publicidad.jpeg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />}
                         </div>
                     </div> 
                 </AdsLeaderBoard>

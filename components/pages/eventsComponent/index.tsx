@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import moment from 'moment';
 import {useRouter} from 'next/router';
 import { t } from '@lingui/macro';
 
@@ -9,9 +8,11 @@ import PostListComponent from './postList';
 import AsideComponent from '@components/layout/general/asideComponent';
 import PubSpace from '@components/espacioPub';
 import serviceCompanyApi from '@components/api/serviceCompany';
-import { urlFor } from '@utils/sanity';
 import eventsApi from '@components/api/events';
 import LoadingPostList from '@components/loaders/postList';
+import useApi from '@utils/strapi/useApi';
+import { baseURL } from '@utils/strapi/client';
+import AdsApi from '@components/api/Ads';
 
 
 
@@ -22,33 +23,44 @@ const AllEventComponent = () => {
 
     const PageSize = 9
 
-    const [currentPostList, setCurrentPostList] = useState(1);
- 
+    const [currentPostList, setCurrentPostList] = useState(router.query.offset ? +router.query.offset :  1);
+
     /* Api */
-    const [postCount, setPostCount] = useState(1);
+    const {fetchRecentEvents} = eventsApi();
+    const {fetchRecentService} = serviceCompanyApi();
+    const {fetchPopularLateralHome} = AdsApi();
 
-    const {serviceCompany, loading} = serviceCompanyApi();
-    const {allEvents, loading:eventLoading} = eventsApi();
+    //recent news
+    const getRecentEventApi = useApi(fetchRecentEvents);
+ 
+    //popular jobs
+    const getServiceApi = useApi(fetchRecentService);
 
 
-    const getCurrentDate = (date) => {
-        return moment(date).format("DD MMM YYYY")
-    }
+    //lateral ads 
+    const getLateralHomeApi = useApi(fetchPopularLateralHome);
+
+
     function goto(url) {
         window.open(url);
     }
 
     useEffect(() => {
+        getRecentEventApi.request()
+        getServiceApi.request()
+        getLateralHomeApi.request()
+    }, [router.query])
+
+    useEffect(() => {
         
-    }, [router.query, allEvents])
+    }, [getRecentEventApi.data])
     
 
-
     const currentTableData = useMemo(() => {
-        const firstPageIndex = (currentPostList - 1) * PageSize;
+        const firstPageIndex = (currentPostList as number - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
-        return allEvents?.slice(firstPageIndex, lastPageIndex);
-    }, [currentPostList, allEvents]);
+        return getRecentEventApi.data?.slice(firstPageIndex, lastPageIndex);
+    }, [currentPostList, getRecentEventApi.data]);
 
 
   
@@ -60,25 +72,29 @@ const AllEventComponent = () => {
                     <div className="hr"></div>
                 </div>
                 <div className="position-rel display-block m-t-16 m-b-32">
-                    {eventLoading ? <LoadingPostList /> : <PostListComponent data={currentTableData!} />}
+                    {getRecentEventApi.loading ? <LoadingPostList /> : <PostListComponent data={currentTableData!} />}
                 </div>
-                {/* <Pagination
+                <Pagination
                     className="pagination-bar"
                     disableArrow={true}
                     currentPage={currentPostList}
-                    totalCount={allPosts?.length}
+                    totalCount={getRecentEventApi.data?.length}
                     pageSize={PageSize}
                     onPageChange={page => setCurrentPostList(page)} 
-                /> */}
+                />
             </div>
             <aside className="top-0 content-posts-aside z-index-0 font-inherit min-height-inherit box-sizing p-t-24 aside-wrap-padd">
                 <AsideComponent pagelet="rightRail">
                     <div className="font-inherit scroll-aside scrollhost pespective-origin-rt transf-style overscroll-bihavior-y display-block" >
                         <div className="position-rel box-sizing">
                             <PubSpace>
-                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto(getLateralHomeApi.data[0].attributes.url)}>
                                     <div className="position-rel">
-                                        <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />
+                                        {getLateralHomeApi && getLateralHomeApi?.data?.length > 0 ? (
+                                            <>
+                                                <img src={`${baseURL}${getLateralHomeApi.data && getLateralHomeApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getLateralHomeApi.data && getLateralHomeApi.data[0].attributes.metadata}`} srcSet={`${baseURL}${getLateralHomeApi.data && getLateralHomeApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                            </>
+                                        ) : <img src="img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="img/pubnashco.jpeg" className="image" />}
                                     </div>
                                 </div>
                             </PubSpace>
@@ -90,22 +106,22 @@ const AllEventComponent = () => {
                                 </div>
                             </div>
                             <ul className="display-flex flex-col p-t-16 popular-wrap-post-view display-grid">
-                                {serviceCompany.slice(0, 4).map((post, i) => (
+                                {getServiceApi.data?.slice(0, 4).map((post, i) => (
                                     <li className={`cursor-initial popular-wrap-post-item popular-wrap-post-${i}`} key={i}>
                                         <div className="display-flex flex-algn-center flex-grow displey-flex flex-algn-stretch width-100 popular-post-container">
                                             <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
-                                                <Link href="/service-company/[slug]" as={`/service-company/${post.slug}`}>
+                                                <Link href="/service-company/[slug]" as={`/service-company/${post.attributes.Slug}`}>
                                                     <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                        <img src={urlFor(post.image)} alt={post.title} srcSet={urlFor(post.image)} className="image" />
+                                                        <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
                                                     </a>
                                                 </Link> 
                                             </div>
                                             <div className="display-flex flex-col flex-grow post-body-wrap">
                                                 <div className="post-body-container position-rel display-block box-sizing">
                                                     <div className="position-rel display-block box-sizing line-height-2">
-                                                        <Link href="/service-company/[slug]" as={`/service-company/${post.slug}`}>
+                                                        <Link href="/service-company/[slug]" as={`/service-company/${post.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-4 post-title text-black-var-1">
-                                                                <div className="m-b-4 overflow-wrap overflow-wrap">{post.title}</div>
+                                                                <div className="m-b-4 overflow-wrap overflow-wrap">{post.attributes.title}</div>
                                                             </a>
                                                         </Link>
                                                     </div>
@@ -119,9 +135,11 @@ const AllEventComponent = () => {
                         <div className="position-rel box-sizing m-t-24">
                             <PubSpace>
                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
-                                    <div className="position-rel">
-                                        <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />
-                                    </div>
+                                    <ins className="adsbygoogle"
+                                        data-ad-client="ca-pub-2621121538375000"
+                                        data-ad-slot="5304432065"
+                                        data-ad-format="auto"
+                                        data-full-width-responsive="true"></ins>
                                 </div>
                             </PubSpace>
                         </div>

@@ -5,6 +5,8 @@ import { t } from '@lingui/macro';
 import scrollHorizontal from '@components/hook/scrollHorizontal'
 import { urlFor } from '@utils/sanity';
 import jobsApi from '@components/api/jobs';
+import useApi from '@utils/strapi/useApi';
+import { baseURL } from '@utils/strapi/client';
 
 
 const JobSection = () => {
@@ -16,13 +18,22 @@ const JobSection = () => {
         return moment(date).format("DD MMM YYYY")
     }
 
-    const {jobs, loading} = jobsApi();
+    const {fetchPopularJobs} = jobsApi();
     
+    //popular events
+    const getPopulaJobApi = useApi(fetchPopularJobs);
+
+
+    React.useEffect(() => {
+       
+        getPopulaJobApi.request();
+       
+    }, []);
    
 
   return (
     <>
-      {jobs && (
+      {getPopulaJobApi.data  && (
         <section className='section-collab section-jobs position-rel'>
           <div className="display-block width-100 box-sizing font-inherit section-collab-contain">
             <div className="format-div-2">
@@ -32,24 +43,24 @@ const JobSection = () => {
                 </div>
                 <div className="display-block box-sizing position-rel font-inherit p-t-24">
                   <ul className="position-rel display-flex overflow-auto-x overflow-h-y people-gap section-event-contain section-event-wrap" ref={scrollRef}>
-                    {jobs.map((job, i) => (
+                    {getPopulaJobApi.data.map((job, i) => (
                         <li key={i} className="position-rel cursor-initial flex-algn-stretch" > 
                           <div className="display-block job-item-container">
-                            <Link href="/job/[slug]" as={`/job/${job.slug}`}>
+                            <Link href="/job/[slug]" as={`/job/${job.attributes.Slug}`}>
                               <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-image event-image-container">
                                 <div className="position-rel height-100 z-index-0">
-                                  <img src={urlFor(job.image)} alt={job.title} srcSet={urlFor(job.image)} className="image" />
+                                  <img src={`${baseURL}${job.attributes.image.data.attributes.url}`} alt={job.attributes.title} srcSet={`${baseURL}${job.attributes.image.data.attributes.url}`} className="image" />
                                 </div>
                               </a>
                             </Link>
                             <div className="p-l-8 p-t-8 p-b-8">
-                              <div className="font-weight-2 m-b-2 m-b-8 font-size-4 mask-text">{job.companyName}</div>
+                              <div className="font-weight-2 m-b-2 m-b-8 font-size-4 mask-text">{job.attributes.companyName}</div>
                               <div className="text-black-var-1 display-block z-index-1">
-                                <span className='line-height-2 mask-text-line3'>{job.title}</span>
+                                <span className='line-height-2 mask-text-line3'>{job.attributes.title}</span>
                               </div>
                               <div className="display-block box-sizing font-inherit text-black-var-3">
-                                <div className='font-size-5 m-t-4'>{job.location}</div>
-                                <div className="font-size-5 text-black-var-3 m-t-2">{getCurrentDate(job.dateFrom)}</div>
+                                <div className='font-size-5 m-t-4'>{job.attributes.location}</div>
+                                <div className="font-size-5 text-black-var-3 m-t-2">{getCurrentDate(job.attributes.publishedAt)}</div>
                               </div>
                             </div>
                           </div>

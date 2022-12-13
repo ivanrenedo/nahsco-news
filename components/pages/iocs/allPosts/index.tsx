@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import moment from 'moment';
 import {useRouter} from 'next/router';
 import { t } from '@lingui/macro';
 
@@ -10,9 +9,11 @@ import PostListComponent from './postList';
 import AsideComponent from '@components/layout/general/asideComponent';
 import PubSpace from '@components/espacioPub';
 import peopleApi from '@components/api/people';
-import { urlFor } from '@utils/sanity';
 import newsApi from '@components/api/news';
 import LoadingPostList from '@components/loaders/postList';
+import useApi from '@utils/strapi/useApi';
+import { baseURL } from '@utils/strapi/client';
+import AdsApi from '@components/api/Ads';
 
 
 
@@ -23,34 +24,49 @@ const AllIocsCompanies = () => {
 
     const PageSize = 9
 
-    const [currentPostList, setCurrentPostList] = useState(1);
+    const [currentPostList, setCurrentPostList] = useState(router.query.offset ? +router.query.offset :  1);
 
     /* Api */
+    const {fetchRecentIocs} = newsApi();
+    const {fetchRecentPeople} = peopleApi();
+    const {fetchLateralIoc, fetchPopularVideoIoc} = AdsApi();
+    
 
-    const [postCount, setPostCount] = useState(1);
+    //recent news
+    const getRecentPeoplesApi = useApi(fetchRecentPeople);
 
-    const {people, loading} = peopleApi();
-    const {allIocs, lodingRecentIocs} = newsApi();
+    //popular jobs
+    const getAllIocsApi = useApi(fetchRecentIocs);
 
-    const getCurrentDate = (date) => {
-        return moment(date).format("DD MMM YYYY")
-    }
+    //lateral ads
+    const getadsLateralIocsApi = useApi(fetchLateralIoc);
+
+    //video ads 
+    const getVideoIocApi = useApi(fetchPopularVideoIoc);
+
 
     function goto(url) {
         window.open(url);
     }
 
     useEffect(() => {
-       
-    }, [router.query, allIocs])
+        getRecentPeoplesApi.request()
+        getAllIocsApi.request()
+        getadsLateralIocsApi.request()
+        getVideoIocApi.request()
+    }, [router.query])
+
+    useEffect(() => {
+        
+    }, [getAllIocsApi.data])
     
 
 
     const currentTableData = useMemo(() => {
-        const firstPageIndex = (currentPostList - 1) * PageSize;
+        const firstPageIndex = (currentPostList as number - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
-        return allIocs?.slice(firstPageIndex, lastPageIndex);
-    }, [currentPostList, allIocs]);
+        return getAllIocsApi.data?.slice(firstPageIndex, lastPageIndex);
+    }, [currentPostList, getAllIocsApi.data]);
 
 
   
@@ -62,25 +78,29 @@ const AllIocsCompanies = () => {
                     <div className="hr"></div>
                 </div>
                 <div className="position-rel display-block m-t-16 m-b-32">
-                    {lodingRecentIocs ? <LoadingPostList /> : <PostListComponent data={currentTableData!} />}
+                    {getAllIocsApi.loading ? <LoadingPostList /> : <PostListComponent data={currentTableData!} />}
                 </div>
-                {/* <Pagination
+                <Pagination
                     className="pagination-bar"
                     disableArrow={true}
                     currentPage={currentPostList}
-                    totalCount={allPosts?.length}
+                    totalCount={getAllIocsApi.data?.length}
                     pageSize={PageSize}
                     onPageChange={page => setCurrentPostList(page)} 
-                /> */}
+                />
             </div>
             <aside className="top-0 content-posts-aside z-index-0 font-inherit min-height-inherit box-sizing p-t-24 aside-wrap-padd">
                 <AsideComponent pagelet="rightRail">
                     <div className="font-inherit scroll-aside scrollhost pespective-origin-rt transf-style overscroll-bihavior-y display-block" >
                         <div className="position-rel box-sizing">
                             <PubSpace>
-                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
                                     <div className="position-rel">
-                                        <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />
+                                        {getVideoIocApi && getVideoIocApi?.data?.length > 0 ? (
+                                            <>
+                                                <video autoPlay={true} loop={true} muted={true} src={`${baseURL}${getVideoIocApi.data && getVideoIocApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                            </>
+                                        ) : <img src="img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="img/pubnashco.jpeg" className="image" />}
                                     </div>
                                 </div>
                             </PubSpace>
@@ -92,26 +112,26 @@ const AllIocsCompanies = () => {
                                 </div>
                             </div>
                             <ul className="display-flex flex-col p-t-16 popular-wrap-post-view display-grid">
-                                {people.slice(0,4).map((people, i) => (
+                                {getRecentPeoplesApi.data?.slice(0,4).map((people, i) => (
                                     <li className={`cursor-initial popular-wrap-post-item popular-wrap-post-${i}`} key={i}>
                                         <div className="display-flex flex-algn-center flex-grow displey-flex flex-algn-stretch width-100 popular-post-container">
                                             <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
-                                                <Link href="/people/[slug]" as={`/people/${people.slug}`}>
+                                                <Link href="/people/[slug]" as={`/people/${people.attributes.Slug}`}>
                                                     <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                        <img src={urlFor(people.image)} alt={people.title} srcSet={urlFor(people.image)} className="image" />
+                                                        <img src={`${baseURL}${people.attributes.image.data.attributes.url}`} alt={people.attributes.title} srcSet={`${baseURL}${people.attributes.image.data.attributes.url}`} className="image" />
                                                     </a>
                                                 </Link> 
                                             </div>
                                             <div className="display-flex flex-col flex-grow post-body-wrap">
                                                 <div className="post-body-container position-rel display-block box-sizing">
                                                     <div className="position-rel display-block box-sizing line-height-2">
-                                                        <Link href="/people/[slug]" as={`/people/${people.slug}`}>
+                                                        <Link href="/people/[slug]" as={`/people/${people.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-4 post-title text-black-var-1">
-                                                                <div className="m-b-4 overflow-wrap">{people.name}</div>
+                                                                <div className="m-b-4 overflow-wrap">{people.attributes.fullname}</div>
                                                             </a>
                                                         </Link>
                                                     </div>
-                                                    <div className="font-size-5 overflow-wrap">{people.title}</div>
+                                                    <div className="font-size-5 overflow-wrap">{people.attributes.title}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,9 +141,13 @@ const AllIocsCompanies = () => {
                         </div>
                         <div className="position-rel box-sizing m-t-24">
                             <PubSpace>
-                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto(getadsLateralIocsApi.data[0].attributes.url)}>
                                     <div className="position-rel">
-                                        <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />
+                                        {getadsLateralIocsApi && getadsLateralIocsApi?.data?.length > 0 ? (
+                                            <>
+                                                <img src={`${baseURL}${getadsLateralIocsApi.data && getadsLateralIocsApi.data[0].attributes.file.data.attributes.url}`}  srcSet={`${baseURL}${getadsLateralIocsApi.data && getadsLateralIocsApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                            </>
+                                        ) : <img src="img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="img/pubnashco.jpeg" className="image" />}
                                     </div>
                                 </div>
                             </PubSpace>
