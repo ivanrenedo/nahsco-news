@@ -43,6 +43,7 @@ const PeoplePage = ({post}) => {
     }, [])
 
     
+    
     if (post === null) {
         router.push('/404')
         return <></>
@@ -101,6 +102,13 @@ const PeoplePage = ({post}) => {
                                                                                     </div>
                                                                                     <p className="m-b-12 font-size-2 line-height-2 neutral-color-1">{post.attributes.metadata}</p>
                                                                                     <div className="post-item-body">
+                                                                                        <div className="box-sizing position-rel">
+                                                                                            {post.attributes.video && post.attributes.video.data && (
+                                                                                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
+                                                                                                    <video controls poster={`${baseURL}${post.attributes.image.data.attributes.url}`} src={`${baseURL}${post.attributes.video.data.attributes.url}`} className="image" />
+                                                                                                </div>
+                                                                                            )}
+                                                                                        </div>
                                                                                         <div className="post-item-body-container">
                                                                                             <ReactMarkdown children={post.attributes.body} />
                                                                                         </div>
