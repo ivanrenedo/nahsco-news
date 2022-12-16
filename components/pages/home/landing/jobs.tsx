@@ -3,7 +3,6 @@ import moment from 'moment';
 import Link from 'next/link';
 import { t } from '@lingui/macro';
 import scrollHorizontal from '@components/hook/scrollHorizontal'
-import { urlFor } from '@utils/sanity';
 import jobsApi from '@components/api/jobs';
 import useApi from '@utils/strapi/useApi';
 import { baseURL } from '@utils/strapi/client';

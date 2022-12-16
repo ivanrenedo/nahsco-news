@@ -2,8 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { t } from '@lingui/macro';
 
-import scrollHorizontal from '@components/hook/scrollHorizontal'
-import { urlFor } from '@utils/sanity';
+import scrollHorizontal from '@components/hook/scrollHorizontal';
 import peopleApi from '@components/api/people';
 import useApi from '@utils/strapi/useApi';
 import { baseURL } from '@utils/strapi/client';

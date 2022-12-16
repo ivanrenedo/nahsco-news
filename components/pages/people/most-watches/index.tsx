@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 
 import peopleApi from '@components/api/people';
-import { urlFor } from '@utils/sanity';
 import useApi from '@utils/strapi/useApi';
 import { baseURL } from '@utils/strapi/client';
 

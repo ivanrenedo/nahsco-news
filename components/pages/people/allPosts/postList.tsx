@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import moment from 'moment';
-import { urlFor } from '@utils/sanity';
 import { baseURL } from '@utils/strapi/client';
 
 
