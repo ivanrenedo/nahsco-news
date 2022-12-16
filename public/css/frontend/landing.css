@@ -123,8 +123,8 @@ hr{
 }
 
 .post-item-image {
-    width: 100px;
-    height: 65px;
+    width: 140px;
+    height: 80px;
 }
 .post-item-image::before {
     content: "";

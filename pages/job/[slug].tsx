@@ -106,8 +106,8 @@ const NewsListPage = ({post}) => {
                                                                                         </div>
                                                                                     </div>
                                                                                     <div className="post-item-body">
-                                                                                        <div className="post-item-body-container">
-                                                                                        <ReactMarkdown children={post.attributes.body} />
+                                                                                        <div className="post-item-body-container overflow-wrap">
+                                                                                            <ReactMarkdown children={post.attributes.body} />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div className="display-flex flex-col flex-algn-end flex-justify-center width-100 m-t-32 m-b-32">

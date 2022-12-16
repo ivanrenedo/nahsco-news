@@ -71,6 +71,7 @@ const NewsListPage = ({post}) => {
                                                 <div className="display-block width-100 box-sizing font-inherit">
                                                     <div className="format-div-2">
                                                         <div className="content-wrap-post flex-flow">
+                                                            
                                                             <div className=" display-flex flex-grow position-rel">
                                                                 <div className="display-block position-rel font-inherit box-sizing">
                                                                     <div className="position-rel flex-flow">
@@ -97,7 +98,14 @@ const NewsListPage = ({post}) => {
                                                                                     <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title}</div>
                                                                                     <p className="m-b-12 font-size-2 line-height-2 neutral-color-1">{post.attributes.metadata}</p>
                                                                                     <div className="post-item-body">
-                                                                                        <div className="post-item-body-container">
+                                                                                        <div className="box-sizing position-rel">
+                                                                                            {post.attributes.video && post.attributes.video.data && (
+                                                                                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
+                                                                                                    <video controls poster={`${baseURL}${post.attributes.image.data.attributes.url}`} src={`${baseURL}${post.attributes.video.data.attributes.url}`} className="image" />
+                                                                                                </div>
+                                                                                            )}
+                                                                                        </div>
+                                                                                        <div className="post-item-body-container overflow-wrap">
                                                                                             <ReactMarkdown children={post.attributes.body} />
                                                                                         </div>
                                                                                     </div>
@@ -232,7 +240,7 @@ export async function getServerSideProps(context) {
       
     const result = await apiClient.get(`/posts?locale=${localeState}&${queryPopularNews}`);
 
-    
+     
     return {
         props: {
             post: result.data.data.length > 0 ? result.data.data[0] : null

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:1337";
+const baseURL = "http://146.190.33.138:1337";
 
 const apiClient = axios.create({
   // Later read this URL from an environment variable

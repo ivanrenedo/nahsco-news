@@ -109,7 +109,7 @@ const PeoplePage = ({post}) => {
                                                                                                 </div>
                                                                                             )}
                                                                                         </div>
-                                                                                        <div className="post-item-body-container">
+                                                                                        <div className="post-item-body-container overflow-wrap">
                                                                                             <ReactMarkdown children={post.attributes.body} />
                                                                                         </div>
                                                                                     </div>
@@ -244,7 +244,7 @@ export async function getServerSideProps(context) {
       
     const result = await apiClient.get(`/gentes?locale=${localeState}&${queryPopularNews}`);
 
-    
+     
     return {
         props: {
             post: result.data.data.length > 0 ? result.data.data[0] : null

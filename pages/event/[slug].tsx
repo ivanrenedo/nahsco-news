@@ -102,7 +102,7 @@ const NewsListPage = ({post}) => {
                                                                                         </div>
                                                                                     </div>
                                                                                     <div className="post-item-body">
-                                                                                        <div className="post-item-body-container">
+                                                                                        <div className="post-item-body-container overflow-wrap">
                                                                                             <ReactMarkdown children={post.attributes.body} />
                                                                                         </div>
                                                                                     </div>
@@ -170,7 +170,7 @@ const NewsListPage = ({post}) => {
                                                                                         <div className="display-flex flex-col flex-grow post-body-wrap">
                                                                                             <div className="post-body-container position-rel display-block box-sizing">
                                                                                                 <div className="position-rel display-block box-sizing line-height-2">
-                                                                                                    <Link href="/event/[slug]" as={`/event/${post.attributes.slug}`}>
+                                                                                                    <Link href="/event/[slug]" as={`/event/${post.attributes.Slug}`}>
                                                                                                         <a className="font-weight-3 post-title text-black-var-1">
                                                                                                             <div className="m-b-4">{post.attributes.title}</div>
                                                                                                         </a>

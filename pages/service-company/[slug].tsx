@@ -12,7 +12,6 @@ import AdsLeaderBoard from "@components/ads/leaderBoard";
 import PubSpace from "@components/espacioPub";
 import {FacebookShareButton, TwitterShareButton, LinkedinShareButton, WhatsappShareButton, FacebookIcon, TwitterIcon, WhatsappIcon} from  'react-share';
 import LinkedIndIcon from "@components/icons/linkedin";
-import { urlFor } from "@utils/sanity";
 import { apiClient, baseURL } from "@utils/strapi/client";
 import useApi from "@utils/strapi/useApi";
 import serviceCompanyApi from "@components/api/serviceCompany";
@@ -95,7 +94,14 @@ const NewsListPage = ({post}) => {
                                                                                     <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title}</div>
                                                                                     <p className="m-b-12 font-size-2 line-height-2 neutral-color-1">{post.attributes.metadata}</p>
                                                                                     <div className="post-item-body">
-                                                                                        <div className="post-item-body-container">
+                                                                                        <div className="box-sizing position-rel">
+                                                                                            {post.attributes.video && post.attributes.video.data && (
+                                                                                                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
+                                                                                                    <video controls poster={`${baseURL}${post.attributes.image.data.attributes.url}`} src={`${baseURL}${post.attributes.video.data.attributes.url}`} className="image" />
+                                                                                                </div>
+                                                                                            )}
+                                                                                        </div>
+                                                                                        <div className="post-item-body-container overflow-wrap">
                                                                                             <ReactMarkdown children={post.attributes.body} />
                                                                                         </div>
                                                                                     </div>
