@@ -51,7 +51,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                         <div className="position-rel display-block box-sizing line-height-2">
                                             <Link href="/job/[slug]" as={`/job/${job.attributes.Slug}`}>
                                                 <a className="font-weight-3 text-black-var-1">
-                                                    <div className='post-title font-inherit position-rel'>{job.attributes.companyName}</div>
+                                                    <div className='post-title font-inherit position-rel'>{job.attributes.companyName.toUpperCase()}</div>
                                                 </a>
                                             </Link>
                                             <p className="mask-text-line3 m-t-8 post-content">{job.attributes.title}</p>

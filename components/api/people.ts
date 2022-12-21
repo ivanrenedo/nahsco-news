@@ -34,6 +34,20 @@ const peopleApi = () => {
       });
       
     const fetchRecentPeople = () => apiClient.get(`/gentes?locale=${localeState}&${queryRecentPeople}`);
+
+
+    const updatePeople = ({id, count}) => {
+
+      const data = {
+          "data": {
+              "visitas": count
+          }
+      }
+
+      apiClient.put(`/gentes/${id}`, data).catch((err) => {
+          console.log({err})
+      })
+  }
     
   
 React.useEffect(() => {
@@ -42,7 +56,8 @@ React.useEffect(() => {
 
     return {
         fetchPopularPeople,
-        fetchRecentPeople
+        fetchRecentPeople,
+        updatePeople
     }
 }
 

@@ -53,9 +53,9 @@ const JobSection = () => {
                               </a>
                             </Link>
                             <div className="p-l-8 p-t-8 p-b-8">
-                              <div className="font-weight-2 m-b-2 m-b-8 font-size-4 mask-text">{job.attributes.companyName}</div>
+                              <div className="font-weight-2 m-b-2 m-b-8 font-size-4 mask-text">{job.attributes.companyName.toUpperCase()}</div>
                               <div className="text-black-var-1 display-block z-index-1">
-                                <span className='line-height-2 mask-text-line3'>{job.attributes.title}</span>
+                                <span className='line-height-2 mask-text-line3'>{job.attributes.title.toUpperCase()}</span>
                               </div>
                               <div className="display-block box-sizing font-inherit text-black-var-3">
                                 <div className='font-size-5 m-t-4'>{job.attributes.location}</div>

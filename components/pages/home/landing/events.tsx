@@ -61,7 +61,7 @@ const EventSection = () => {
                                                         <div className="position-rel display-block box-sizing line-height-2">
                                                             <Link  href="/event/[slug]" as={`/event/${event.attributes.Slug}`}>
                                                                 <a className="font-size-4 font-weight-2 text-white-var-2 event-title">
-                                                                    <div className="m-b-8">{event.attributes.title}</div>
+                                                                    <div className="m-b-8">{event.attributes.title.toUpperCase()}</div>
                                                                 </a>
                                                             </Link> 
                                                             <p className="mask-text-line3 font-size-5 event-content neutral-color-3">{event.attributes.location}</p>

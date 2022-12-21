@@ -18,12 +18,8 @@ const NewsSection = () => {
     const getCurrentDate = (date) => {
         return moment(date).format("DD MMM YYYY")
     }
-    
-    function goto(url) {
-        window.open(url);  
-    }
 
-    const {fetchPopularNews, fetchPopularIocs} = newsApi();
+    const {fetchPopularNews, fetchPopularIocs, updatePost} = newsApi(); 
     const {fetchPopularVideoHome} = AdsApi();
 
    //popular news
@@ -36,6 +32,7 @@ const NewsSection = () => {
     const getVideoHomeApi = useApi(fetchPopularVideoHome);
 
 
+    
 
     
 
@@ -61,12 +58,12 @@ const NewsSection = () => {
                                 {getPopularNewsApi?.data && (
                                     <ul className="section-news-contain display-grid grid-news-item p-t-24">
                                         {getPopularNewsApi?.data?.slice(0, 5).map((post, i) => (
-                                            <li className={`cursor-initial flex-algn-stretch post-item post-item-${i}`} key={post.id}>
+                                            <li className={`cursor-initial flex-algn-stretch post-item post-item-${i}`} onClick={() => updatePost({id: post.id, count: +post.attributes.visitas + 1})} key={post.id}>
                                                 <div className="display-flex flex-algn-center flex-grow post-news-contain flex-algn-stretch width-100 post-item-container">
                                                     <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
                                                         <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                             <a className="post-item-image overflow-h-x overflow-h-y position-rel">
-                                                                <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
+                                                                <img src={`${baseURL}${post?.attributes && post?.attributes?.image?.data?.attributes?.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
                                                             </a>
                                                         </Link>    
                                                     </div>
@@ -75,7 +72,7 @@ const NewsSection = () => {
                                                             <div className="position-rel display-block box-sizing line-height-2">
                                                                 <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                                     <a className="post-title font-weight-2 text-black-var-1">
-                                                                        <div className="m-b-8">{post.attributes.title}</div>
+                                                                        <div className="m-b-8">{post.attributes.title.toUpperCase()}</div>
                                                                     </a>
                                                                 </Link>
                                                                 <p className="mask-text-line3 m-b-12 post-content">{post.attributes.metadata}</p>
@@ -116,7 +113,7 @@ const NewsSection = () => {
                                                 </div>
                                                 <ul className="display-flex flex-col p-t-16 latest-wrap">
                                                     {getPopularIocsApi?.data?.slice(0, 3).map((post, i) => (
-                                                        <li className=" cursor-initial" key={i}>
+                                                        <li className=" cursor-initial" key={i} onClick={() => updatePost({id: post.id, count: +post.attributes.visitas + 1})}>
                                                             <div className="display-flex flex-algn-center flex-grow displey-flex flex-algn-stretch width-100">
                                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                                     <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
@@ -130,7 +127,7 @@ const NewsSection = () => {
                                                                         <div className="position-rel display-block box-sizing line-height-2">
                                                                             <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                                                 <a className="font-weight-3 font-size-5 post-title small-post text-black-var-1">
-                                                                                    <div className="m-b-4 overflow-wrap">{post.attributes.title}</div>
+                                                                                    <div className="m-b-4 overflow-wrap">{post.attributes.title.toUpperCase()}</div>
                                                                                 </a>
                                                                             </Link>
                                                                             <div className="display-flex flex-algn-center font-size-6 neutral-color-2">

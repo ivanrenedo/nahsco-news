@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { t } from '@lingui/macro';
 
-import Menu from '@components/icons/menu';
-import SearchComponent from '@components/searchComponent';
 import LocaleSwitcher from './locale-switcher';
 
 
@@ -13,7 +11,7 @@ import LocaleSwitcher from './locale-switcher';
 const HeaderMainComponent = ({openSidebar}) => {
     let [windowWidth, setWindowWidth] = React.useState<number | undefined>();
 
-    const { push, asPath, locale } = useRouter();
+    const { asPath, locale } = useRouter();
 
 
 

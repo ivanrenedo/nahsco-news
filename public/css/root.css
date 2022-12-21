@@ -194,7 +194,7 @@ button.background-var1:active {
 }
 
 .font-size-1{
-    font-size: clamp(1.2rem, 5vw , 1.3rem);
+    font-size: clamp(1.05rem, 5vw , 1.2rem);
 }
 .font-size-2{
     font-size: clamp(1.01rem, 5vw , 1.05rem);
@@ -506,7 +506,6 @@ button.background-var1:active {
 }
 .overflow-wrap {
     overflow-wrap: break-word;
-    white-space: pre-wrap;
     user-select: text;
     word-break: break-word;
 }

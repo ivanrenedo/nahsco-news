@@ -14,7 +14,7 @@ const PeopleSection = () => {
   scrollHorizontal({carouselRefs: scrollRef});
 
   
-  const {fetchPopularPeople} = peopleApi();
+  const {fetchPopularPeople, updatePeople} = peopleApi();
   
   //popular iocs
   const getPopularPeopleApi = useApi(fetchPopularPeople);
@@ -38,7 +38,7 @@ const PeopleSection = () => {
               <div className="display-block box-sizing position-rel font-inherit p-t-24">
                 <ul className="position-rel display-flex overflow-auto-x overflow-h-y people-gap p-l-16 p-r-16 text-primary-var-4 section-event-contain section-event-wrap" ref={scrollRef}>
                     {getPopularPeopleApi.data?.map((people, i) => (
-                        <li key={i} className="position-rel cursor-initial"> 
+                        <li key={i} className="position-rel cursor-initial" onClick={() => updatePeople({id: people.id, count: +people.attributes.visitas + 1})}> 
                           <div className="display-block service-container">
                             <Link href="/people/[slug]" as={`/people/${people.attributes.Slug}`}>
                               <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-image">
@@ -46,7 +46,7 @@ const PeopleSection = () => {
                                 <img src={`${baseURL}${people.attributes.image.data.attributes.url}`} alt={people.attributes.title} srcSet={`${baseURL}${people.attributes.image.data.attributes.url}`} className="image" />
                                 </div>
                                 <div className="text-white-var-1 display-block position-abs left-0 bottom-0 p-l-8 p-b-8 z-index-1">
-                                  <span className='font-weight-3 font-size-4 line-height-2'>{people.attributes.title}</span>
+                                  <span className='font-weight-3 font-size-4 line-height-2'>{people.attributes.title.toUpperCase()}</span>
                                 </div>
                               </a>
                             </Link>

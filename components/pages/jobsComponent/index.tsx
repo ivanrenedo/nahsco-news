@@ -121,7 +121,7 @@ const AllJobsComponent = () => {
                                                     <div className="position-rel display-block box-sizing line-height-2">
                                                         <Link href="/ioc/[slug]" as={`/ioc/${post.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-4 post-title text-black-var-1">
-                                                                <div className="m-b-4 overflow-wrap">{post.attributes.title}</div>
+                                                                <div className="m-b-4 overflow-wrap">{post.attributes.title.toUpperCase()}</div>
                                                             </a>
                                                         </Link>
                                                     </div>

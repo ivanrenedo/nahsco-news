@@ -141,7 +141,7 @@ const AdsApi = () => {
     const queryLateralService = qs.stringify({
         filters: {
             name: {
-                $eq: "lateral ioc-people"
+                $eq: "lateral services"
             }
         }, 
         populate: '*'
@@ -150,6 +150,32 @@ const AdsApi = () => {
     });
       
     const fetchLateralService = () => apiClient.get(`/publicidads?locale=${localeState}&${queryLateralService}`);
+
+    const queryViewBanner = qs.stringify({
+        filters: {
+            name: {
+                $eq: "middel-banner"
+            }
+        }, 
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
+      
+    const fetchPostMiddelBanner = () => apiClient.get(`/publicidads?locale=${localeState}&${queryViewBanner}`);
+
+    const queryLateralPost = qs.stringify({
+        filters: {
+            name: {
+                $eq: "lateral-post-top"
+            }
+        }, 
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
+      
+    const fetchPostTopLateral = () => apiClient.get(`/publicidads?locale=${localeState}&${queryLateralPost}`);
 
     return {
         fetchPopularTopBanner,
@@ -161,7 +187,9 @@ const AdsApi = () => {
         fetchLateralNews,
         fetchTopBannerIoc,
         fetchLateralIoc,
-        fetchLateralService
+        fetchLateralService,
+        fetchPostMiddelBanner,
+        fetchPostTopLateral
     }
 }
 

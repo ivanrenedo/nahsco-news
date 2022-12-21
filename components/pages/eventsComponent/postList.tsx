@@ -51,7 +51,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                         <div className="position-rel display-block box-sizing line-height-2">
                                             <Link href="/event/[slug]" as={`/event/${event.attributes.Slug}`}>
                                                 <a className="font-weight-3 text-black-var-1">
-                                                    <div className='post-title font-inherit position-rel'>{event.attributes.title}</div>
+                                                    <div className='post-title font-inherit position-rel'>{event.attributes.title.toUpperCase()}</div>
                                                 </a>
                                             </Link>
                                             <div className="mask-text-line3 m-t-8 post-content font-size-5">{event.attributes.location}</div>

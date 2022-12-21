@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import moment from 'moment';
 import { baseURL } from '@utils/strapi/client';
+import newsApi from '@components/api/news';
 
 
 interface PostListComponent {
@@ -17,6 +18,8 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
         return moment(date).format("DD MMM YYYY")
     }
 
+    const {updatePost} = newsApi(); 
+    
     useEffect(() => {
       
     }, [data])
@@ -30,6 +33,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                         <li 
                             key={index}
                             className={`cursor-initial flex-algn-stretch list-post-item list-post-item-${index}`}
+                            onClick={() => updatePost({id: post.id, count: +post.attributes.visitas + 1})}
                             ref={el => {
                                 if (el) {
                                     itemRefs.current![index] = el;
@@ -51,7 +55,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                         <div className="position-rel display-block box-sizing line-height-2">
                                             <Link href="/service-company/[slug]" as={`/service-company/${post.attributes.Slug}`}>
                                                 <a className="font-weight-3 text-black-var-1">
-                                                    <div className='post-title font-inherit position-rel overflow-wrap'>{post.attributes.title}</div>
+                                                    <div className='post-title font-inherit position-rel overflow-wrap'>{post.attributes.title.toUpperCase()}</div>
                                                 </a>
                                             </Link>
                                             <p className="mask-text-line3 m-t-8 post-content">{post.attributes.metadata}</p>

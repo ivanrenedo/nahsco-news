@@ -15,7 +15,7 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif, -apple-system;
-    font-size: clamp(.875rem, 8vw , 0.90625rem);
+    font-size: clamp(.875rem, 8vw , 0.95rem);
     font-weight: 400;
     background-color: #ffffff;
     color: #393939;

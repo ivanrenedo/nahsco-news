@@ -120,7 +120,7 @@ const AllServiceCompanies = () => {
                                                     <div className="position-rel display-block box-sizing line-height-2">
                                                         <Link href="/event/[slug]" as={`/event/${event.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-4 small-post text-black-var-1">
-                                                                <div className="m-b-4 overflow-wrap">{event.attributes.title}</div>
+                                                                <div className="m-b-4 overflow-wrap">{event.attributes.title.toUpperCase()}</div>
                                                             </a>
                                                         </Link>
                                                     </div>

@@ -15,18 +15,24 @@ import { apiClient, baseURL } from "@utils/strapi/client";
 import {useRouter} from "next/router";
 import newsApi from "@components/api/news";
 import useApi from "@utils/strapi/useApi";
+import AdsApi from "@components/api/Ads";
 
 
 
 const NewsListPage = ({post}) => {
 
     const currentPage = window.location.href;
-    const router = useRouter()
+    const {locale, push} = useRouter()
 
 
     const {fetchPopularNews} = newsApi()
+    const {fetchLateralService, fetchPostTopLateral, fetchPostMiddelBanner} = AdsApi();
 
     const getPopularNewsApi = useApi(fetchPopularNews);
+
+    const getLateralBottomApi = useApi(fetchLateralService);
+    const getLateralTopPostApi = useApi(fetchPostTopLateral);
+    const getMiddelBannerPostApi = useApi(fetchPostMiddelBanner);
 
     function goto(url) {
         window.open(url);
@@ -39,13 +45,18 @@ const NewsListPage = ({post}) => {
 
     useEffect(() => {
         getPopularNewsApi.request()
+
+        getLateralBottomApi.request()
+        getLateralTopPostApi.request()
+        getMiddelBannerPostApi.request()
     }, [])
 
 
 
     
     if (post === null) {
-        router.push('/404')
+        /* router.push('/404') */
+        push(`/${locale}`)
         return <></>
     }
 
@@ -53,13 +64,12 @@ const NewsListPage = ({post}) => {
     return(
         <LayoutMain title='News'>
             <div className="landing-page">
-                <AdsLeaderBoard>
-                    <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
-                        <div className="position-rel">
-                            <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />
-                        </div>
-                    </div> 
-                </AdsLeaderBoard>
+                <ins className="adsbygoogle"
+                style={{display: "block"}}
+                data-ad-client="ca-pub-2621121538375000"
+                data-ad-slot="5460592153"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
                 <BaseShape>
                     <div className="content-wrap mobile-event-wrap z-index-1 font-inherit min-height-inherit position-rel box-sizing display-flex">
                         <div className="position-rel min-width-0 width-100">
@@ -86,22 +96,28 @@ const NewsListPage = ({post}) => {
 
                                                                                     <div className="position-rel display-flex box-sizing font-inherit overflow-h-x overflow-h-y flex-justify-center">
                                                                                         <div className="display-flex flex-justify-center flex-algn-center flex-grow width-100" style={{minHeight: 60, maxWidth: 1200, maxHeight: '300px'}}>
-                                                                                            <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                                                                                          
+                                                                                            <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto(getMiddelBannerPostApi.data.length > 0 ? getMiddelBannerPostApi.data[0].attributes.url : 'https://www.nahsco.com/')}>
                                                                                                 <div className="position-rel">
-                                                                                                    <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />
+                                                                                                    {getMiddelBannerPostApi && getMiddelBannerPostApi?.data?.length > 0 ? (
+                                                                                                        <>
+                                                                                                            <img src={`${baseURL}${getMiddelBannerPostApi.data && getMiddelBannerPostApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getMiddelBannerPostApi.data && getMiddelBannerPostApi.data[0].attributes.metadata}`} srcSet={`${baseURL}${getMiddelBannerPostApi.data && getMiddelBannerPostApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                                                                                        </>
+                                                                                                    ) : <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />}
                                                                                                 </div>
-                                                                                            </div> 
+                                                                                            </div>
+
                                                                                         </div>
                                                                                     </div>
 
                                                                                     <div className="publishedAt display-flex font-weight-3 neutral-color-1 m-t-16 m-b-8">{`${t`Published at`} ${getCurrentDate(post.attributes.publishedAt)} ${t`on news`}`}</div>
-                                                                                    <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title}</div>
-                                                                                    <p className="m-b-12 font-size-2 line-height-2 neutral-color-1">{post.attributes.metadata}</p>
+                                                                                    <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title.toUpperCase()}</div>
+                                                                                    <p className="m-b-12 font-size-3 line-height-2 neutral-color-1 font-weight-3">{post.attributes.metadata}</p>
                                                                                     <div className="post-item-body">
                                                                                         <div className="box-sizing position-rel">
-                                                                                            {post.attributes.video && post.attributes.video.data && (
+                                                                                            {post.attributes && post.attributes.video && (
                                                                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
-                                                                                                    <video controls poster={`${baseURL}${post.attributes.image.data.attributes.url}`} src={`${baseURL}${post.attributes.video.data.attributes.url}`} className="image" />
+                                                                                                    <iframe className="width-100 video-height" src={`https://www.youtube.com/embed/${post.attributes.video}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                                                                                                 </div>
                                                                                             )}
                                                                                         </div>
@@ -146,9 +162,13 @@ const NewsListPage = ({post}) => {
                                                                 <div className="space-pub-container">
                                                                     <div className="position-rel box-sizing">
                                                                         <PubSpace>
-                                                                            <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                                                                            <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto(getLateralTopPostApi.data.length > 0 ? getLateralTopPostApi.data[0].attributes.url : 'https://www.nahsco.com/')}>
                                                                                 <div className="position-rel">
-                                                                                    <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />
+                                                                                    {getLateralTopPostApi && getLateralTopPostApi?.data?.length > 0 ? (
+                                                                                        <>
+                                                                                            <img src={`${baseURL}${getLateralTopPostApi.data && getLateralTopPostApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getLateralTopPostApi.data && getLateralTopPostApi.data[0].attributes.metadata}`} srcSet={`${baseURL}${getLateralTopPostApi.data && getLateralTopPostApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                                                                        </>
+                                                                                    ) : <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />}
                                                                                 </div>
                                                                             </div>
                                                                         </PubSpace>
@@ -175,7 +195,7 @@ const NewsListPage = ({post}) => {
                                                                                                 <div className="position-rel display-block box-sizing line-height-2">
                                                                                                     <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                                                                         <a className="font-weight-3 post-title text-black-var-1">
-                                                                                                            <div className="m-b-4">{post.attributes.title}</div>
+                                                                                                            <div className="m-b-4">{post.attributes.title.toUpperCase()}</div>
                                                                                                         </a>
                                                                                                     </Link>
                                                                                                 </div>
@@ -188,9 +208,13 @@ const NewsListPage = ({post}) => {
                                                                     </div>
                                                                     <div className="position-rel box-sizing m-t-32">
                                                                         <PubSpace>
-                                                                            <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                                                                            <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto(getLateralBottomApi.data.length > 0 ? getLateralBottomApi.data[0].attributes.url : 'https://www.nahsco.com/')}>
                                                                                 <div className="position-rel">
-                                                                                    <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />
+                                                                                    {getLateralBottomApi && getLateralBottomApi?.data?.length > 0 ? (
+                                                                                        <>
+                                                                                            <img src={`${baseURL}${getLateralBottomApi.data && getLateralBottomApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getLateralBottomApi.data && getLateralBottomApi.data[0].attributes.metadata}`} srcSet={`${baseURL}${getLateralBottomApi.data && getLateralBottomApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                                                                        </>
+                                                                                    ) : <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />}
                                                                                 </div>
                                                                             </div>
                                                                         </PubSpace>

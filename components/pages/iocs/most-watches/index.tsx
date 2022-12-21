@@ -12,7 +12,7 @@ import { baseURL } from '@utils/strapi/client';
 
 
 const MostIocsWatches = () => {
-    const {fetchPopularIocs} = newsApi();
+    const {fetchPopularIocs, updatePost} = newsApi();
 
 
     //recent news
@@ -35,7 +35,7 @@ const MostIocsWatches = () => {
                             <div className="">
                                 <ul className='section-mostwatch-container display-grid'>
                                     {getPopularIocApi.data?.map((post, i) => (
-                                        <li className={`cursor-initial flex-algn-stretch section-mostwatch-item section-mostwatch-item-${i}`} key={i}>
+                                        <li className={`cursor-initial flex-algn-stretch section-mostwatch-item section-mostwatch-item-${i}`} onClick={() => updatePost({id: post.id, count: +post.attributes.visitas + 1})}  key={i}>
                                             <div className="display-flex flex-algn-center flex-grow flex-algn-stretch width-100 height-100 post-item-container">
                                                 <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                     <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container width-100 height-100">
@@ -43,7 +43,7 @@ const MostIocsWatches = () => {
                                                             <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
                                                         </div>
                                                         <div className="position-abs bottom-0 left-0 right-0 text-white-var-1 p-l-8 p-b-8 p-r-8 z-index-10">
-                                                            <div className="service-title font-weight-2">{post.attributes.title}</div>
+                                                            <div className="service-title font-weight-2">{post.attributes.title.toUpperCase()}</div>
                                                             <div className="service-content mask-text m-t-8">{post.attributes.metadata}</div>
                                                         </div>
                                                     </a>

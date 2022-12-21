@@ -122,7 +122,7 @@ const AllPosts = () => {
                                                     <div className="position-rel display-block box-sizing line-height-2">
                                                         <Link href="/job/[slug]" as={`/job/${job.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-5 post-title text-black-var-1">
-                                                                <div className="m-b-4 overflow-wrap">{job.attributes.companyName}</div>
+                                                                <div className="m-b-4 overflow-wrap">{job.attributes.companyName.toUpperCase()}</div>
                                                             </a>
                                                         </Link>
                                                     </div>
@@ -135,7 +135,7 @@ const AllPosts = () => {
                             </ul>
                         </div>
                         <div className="position-rel box-sizing m-t-24">
-                        <PubSpace>
+                            <PubSpace>
                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
                                     <ins className="adsbygoogle"
                                         style={{display:"block"}}

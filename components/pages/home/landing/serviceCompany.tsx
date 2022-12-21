@@ -7,6 +7,7 @@ import serviceCompanyApi from '@components/api/serviceCompany';
 import useApi from '@utils/strapi/useApi';
 import { baseURL } from '@utils/strapi/client';
 import AdsApi from '@components/api/Ads';
+import newsApi from '@components/api/news';
 
 
 
@@ -17,6 +18,7 @@ const ServiceCompanies = () => {
         window.open(url);
     }
 
+    const {updatePost} = newsApi();
     const {fetchPopularService} = serviceCompanyApi();
     const {fetchPopularLateralHome} = AdsApi();
 
@@ -47,14 +49,14 @@ const ServiceCompanies = () => {
                                 <div className=" width-100">
                                     <ul className="display-grid grid-news-item grid-news-item grid-service-item p-t-24 people-gap">
                                         {getPopulaServiceApi.data?.slice(0, 4).map((post, i) => (
-                                            <li className={`cursor-initial flex-algn-stretch service-item service-item-${i}`} key={post.id}>
+                                            <li className={`cursor-initial flex-algn-stretch service-item service-item-${i}`} onClick={() => updatePost({id: post.id, count: +post.attributes.visitas + 1})} key={post.id}>
                                                 <div className="display-flex flex-algn-center flex-grow flex-algn-stretch width-100 post-item-container">
                                                     <Link  href="/service-company/[slug]" as={`/service-company/${post.attributes.Slug}`}>
                                                         <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container width-100">
                                                             <div className="overflow-h-x overflow-h-y position-rel post-image service-image">
                                                                 <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
                                                             </div>
-                                                            <div className="service-title font-weight-2 position-abs bottom-0 left-0 right-0 text-white-var-1 p-l-8 p-b-8 p-r-8 z-index-10 overflow-wrap">{post.attributes.title}</div>
+                                                            <div className="service-title font-weight-2 position-abs bottom-0 left-0 right-0 text-white-var-1 p-l-8 p-b-8 p-r-8 z-index-10 overflow-wrap">{post.attributes.title.toUpperCase()}</div>
                                                         </a>
                                                     </Link>
                                                 </div>

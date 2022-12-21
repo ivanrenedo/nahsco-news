@@ -87,6 +87,20 @@ const newsApi = () => {
 
     const fetchRecentIocs = () => apiClient.get(`/posts?locale=${localeState}&${queryRecentIocs}`);
 
+    
+    const updatePost = ({id, count}) => {
+
+        const data = {
+            "data": {
+                "visitas": count
+            }
+        }
+
+        apiClient.put(`/posts/${id}`, data).catch((err) => {
+            console.log({err})
+        })
+    }
+
 
 
     React.useEffect(() => {
@@ -97,7 +111,8 @@ const newsApi = () => {
         fetchPopularNews,
         fetchPopularIocs,
         fetchRecentNews,
-        fetchRecentIocs
+        fetchRecentIocs,
+        updatePost
     }
 }
 

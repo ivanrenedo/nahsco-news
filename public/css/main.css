@@ -157,3 +157,10 @@ button.contact-us:active {
     display: none;
 }
 
+.post-item-body-container p{
+    margin-bottom: 10px;
+}
+
+.video-height {
+    height: 200px;
+}
