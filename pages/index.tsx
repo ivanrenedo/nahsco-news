@@ -1,27 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import dynamic from 'next/dynamic'
 import _ from 'lodash';
 
 import LayoutMain from '@components/layout/LayoutAuth';
 import VideoBackgroundSection from '@components/pages/home/videoSection';
-import PeopleSection from '@components/pages/home/landing';
-import NewsSection from '@components/pages/home/landing/news';
 import BaseShape from '@components/layout/general/baseShape';
 import AdsLeaderBoard from '@components/ads/leaderBoard';
-import ServiceCompanies from '@components/pages/home/landing/serviceCompany';
-import EventSection from '@components/pages/home/landing/events';
-import JobSection from '@components/pages/home/landing/jobs';
 import AdsApi from '@components/api/Ads';
 import useApi from '@utils/strapi/useApi';
 import { baseURL } from '@utils/strapi/client';
+import newsApi from '@components/api/news';
+import PortalOne from '@components/modal/modal-1';
+import Spinner from '@components/spinner';
 
+
+const NewsSection = dynamic(() => import('@components/pages/home/landing/news'))
+const PeopleSection = dynamic(() => import('@components/pages/home/landing'))
+const ServiceCompanies = dynamic(() => import('@components/pages/home/landing/serviceCompany'))
+const EventSection = dynamic(() => import('@components/pages/home/landing/events'))
+const JobSection = dynamic(() => import('@components/pages/home/landing/jobs'))
 
 function LandingPage() {
+    
 
     function goto(url) {
         window.open(url);
     }
     
     const {fetchPopularTopBanner, fetchBottomBannerHome} = AdsApi();
+    const {fetchPopularNews} = newsApi();
 
     //banner top
     const getBannerTopApi = useApi(fetchPopularTopBanner);
@@ -29,12 +36,36 @@ function LandingPage() {
     //banner bottom
     const getBannerBottomApi = useApi(fetchBottomBannerHome);
     
+    const getPopularNews = useApi(fetchPopularNews);
     
     
     useEffect(() => {
         getBannerTopApi.request();
-        getBannerBottomApi.request()
+        getBannerBottomApi.request();
+        getPopularNews.request();
+
+        return()=> {
+            getBannerTopApi.request();
+            getBannerBottomApi.request();
+            getPopularNews.request();
+        }
+        
     }, [])
+
+
+    useEffect(() => {
+        if (!!getPopularNews.loading) {
+            document.getElementById('nahsco')!.style.overflow = "hidden"
+        }else {
+            document.getElementById('nahsco')!.style.overflow = "initial"
+        }
+
+        return() => {
+            document.getElementById('nahsco')!.style.overflow = "auto"
+        }
+
+    }, [getPopularNews.loading])
+    
 
     
 
@@ -94,6 +125,11 @@ function LandingPage() {
                     </div>
                 </BaseShape>
             </div>
+            {getPopularNews.loading && (
+                <PortalOne id='modal-root'>
+                    <Spinner />
+                </PortalOne>
+            )}
         </LayoutMain>
     );
 }

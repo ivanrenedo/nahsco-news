@@ -1,26 +1,24 @@
-const withPlugins = require('next-compose-plugins');
-const withPWA = require('next-pwa');
 const { locales, sourceLocale } = require('./lingui.config.js')
+const withPlugins = require('next-compose-plugins');
+const withPWA = require('next-pwa')({
+    dest: 'public',
+    swSrc: 'service-worker.js',
+    dynamicStartUrl: true,
+});
+
 
 
 module.exports = withPlugins(
     [
-      /* [withPWA,  
-        {
-            pwa: {
-                dest: 'public',
-                swSrc: 'service-worker.js'
-            }
-        }], */
+      withPWA(),
     ],
     {
         env: {
-            NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
-            NEXT_PUBLIC_SANITY_ID: process.env.NEXT_PUBLIC_SANITY_ID,
-            SANITY_WRITE_KEY: process.env.SANITY_WRITE_KEY
+            NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+            PUBLIC_URL: process.env.PUBLIC_URL
         },
         images: {
-            domains: ['lh3.googleusercontent.com']
+            domains: ['lh3.googleusercontent.com', 'server.egtourismawards.com']
         },
         reactStrictMode: true,
         i18n: {
@@ -40,7 +38,7 @@ module.exports = withPlugins(
     {
         async rewrites () {
             return [{
-                destination: ['https://lh3.googleusercontent.com/:path*'],
+                destination: ['https://lh3.googleusercontent.com/:path*', 'https://server.egtourismawards.com/:path*'],
             }]
         }
     }

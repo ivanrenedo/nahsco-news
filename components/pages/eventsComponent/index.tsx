@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image'
 import {useRouter} from 'next/router';
 import { t } from '@lingui/macro';
 
@@ -49,6 +50,12 @@ const AllEventComponent = () => {
         getRecentEventApi.request()
         getServiceApi.request()
         getLateralHomeApi.request()
+
+        return () => {
+            getRecentEventApi.request()
+            getServiceApi.request()
+            getLateralHomeApi.request()
+        }
     }, [router.query])
 
     useEffect(() => {
@@ -92,9 +99,9 @@ const AllEventComponent = () => {
                                     <div className="position-rel">
                                         {getLateralHomeApi && getLateralHomeApi?.data?.length > 0 ? (
                                             <>
-                                                <img src={`${baseURL}${getLateralHomeApi.data && getLateralHomeApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getLateralHomeApi.data && getLateralHomeApi.data[0].attributes.metadata}`} srcSet={`${baseURL}${getLateralHomeApi.data && getLateralHomeApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                                <Image layout='fill' objectFit='cover' src={`${baseURL}${getLateralHomeApi.data && getLateralHomeApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getLateralHomeApi.data && getLateralHomeApi.data[0].attributes.metadata}`} className="image" />
                                             </>
-                                        ) : <img src="img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="img/pubnashco.jpeg" className="image" />}
+                                        ) : <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" className="image" />}
                                     </div>
                                 </div>
                             </PubSpace>
@@ -112,7 +119,7 @@ const AllEventComponent = () => {
                                             <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                 <Link href="/service-company/[slug]" as={`/service-company/${post.attributes.Slug}`}>
                                                     <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                        <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
+                                                        <Image layout='fill' objectFit='cover' src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
                                                     </a>
                                                 </Link> 
                                             </div>

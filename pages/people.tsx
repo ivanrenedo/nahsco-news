@@ -5,9 +5,6 @@ import LayoutMain from "@components/layout/LayoutAuth"
 import AdsLeaderBoard from "@components/ads/leaderBoard";
 import MostPeopleWatches from "@components/pages/people/most-watches";
 import AllPeople from "@components/pages/people/allPosts";
-import useApi from "@utils/strapi/useApi";
-import AdsApi from "@components/api/Ads";
-import { baseURL } from "@utils/strapi/client";
 
 
 

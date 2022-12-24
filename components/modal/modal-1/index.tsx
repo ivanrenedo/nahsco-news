@@ -13,7 +13,7 @@ const PortalOne = ( {id, children} ) => {
   
   return  mounted ? createPortal(
     <div className={"modal-wrapper"}>
-      <div className={"modal-backdrop"} >
+      <div className={"modal-backdrop"} > 
         <div className={"modal-box upload-page"}>
             {children}
         </div>

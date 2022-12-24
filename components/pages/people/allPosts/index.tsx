@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import { t } from '@lingui/macro';
+import Image from 'next/image';
 
 import Pagination from '@components/pagination';
 import PostListComponent from './postList';
@@ -13,6 +14,7 @@ import LoadingPostList from '@components/loaders/postList';
 import useApi from '@utils/strapi/useApi';
 import { baseURL } from '@utils/strapi/client';
 import AdsApi from '@components/api/Ads';
+
 
 
 
@@ -49,6 +51,12 @@ const AllPeople = () => {
         getRecentPeopleApi.request()
         getNewsApi.request()
         getadsLateralIocsApi.request()
+
+        return () => {
+            getRecentPeopleApi.request()
+            getNewsApi.request()
+            getadsLateralIocsApi.request()
+        }
     }, [router.query])
 
     useEffect(() => {
@@ -92,9 +100,9 @@ const AllPeople = () => {
                                     <div className="position-rel">
                                         {getadsLateralIocsApi && getadsLateralIocsApi?.data?.length > 0 ? (
                                             <>
-                                                <img src={`${baseURL}${getadsLateralIocsApi.data && getadsLateralIocsApi.data[0].attributes.file.data.attributes.url}`}  srcSet={`${baseURL}${getadsLateralIocsApi.data && getadsLateralIocsApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                                <Image layout='fill' objectFit='cover' src={`${baseURL}${getadsLateralIocsApi.data && getadsLateralIocsApi.data[0].attributes.file.data.attributes.url}`} className="image" />
                                             </>
-                                        ) : <img src="img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="img/pubnashco.jpeg" className="image" />}
+                                        ) : <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" className="image" />}
                                     </div>
                                 </div>
                             </PubSpace>
@@ -112,7 +120,7 @@ const AllPeople = () => {
                                             <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                 <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                     <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                        <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
+                                                        <Image layout='fill' objectFit='cover' src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
                                                     </a>
                                                 </Link> 
                                             </div>

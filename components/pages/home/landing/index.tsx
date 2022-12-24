@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { t } from '@lingui/macro';
+import Image from 'next/image'
 
 import scrollHorizontal from '@components/hook/scrollHorizontal';
 import peopleApi from '@components/api/people';
@@ -22,6 +23,10 @@ const PeopleSection = () => {
   React.useEffect(() => {
      
     getPopularPeopleApi.request();
+
+    return () => {
+      getPopularPeopleApi.request();
+    }
      
   }, []);
 
@@ -43,7 +48,7 @@ const PeopleSection = () => {
                             <Link href="/people/[slug]" as={`/people/${people.attributes.Slug}`}>
                               <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-image">
                                 <div className="position-rel height-100 post-image-people z-index-0">
-                                <img src={`${baseURL}${people.attributes.image.data.attributes.url}`} alt={people.attributes.title} srcSet={`${baseURL}${people.attributes.image.data.attributes.url}`} className="image" />
+                                  <Image layout='fill' objectFit='cover' src={`${baseURL}${people.attributes.image.data.attributes.url}`} alt={people.attributes.title} className="image" />
                                 </div>
                                 <div className="text-white-var-1 display-block position-abs left-0 bottom-0 p-l-8 p-b-8 z-index-1">
                                   <span className='font-weight-3 font-size-4 line-height-2'>{people.attributes.title.toUpperCase()}</span>
@@ -69,4 +74,4 @@ const PeopleSection = () => {
   )
 }
 
-export default PeopleSection
+export default React.memo(PeopleSection);

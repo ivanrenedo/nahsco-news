@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
 import { t } from '@lingui/macro';
+import Image from 'next/image'
 import scrollHorizontal from '@components/hook/scrollHorizontal'
 import jobsApi from '@components/api/jobs';
 import useApi from '@utils/strapi/useApi';
@@ -26,6 +27,10 @@ const JobSection = () => {
     React.useEffect(() => {
        
         getPopulaJobApi.request();
+
+        return () => {
+          getPopulaJobApi.request();
+        }
        
     }, []);
    
@@ -48,7 +53,7 @@ const JobSection = () => {
                             <Link href="/job/[slug]" as={`/job/${job.attributes.Slug}`}>
                               <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-image event-image-container">
                                 <div className="position-rel height-100 z-index-0">
-                                  <img src={`${baseURL}${job.attributes.image.data.attributes.url}`} alt={job.attributes.title} srcSet={`${baseURL}${job.attributes.image.data.attributes.url}`} className="image" />
+                                  <Image layout='fill' objectFit='cover' src={`${baseURL}${job.attributes.image.data.attributes.url}`} alt={job.attributes.title} className="image" />
                                 </div>
                               </a>
                             </Link>
@@ -75,4 +80,4 @@ const JobSection = () => {
   )
 }
 
-export default JobSection;
+export default React.memo(JobSection) ;

@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps}) {
     }, [locale]);
 
     // Google analitic
-    useEffect(() => {
+   /*  useEffect(() => {
         const handleRouteChange = (url) => {
           gtag.pageview(url)
         }
@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps}) {
         return () => {
           events.off('routeChangeComplete', handleRouteChange)
         }
-    }, [events])
+    }, [events]) */
 
     useEffect(() => {
         const isLocalhost = Boolean(
@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps}) {
         );
         
         function register(config?:any) {
-            if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+            if ('serviceWorker' in navigator) {
                 // The URL constructor is available in all browsers that support SW.
                 const publicUrl = new URL(process?.env?.PUBLIC_URL!, window.location.href);
                 if (publicUrl.origin !== window.location.origin) {
@@ -52,10 +52,10 @@ function MyApp({ Component, pageProps}) {
                     // serve assets; see https://github.com/facebook/create-react-app/issues/2374
                     return;
                 }
-        
+               
                 window.addEventListener('load', () => {
                     const swUrl = '{REGISTER_SW_PREFIX}/service-worker.js';
-        
+                    
                     if (isLocalhost) {
                         // This is running on localhost. Let's check if a service worker still exists or not.
                         checkValidServiceWorker(swUrl, config);
@@ -157,11 +157,11 @@ function MyApp({ Component, pageProps}) {
             }
         }
 
-        unregister();
+        register();
 
         return () => {
             function register(config?:any) {
-                if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+                if ('serviceWorker' in navigator) {
                     // The URL constructor is available in all browsers that support SW.
                     const publicUrl = new URL(process?.env?.PUBLIC_URL!, window.location.href);
                     if (publicUrl.origin !== window.location.origin) {

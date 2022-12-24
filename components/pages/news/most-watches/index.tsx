@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import newsApi from '@components/api/news';
 import useApi from '@utils/strapi/useApi';
 import { baseURL } from '@utils/strapi/client';
+
 
 
 
@@ -15,6 +17,9 @@ const MostWatches = () => {
 
     useEffect(() => {
         getPopularNewsApi.request();
+        return () => {
+            getPopularNewsApi.request();
+        }
     }, [])
 
     useEffect(() => {
@@ -35,7 +40,7 @@ const MostWatches = () => {
                                                 <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                     <a className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container width-100 height-100">
                                                         <div className="overflow-h-x overflow-h-y position-rel post-image section-mostwatch-image">
-                                                        <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
+                                                            <Image layout='fill' objectFit='cover' src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
                                                         </div>
                                                         <div className="position-abs bottom-0 left-0 right-0 text-white-var-1 p-l-8 p-b-8 p-r-8 z-index-10">
                                                             <div className="service-title font-weight-2">{post.attributes.title.toUpperCase()}</div>
@@ -57,4 +62,4 @@ const MostWatches = () => {
     )
 }
 
-export default MostWatches
+export default React.memo(MostWatches) 

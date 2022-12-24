@@ -26,6 +26,10 @@ const IocsPage = () => {
 
     React.useEffect(() => {
         getTopBannerApi.request();
+
+        return () => {
+            getTopBannerApi.request();
+        }
     }, []);
     
 

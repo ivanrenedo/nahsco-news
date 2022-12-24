@@ -27,6 +27,10 @@ const ServiceCompaniesPage = () => {
 
     React.useEffect(() => {
         getTopBannerApi.request();
+
+        return () => {
+            getTopBannerApi.request();
+        }
     }, []);
     
 

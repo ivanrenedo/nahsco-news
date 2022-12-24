@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import moment from 'moment';
+import Image from 'next/image'
 
 import { t } from '@lingui/macro';
 import PubSpace from '@components/espacioPub';
@@ -40,7 +41,13 @@ const NewsSection = () => {
        
         getPopularNewsApi.request();
         getPopularIocsApi.request();
-        getVideoHomeApi.request()
+        getVideoHomeApi.request();
+
+        return () => {
+            getPopularNewsApi.request();
+            getPopularIocsApi.request();
+            getVideoHomeApi.request();
+        }
     }, []);
 
 
@@ -63,7 +70,7 @@ const NewsSection = () => {
                                                     <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
                                                         <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                             <a className="post-item-image overflow-h-x overflow-h-y position-rel">
-                                                                <img src={`${baseURL}${post?.attributes && post?.attributes?.image?.data?.attributes?.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
+                                                                <Image layout='fill' objectFit='cover' src={`${baseURL}${post?.attributes && post?.attributes?.image?.data?.attributes?.url}`} alt={post.attributes.title} className="image" />
                                                             </a>
                                                         </Link>    
                                                     </div>
@@ -98,7 +105,7 @@ const NewsSection = () => {
                                                     <>
                                                         <video autoPlay={true} loop={true} muted={true} src={`${baseURL}${getVideoHomeApi.data && getVideoHomeApi.data[0].attributes.file.data.attributes.url}`} className="image" />
                                                     </>
-                                                ) : <img src="img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="img/pubnashco.jpeg" className="image" />}
+                                                ) : <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" className="image" />}
                                             </div>
                                         </div>
                                     </PubSpace>
@@ -118,7 +125,7 @@ const NewsSection = () => {
                                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                                     <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                                         <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                                        <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
+                                                                            <Image layout="fill" objectFit='cover' src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
                                                                         </a>
                                                                     </Link> 
                                                                 </div>
@@ -153,4 +160,4 @@ const NewsSection = () => {
     )
 }
 
-export default NewsSection;
+export default React.memo(NewsSection) ;

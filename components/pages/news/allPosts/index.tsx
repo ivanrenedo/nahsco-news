@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import { t } from '@lingui/macro';
+import Image from 'next/image';
 
 import Pagination from '@components/pagination';
 import PostListComponent from './postList';
@@ -13,6 +14,7 @@ import LoadingPostList from '@components/loaders/postList';
 import useApi from '@utils/strapi/useApi';
 import { baseURL } from '@utils/strapi/client';
 import AdsApi from '@components/api/Ads';
+
 
 
 
@@ -48,7 +50,13 @@ const AllPosts = () => {
     useEffect(() => {
         getRecentNewsApi.request();
         getPopularJobApi.request();
-        getAdsNewsApi.request()
+        getAdsNewsApi.request();
+
+        return () => {
+            getRecentNewsApi.request();
+            getPopularJobApi.request();
+            getAdsNewsApi.request();
+        }
     }, [router.query])
 
     useEffect(() => {
@@ -93,9 +101,9 @@ const AllPosts = () => {
                                     <div className="position-rel">
                                         {getAdsNewsApi && getAdsNewsApi?.data?.length > 0 ? (
                                             <>
-                                                <img src={`${baseURL}${getAdsNewsApi.data && getAdsNewsApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getAdsNewsApi.data && getAdsNewsApi.data[0].attributes.metadata}`} srcSet={`${baseURL}${getAdsNewsApi.data && getAdsNewsApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                                <img src={`${baseURL}${getAdsNewsApi.data && getAdsNewsApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getAdsNewsApi.data && getAdsNewsApi.data[0].attributes.metadata}`} className="image" />
                                             </>
-                                        ) : <img src="img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="img/pubnashco.jpeg" className="image" />}
+                                        ) : <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" className="image" />}
                                     </div>
                                 </div>
                             </PubSpace>
@@ -113,7 +121,7 @@ const AllPosts = () => {
                                             <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                 <Link href="/job/[slug]" as={`/job/${job.attributes.Slug}`}>
                                                     <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                    <img src={`${baseURL}${job.attributes.image.data.attributes.url}`} alt={job.attributes.title} srcSet={`${baseURL}${job.attributes.image.data.attributes.url}`} className="image" />
+                                                        <Image layout='fill' objectFit='cover' src={`${baseURL}${job.attributes.image.data.attributes.url}`} alt={job.attributes.title} className="image" />
                                                     </a>
                                                 </Link> 
                                             </div>

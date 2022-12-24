@@ -16,6 +16,7 @@ import {useRouter} from "next/router";
 import newsApi from "@components/api/news";
 import useApi from "@utils/strapi/useApi";
 import AdsApi from "@components/api/Ads";
+import Image from "next/image";
 
 
 
@@ -49,6 +50,14 @@ const NewsListPage = ({post}) => {
         getLateralBottomApi.request()
         getLateralTopPostApi.request()
         getMiddelBannerPostApi.request()
+
+        return () => {
+            getPopularNewsApi.request()
+
+            getLateralBottomApi.request()
+            getLateralTopPostApi.request()
+            getMiddelBannerPostApi.request()
+        }
     }, [])
 
 
@@ -87,7 +96,7 @@ const NewsListPage = ({post}) => {
                                                                     <div className="position-rel flex-flow">
                                                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                                             <div className="position-rel post-item-container-page">
-                                                                                <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
+                                                                                <Image layout='fill' objectFit='cover'  src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
                                                                             </div>
                                                                         </div>
                                                                         <div className="width-100 z-index-12 display-block position-rel top-body-post">
@@ -101,7 +110,7 @@ const NewsListPage = ({post}) => {
                                                                                                 <div className="position-rel">
                                                                                                     {getMiddelBannerPostApi && getMiddelBannerPostApi?.data?.length > 0 ? (
                                                                                                         <>
-                                                                                                            <img src={`${baseURL}${getMiddelBannerPostApi.data && getMiddelBannerPostApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getMiddelBannerPostApi.data && getMiddelBannerPostApi.data[0].attributes.metadata}`} srcSet={`${baseURL}${getMiddelBannerPostApi.data && getMiddelBannerPostApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                                                                                            <Image layout='fill' objectFit='cover' src={`${baseURL}${getMiddelBannerPostApi.data && getMiddelBannerPostApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getMiddelBannerPostApi.data && getMiddelBannerPostApi.data[0].attributes.metadata}`} className="image" />
                                                                                                         </>
                                                                                                     ) : <img src="/img/publicidad.jpg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />}
                                                                                                 </div>
@@ -112,7 +121,7 @@ const NewsListPage = ({post}) => {
 
                                                                                     <div className="publishedAt display-flex font-weight-3 neutral-color-1 m-t-16 m-b-8">{`${t`Published at`} ${getCurrentDate(post.attributes.publishedAt)} ${t`on news`}`}</div>
                                                                                     <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title.toUpperCase()}</div>
-                                                                                    <p className="m-b-12 font-size-3 line-height-2 neutral-color-1 font-weight-3">{post.attributes.metadata}</p>
+                                                                                    <p className="m-b-12 font-size-3 line-height-2 font-weight-3">{post.attributes.metadata}</p>
                                                                                     <div className="post-item-body">
                                                                                         <div className="box-sizing position-rel">
                                                                                             {post.attributes && post.attributes.video && (
@@ -166,7 +175,7 @@ const NewsListPage = ({post}) => {
                                                                                 <div className="position-rel">
                                                                                     {getLateralTopPostApi && getLateralTopPostApi?.data?.length > 0 ? (
                                                                                         <>
-                                                                                            <img src={`${baseURL}${getLateralTopPostApi.data && getLateralTopPostApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getLateralTopPostApi.data && getLateralTopPostApi.data[0].attributes.metadata}`} srcSet={`${baseURL}${getLateralTopPostApi.data && getLateralTopPostApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                                                                            <Image layout='fill' objectFit='cover' src={`${baseURL}${getLateralTopPostApi.data && getLateralTopPostApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getLateralTopPostApi.data && getLateralTopPostApi.data[0].attributes.metadata}`} className="image" />
                                                                                         </>
                                                                                     ) : <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />}
                                                                                 </div>
@@ -186,7 +195,7 @@ const NewsListPage = ({post}) => {
                                                                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                                                             <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                                                                 <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                                                                <img src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} srcSet={`${baseURL}${post.attributes.image.data.attributes.url}`} className="image" />
+                                                                                                <Image layout='fill' objectFit='cover' src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
                                                                                                 </a>
                                                                                             </Link> 
                                                                                         </div>
@@ -212,7 +221,7 @@ const NewsListPage = ({post}) => {
                                                                                 <div className="position-rel">
                                                                                     {getLateralBottomApi && getLateralBottomApi?.data?.length > 0 ? (
                                                                                         <>
-                                                                                            <img src={`${baseURL}${getLateralBottomApi.data && getLateralBottomApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getLateralBottomApi.data && getLateralBottomApi.data[0].attributes.metadata}`} srcSet={`${baseURL}${getLateralBottomApi.data && getLateralBottomApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                                                                                            <Image layout='fill' objectFit='cover' src={`${baseURL}${getLateralBottomApi.data && getLateralBottomApi.data[0].attributes.file.data.attributes.url}`} alt={`${baseURL}${getLateralBottomApi.data && getLateralBottomApi.data[0].attributes.metadata}`} className="image" />
                                                                                         </>
                                                                                     ) : <img src="/img/pubnashco.jpeg" alt="publícate en NAHSCO" srcSet="/img/pubnashco.jpeg" className="image" />}
                                                                                 </div>

@@ -27,6 +27,10 @@ const NewsPage = () => {
 
     React.useEffect(() => {
         getTopBannerApi.request();
+
+        return () => {
+            getTopBannerApi.request();
+        }
     }, []);
 
     return(

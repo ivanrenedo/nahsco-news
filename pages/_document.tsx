@@ -58,9 +58,15 @@ class MyDocument extends Document {
                 <Head >
                     <link rel="preconnect" href="https://fonts.gstatic.com"/>
                     <link rel="manifest" href="/manifest.json"/>
+                    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+                    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+                    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+                    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+                    <meta name="msapplication-TileColor" content="#da532c" />
+                    <meta name="theme-color" content="#ffffff"></meta>
                 </Head>
                 <body className="body-class" id="nahsco">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2621121538375000" crossOrigin="anonymous"></script>
+                    {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2621121538375000" crossOrigin="anonymous"></script> */}
                     <script
                         dangerouslySetInnerHTML={{
                             __html: blockingSetInitialColorMode
@@ -87,9 +93,6 @@ class MyDocument extends Document {
                     <NextScript />
                     <div id="modal-root" style={{zIndex: 2000, position: "fixed", top: 0, bottom: 0}}/>
                     <div id="modal-confirm-action" style={{zIndex: 2000, position: "fixed", top: 0, bottom: 0}}/>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
                 </body>
             </Html>
         )

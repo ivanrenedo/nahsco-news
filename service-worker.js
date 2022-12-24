@@ -22,43 +22,55 @@ WB_MANIFEST.push(
     revision: '1234567800'
   },
   {
-    url: '/connections',
-    revision: '1234567800'
+    url: '/',
+    revision: '1234567810'
+  },
+  {
+    url: '/news',
+    revision: '1234567820'
+  },
+  {
+    url: '/iocs',
+    revision: '1234567830'
+  },
+  {
+    url: '/service-companies',
+    revision: '1234567840'
+  },
+  {
+    url: '/people',
+    revision: '1234567850'
+  },
+  {
+    url: '/events',
+    revision: '1234567860'
   },
   {
     url: '/jobs',
-    revision: '1234567800'
-  },
-  {
-    url: '/explore',
-    revision: '1234567800'
-  },
-  {
-    url: /^\/user.*/i,
-    revision: '1234567800' 
+    revision: '1234567870'
   }
 )
 precacheAndRoute(WB_MANIFEST, {cleanURLs: true})
-warmStrategyCache({urls: ['/home', '/connections', '/jobs', '/explore'], strategy: new CacheFirst()})
+warmStrategyCache({urls: ['/', '/news', '/iocs', '/service-companies', '/people', '/events', '/jobs'], strategy: new CacheFirst()})
 
 cleanupOutdatedCaches()
 registerRoute(
-  '/home',
+  '/',
   new NetworkFirst({
     cacheName: 'start-url',
     plugins: [new ExpirationPlugin({ maxEntries: 1, maxAgeSeconds: 86400, purgeOnQuotaError: !0 })]
   }),
   'GET'
 )
-const networkOnlyNavigationRoute = new Route(
+/* const networkOnlyNavigationRoute = new Route(
   ({request, url}) => request.mode === 'navigate' 
-  && url.pathname !== '/home' && url.pathname !== '/connections' && url.pathname !== '/jobs' && url.pathname !== '/explore',
+  && url.pathname !== '/' && url.pathname !== '/news' && url.pathname !== '/iocs' && url.pathname !== '/service-companies' && url.pathname !== '/people' && url.pathname !== '/events' && url.pathname !== '/jobs',
   new NetworkOnly({
     cacheName: 'pages',
     plugins: [new ExpirationPlugin({ maxEntries: 4, maxAgeSeconds: 3153623, purgeOnQuotaError: !0 })]
   })
-)
-registerRoute(networkOnlyNavigationRoute);
+) */
+/* registerRoute(networkOnlyNavigationRoute); */
 registerRoute(
   /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
   new CacheFirst({
@@ -67,6 +79,7 @@ registerRoute(
   }),
   'GET'
 )
+
 registerRoute(
   /\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,
   new CacheFirst({
@@ -101,18 +114,18 @@ registerRoute(
   }),
   'GET'
 )
-registerRoute(
+/* registerRoute(
   /\.(?:json|xml|csv)$/i,
   new NetworkOnly({
     cacheName: 'static-data-assets'
   }),
   'GET'
-)
+) */
 registerRoute(
-  /\/api\/.*$/i,
+  /^https:\/\/server\.egtourismawards\.com\/.*/i,
   new StaleWhileRevalidate({
     cacheName: 'apis',
-    networkTimeoutSeconds: 10
+    plugins: [new ExpirationPlugin({ maxEntries: 4, maxAgeSeconds: 3153643, purgeOnQuotaError: !0 })]
   }),
   'GET'
 )

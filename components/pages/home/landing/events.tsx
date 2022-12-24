@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import Link from 'next/link';
+import Image from 'next/image'
 import { t } from '@lingui/macro';
 
 import scrollHorizontal from '@components/hook/scrollHorizontal'
@@ -27,11 +28,15 @@ const EventSection = () => {
     React.useEffect(() => {
        
         getPopulaEventApi.request();
+
+        return () => {
+            getPopulaEventApi.request();
+        }
        
     }, []);
 
     
-   
+    
 
   return (
     <>
@@ -52,7 +57,7 @@ const EventSection = () => {
                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel event-image-container">
                                                     <Link  href="/event/[slug]" as={`/event/${event.attributes.Slug}`}>
                                                         <a className="overflow-h-x overflow-h-y position-rel height-100">
-                                                            <img src={`${baseURL}${event.attributes.image.data.attributes.url}`} alt={event.attributes.title} srcSet={`${baseURL}${event.attributes.image.data.attributes.url}`} className="image" />
+                                                            <Image layout="fill" objectFit='cover' src={`${baseURL}${event.attributes.image.data.attributes.url}`} alt={event.attributes.title} className="image" />
                                                         </a>
                                                     </Link> 
                                                 </div>
@@ -85,4 +90,4 @@ const EventSection = () => {
   )
 }
 
-export default EventSection;
+export default React.memo(EventSection);

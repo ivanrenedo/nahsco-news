@@ -25,6 +25,10 @@ const JobPage = () => {
 
     useEffect(() => {
         getBannerBottomApi.request()
+
+        return () => {
+            getBannerBottomApi.request()
+        }
     }, []);
     
 

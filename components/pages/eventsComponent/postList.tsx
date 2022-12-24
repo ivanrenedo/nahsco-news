@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { useEffect } from 'react';
+import Image from 'next/image'
 import moment from 'moment';
 import { baseURL } from '@utils/strapi/client';
 
@@ -42,7 +43,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
                                     <Link href="/event/[slug]" as={`/event/${event.attributes.Slug}`}>
                                         <a className="post-item-image overflow-h-x overflow-h-y position-rel">
-                                            <img src={`${baseURL}${event.attributes.image.data.attributes.url}`} alt={event.attributes.title} srcSet={`${baseURL}${event.attributes.image.data.attributes.url}`} className="image" />
+                                            <Image layout='fill' objectFit='cover' src={`${baseURL}${event.attributes.image.data.attributes.url}`} alt={event.attributes.title} width="100%" height="100%" className="image" />
                                         </a>
                                     </Link>   
                                 </div>
@@ -71,4 +72,4 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
 }
 
 
-export default PostListComponent
+export default React.memo(PostListComponent)
