@@ -4,6 +4,7 @@ const withPWA = require('next-pwa')({
     dest: 'public',
     swSrc: 'service-worker.js',
     dynamicStartUrl: true,
+    skipWaiting: true
 });
 
 
