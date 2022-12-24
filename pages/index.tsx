@@ -125,11 +125,11 @@ function LandingPage() {
                     </div>
                 </BaseShape>
             </div>
-            {getPopularNews.loading && (
+            {/* {getPopularNews.loading && (
                 <PortalOne id='modal-root'>
                     <Spinner />
                 </PortalOne>
-            )}
+            )} */}
         </LayoutMain>
     );
 }
