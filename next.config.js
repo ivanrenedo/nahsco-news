@@ -2,10 +2,7 @@ const { locales, sourceLocale } = require('./lingui.config.js')
 const withPlugins = require('next-compose-plugins');
 const withPWA = require('next-pwa')({
     dest: 'public',
-    swSrc: 'service-worker.js',
-    dynamicStartUrl: true,
-    skipWaiting: true
-    
+    swSrc: 'service-worker.js'
 });
 
 
