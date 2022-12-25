@@ -91,7 +91,7 @@ const NewsListPage = ({post}) => {
                                                                     <div className="position-rel flex-flow">
                                                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                                             <div className="position-rel post-item-container-page">
-                                                                                <Image layout='fill' objectFit='contain' src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
+                                                                                <Image layout='fill' objectFit='contain' src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image-next " />
                                                                             </div> 
                                                                         </div>
                                                                         <div className="width-100 z-index-12 display-block position-rel top-body-post">
