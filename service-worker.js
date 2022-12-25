@@ -90,7 +90,7 @@ registerRoute(
 )
 // disable image cache, so we could observe the placeholder image when offline
 registerRoute(
-  /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
+  /\.(?:jpg|jpeg|gif|png|svg|ico|webp|mp4)$/i,
   new StaleWhileRevalidate({
     cacheName: 'static-image-assets',
     plugins: [new ExpirationPlugin({maxEntries: 20, maxAgeSeconds: 12 * 60 * 60})]
