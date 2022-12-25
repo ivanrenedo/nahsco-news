@@ -35,17 +35,15 @@ const JobPage = () => {
     return(
         <LayoutMain title='People'>
             <div className="landing-page">
-                <AdsLeaderBoard>
-                    <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto(getBannerBottomApi.data && getBannerBottomApi.data[0].attributes.url)}>
-                        <div className="position-rel">
-                            {getBannerBottomApi && getBannerBottomApi?.data?.length > 0 ? (
-                            <>
-                                <img src={`${baseURL}${getBannerBottomApi.data && getBannerBottomApi.data[0].attributes.file.data.attributes.url}`} alt={getBannerBottomApi.data && getBannerBottomApi.data[0].attributes.metadata} srcSet={`${baseURL}${getBannerBottomApi.data && getBannerBottomApi.data[0].attributes.file.data.attributes.url}`} className="image" />
-                            </>
-                            ) : <img src="/img/publicidad.jpeg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />}
-                        </div>
-                    </div> 
-                </AdsLeaderBoard>
+                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto(getBannerBottomApi.data && getBannerBottomApi.data[0].attributes.url)}>
+                    <div className="position-rel">
+                        {getBannerBottomApi && getBannerBottomApi?.data?.length > 0 ? (
+                        <>
+                            <img src={`${baseURL}${getBannerBottomApi.data && getBannerBottomApi.data[0].attributes.file.data.attributes.url}`} alt={getBannerBottomApi.data && getBannerBottomApi.data[0].attributes.metadata} srcSet={`${baseURL}${getBannerBottomApi.data && getBannerBottomApi.data[0].attributes.file.data.attributes.url}`} className="image" />
+                        </>
+                        ) : <img src="/img/publicidad.jpeg" alt="publícate en NAHSCO" srcSet="/img/publicidad.jpeg" className="image" />}
+                    </div>
+                </div> 
                 <BaseShape>
                     <div className="content-wrap mobile-event-wrap z-index-1 font-inherit min-height-inherit position-rel box-sizing display-flex">
                         <div className="position-rel min-width-0 width-100">

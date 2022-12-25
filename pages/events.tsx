@@ -19,16 +19,14 @@ const EventPage = () => {
     return(
         <LayoutMain title='People'>
             <div className="landing-page">
-                <AdsLeaderBoard>
-                    <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
-                        <ins className="adsbygoogle"
-                        style={{display: "block"}}
-                        data-ad-client="ca-pub-2621121538375000"
-                        data-ad-slot="5460592153"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"></ins>
-                    </div>
-                </AdsLeaderBoard>
+                <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
+                    <ins className="adsbygoogle"
+                    style={{display: "block"}}
+                    data-ad-client="ca-pub-2621121538375000"
+                    data-ad-slot="5460592153"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                </div>
                 <BaseShape>
                     <div className="content-wrap mobile-event-wrap z-index-1 font-inherit min-height-inherit position-rel box-sizing display-flex">
                         <div className="position-rel min-width-0 width-100">
