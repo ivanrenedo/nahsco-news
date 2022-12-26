@@ -66,7 +66,6 @@ class MyDocument extends Document {
                     <meta name="theme-color" content="#ffffff"></meta>
                 </Head>
                 <body className="body-class" id="nahsco">
-                    {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2621121538375000" crossOrigin="anonymous"></script> */}
                     <script
                         dangerouslySetInnerHTML={{
                             __html: blockingSetInitialColorMode
@@ -77,6 +76,7 @@ class MyDocument extends Document {
                         async
                         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
                     />
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2621121538375000" crossOrigin="anonymous"></script>
                     <script
                         dangerouslySetInnerHTML={{
                         __html: `
