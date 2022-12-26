@@ -125,7 +125,6 @@ const PeoplePage = ({post}) => {
                                                                                         </div>
                                                                                         <div className="display-flex flex-shrink-1">{post.attributes.sector}</div>
                                                                                     </div>
-                                                                                    <p className="m-b-12 font-size-3 line-height-2 font-weight-3">{post.attributes.metadata}</p>
                                                                                     <div className="post-item-body">
                                                                                         <div className="box-sizing position-rel">
                                                                                             {post.attributes && post.attributes.video && (

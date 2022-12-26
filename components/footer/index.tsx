@@ -15,7 +15,7 @@ const FooterComponent = () => {
                 <div className="display-flex wrap-footer-sec-1 flex-gap-footer">
                     <div className="display-block font-inherit position-rel box-sizing">
                         <div className="text-error font-size-3 font-weight-2 p-b-16 footer-text-center">NAHSCO NEWS</div>
-                        <div className="text-white-var-1 footer-text-center footer-slogan m-in-auto p-b-16">{t`NAHSCO NEWS is a Equatorial Guinea's leading hydrocarbons sector news hub.`}</div>
+                        <div className="text-white-var-1 footer-text-center footer-slogan m-in-auto p-b-16">{t`NAHSCO NEWS is a Equatorial Guine's leading hydrocarbons sector news hub.`}</div>
                         <div className="social-media-footer">
                             <SocialMedia />
                         </div>

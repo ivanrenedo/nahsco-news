@@ -119,7 +119,7 @@ const IocsListPage = ({post}) => {
 
                                                                                     <div className="publishedAt display-flex font-weight-3 neutral-color-1 m-t-16 m-b-8">{`${t`Published at`} ${getCurrentDate(post.attributes.publishedAt)} ${t`on IOCs`}`}</div>
                                                                                     <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title.toUpperCase()}</div>
-                                                                                    <p className="m-b-12 font-size-3 line-height-2 font-weight-3">{post.attributes.metadata}</p>
+                                                    
                                                                                     <div className="post-item-body">
                                                                                         <div className="box-sizing position-rel">
                                                                                             {post.attributes && post.attributes.video && (

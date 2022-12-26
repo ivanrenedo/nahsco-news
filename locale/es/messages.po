@@ -30,64 +30,68 @@ msgid "English"
 msgstr "Inglés"
 
 #: components/footer/index.tsx:49
+#: components/header/frontend/index.tsx:130
 #: components/header/frontend/index.tsx:131
-#: components/header/frontend/index.tsx:132
-#: components/pages/eventsComponent/index.tsx:59
-#: components/pages/home/landing/events.tsx:31
+#: components/pages/eventsComponent/index.tsx:78
+#: components/pages/home/landing/events.tsx:48
 msgid "Events"
 msgstr "Eventos"
 
 #: components/footer/index.tsx:56
+#: components/header/frontend/index.tsx:137
 #: components/header/frontend/index.tsx:138
-#: components/header/frontend/index.tsx:139
-#: components/pages/home/landing/jobs.tsx:30
-#: components/pages/jobsComponent/index.tsx:62
+#: components/pages/home/landing/jobs.tsx:45
+#: components/pages/jobsComponent/index.tsx:78
 msgid "Jobs"
 msgstr "Trabajos"
 
-#: components/pages/home/landing/news.tsx:94
-#: components/pages/jobsComponent/index.tsx:92
-#: pages/ioc/[slug].tsx:139
+#: components/pages/home/landing/news.tsx:118
+#: components/pages/jobsComponent/index.tsx:112
+#: pages/ioc/[slug].tsx:186
 msgid "Latest IOCs"
 msgstr "Lo último en IOCs"
 
-#: components/pages/eventsComponent/index.tsx:89
-#: pages/people/[slug].tsx:147
-#: pages/service-company/[slug].tsx:140
+#: components/pages/eventsComponent/index.tsx:112
+#: pages/people/[slug].tsx:191
+#: pages/service-company/[slug].tsx:180
 msgid "Latest companies"
 msgstr "Lo último"
 
-#: components/pages/service-company/allPosts/index.tsx:89
-#: pages/event/[slug].tsx:148
-#: pages/job/[slug].tsx:150
+#: components/pages/service-company/allPosts/index.tsx:106
+#: pages/event/[slug].tsx:183
+#: pages/job/[slug].tsx:188
 msgid "Latest events"
 msgstr "Lo último en eventos"
 
-#: components/pages/news/allPosts/index.tsx:89
+#: components/pages/news/allPosts/index.tsx:114
 msgid "Latest jobs"
 msgstr "Lo último en trabajos"
 
-#: components/pages/people/allPosts/index.tsx:91
+#: components/pages/people/allPosts/index.tsx:113
 msgid "Latest news"
 msgstr "Lo último en noticias"
 
-#: components/pages/iocs/allPosts/index.tsx:91
+#: components/pages/iocs/allPosts/index.tsx:119
 msgid "Latest people"
 msgstr "Lo último en gente"
 
 #: components/footer/index.tsx:18
-msgid "NAHSCO NEWS is a Equatorial Guinea's leading hydrocarbons sector news hub."
-msgstr "NAHSCO NEWS es el principal centro de noticias sobre el sector de hidrocarburos de Guinea Ecuatorial."
+msgid "NAHSCO NEWS is a Equatorial Guine's leading hydrocarbons sector news hub."
+msgstr ""
+
+#: components/footer/index.tsx:18
+#~ msgid "NAHSCO NEWS is a Equatorial Guinea's leading hydrocarbons sector news hub."
+#~ msgstr "NAHSCO NEWS es el principal centro de noticias sobre el sector de hidrocarburos de Guinea Ecuatorial."
 
 #: components/pages/home/videoSection/index.tsx:16
 msgid "NEWS HUB"
 msgstr "EL SECTOR DE HIDROCARBUROS DE G.E"
 
 #: components/footer/index.tsx:28
+#: components/header/frontend/index.tsx:102
 #: components/header/frontend/index.tsx:103
-#: components/header/frontend/index.tsx:104
-#: components/pages/home/landing/news.tsx:36
-#: components/pages/news/allPosts/index.tsx:59
+#: components/pages/home/landing/news.tsx:60
+#: components/pages/news/allPosts/index.tsx:80
 msgid "News"
 msgstr "Noticias"
 
@@ -96,51 +100,51 @@ msgid "No results"
 msgstr "Sin resultados"
 
 #: components/footer/index.tsx:35
+#: components/header/frontend/index.tsx:123
 #: components/header/frontend/index.tsx:124
-#: components/header/frontend/index.tsx:125
-#: components/pages/home/landing/index.tsx:26
-#: components/pages/people/allPosts/index.tsx:61
+#: components/pages/home/landing/index.tsx:40
+#: components/pages/people/allPosts/index.tsx:79
 msgid "People"
 msgstr "Gente"
 
-#: pages/news/[slug].tsx:142
+#: pages/news/[slug].tsx:187
 #: pages/search/[slug].tsx:137
 msgid "Popular news"
 msgstr "Noticias populares"
 
-#: pages/event/[slug].tsx:89
-#: pages/ioc/[slug].tsx:87
-#: pages/job/[slug].tsx:90
-#: pages/news/[slug].tsx:90
-#: pages/people/[slug].tsx:87
+#: pages/event/[slug].tsx:117
+#: pages/ioc/[slug].tsx:120
+#: pages/job/[slug].tsx:121
+#: pages/news/[slug].tsx:122
+#: pages/people/[slug].tsx:120
 #: pages/search/[slug].tsx:75
-#: pages/service-company/[slug].tsx:88
+#: pages/service-company/[slug].tsx:115
 msgid "Published at"
 msgstr "Publicado el"
 
 #: components/footer/index.tsx:64
-msgid "Receive an email a day with the articles of NAHSCO NEWS"
-msgstr "Recibe un email al día con los artículos de NAHSCO NEWS"
+#~ msgid "Receive an email a day with the articles of NAHSCO NEWS"
+#~ msgstr "Recibe un email al día con los artículos de NAHSCO NEWS"
 
 #: components/searchComponent/index.tsx:64
 msgid "Search on nahsco news"
 msgstr "Buscar en nahsco news"
 
 #: components/footer/index.tsx:42
+#: components/header/frontend/index.tsx:116
 #: components/header/frontend/index.tsx:117
-#: components/header/frontend/index.tsx:118
-#: components/pages/home/landing/serviceCompany.tsx:28
-#: components/pages/service-company/allPosts/index.tsx:59
+#: components/pages/home/landing/serviceCompany.tsx:51
+#: components/pages/service-company/allPosts/index.tsx:72
 msgid "Service companies"
 msgstr "Empresas de servicio"
 
-#: pages/event/[slug].tsx:106
-#: pages/ioc/[slug].tsx:97
-#: pages/job/[slug].tsx:108
-#: pages/news/[slug].tsx:100
-#: pages/people/[slug].tsx:105
+#: pages/event/[slug].tsx:134
+#: pages/ioc/[slug].tsx:137
+#: pages/job/[slug].tsx:139
+#: pages/news/[slug].tsx:138
+#: pages/people/[slug].tsx:142
 #: pages/search/[slug].tsx:95
-#: pages/service-company/[slug].tsx:98
+#: pages/service-company/[slug].tsx:131
 msgid "Share in"
 msgstr "Compartir en"
 
@@ -149,34 +153,34 @@ msgid "Spanish"
 msgstr "Español"
 
 #: components/footer/index.tsx:68
-msgid "Subscribe"
-msgstr "Suscribir"
+#~ msgid "Subscribe"
+#~ msgstr "Suscribir"
 
 #: components/footer/index.tsx:73
 msgid "Website created by"
 msgstr "Sitio web creado por"
 
-#: pages/ioc/[slug].tsx:87
+#: pages/ioc/[slug].tsx:120
 msgid "on IOCs"
 msgstr "en IOCs"
 
-#: pages/event/[slug].tsx:89
+#: pages/event/[slug].tsx:117
 #: pages/search/[slug].tsx:75
 msgid "on event"
 msgstr "en eventos"
 
-#: pages/job/[slug].tsx:90
+#: pages/job/[slug].tsx:121
 msgid "on jobs"
 msgstr "en trabajos"
 
-#: pages/news/[slug].tsx:90
+#: pages/news/[slug].tsx:122
 msgid "on news"
 msgstr "en noticias"
 
-#: pages/people/[slug].tsx:87
+#: pages/people/[slug].tsx:120
 msgid "on people"
 msgstr "en gente"
 
-#: pages/service-company/[slug].tsx:88
+#: pages/service-company/[slug].tsx:115
 msgid "on service companies"
 msgstr "en empresas de servicios"
