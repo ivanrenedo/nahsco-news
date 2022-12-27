@@ -3,6 +3,7 @@ import {DefaultSeo} from 'next-seo';
 import { I18nProvider } from '@lingui/react';
 import { i18n } from '@lingui/core';
 import { useRouter } from 'next/router'
+import { Analytics } from '@vercel/analytics/react';
 
 import '../public/css/index.css';
 import '../public/css/normalize.css';
@@ -205,6 +206,7 @@ function MyApp({ Component, pageProps}) {
             <AppProvider>
                 <DefaultSeo {...seo} />
                 <Component {...pageProps} />
+                <Analytics />
             </AppProvider> 
         </I18nProvider>
     )
