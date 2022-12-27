@@ -41,6 +41,7 @@ const NewsListPage = ({post}) => {
     }
 
     const getCurrentDate = (date) => {
+      
         return moment(date).format("DD MMM YYYY")
     }
 
@@ -119,9 +120,9 @@ const NewsListPage = ({post}) => {
                                                                                     <p className="m-b-12 font-size-4 font-weight-3 line-height-2">{`En ${post.attributes.location}`}</p>
                                                                                     <div className="display-flex flex-algn-center width-100 m-b-8">
                                                                                         <div className="display-flex font-size-4">
-                                                                                            <div className="">{getCurrentDate(post.attributes.dateFrom)}</div>
+                                                                                            <div className="">{getCurrentDate(post.attributes.dataFrom)}</div>
                                                                                             <span className="p-l-2 p-r-2">-</span>
-                                                                                            <div className="">{getCurrentDate(post.attributes.dateTo)}</div>
+                                                                                            <div className="">{getCurrentDate(post.attributes.dataTo)}</div>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div className="post-item-body">
