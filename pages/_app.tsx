@@ -206,7 +206,7 @@ function MyApp({ Component, pageProps}) {
             <AppProvider>
                 <DefaultSeo {...seo} />
                 <Component {...pageProps} />
-                <Analytics />
+                <Analytics mode='production' />
             </AppProvider> 
         </I18nProvider>
     )
