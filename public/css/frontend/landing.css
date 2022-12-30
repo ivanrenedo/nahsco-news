@@ -148,6 +148,7 @@ hr{
 }
 .post-title {
     max-width: 350px;
+    font-weight: 600;
 }
 .post-title:hover {
     color: #1D79A7;

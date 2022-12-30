@@ -63,7 +63,7 @@ const NewsSection = () => {
                         <div className="content-wrap-post width-100">
                             <div className=" width-100">
                                 {getPopularNewsApi?.data && (
-                                    <ul className="section-news-contain display-grid grid-news-item p-t-24">
+                                    <ul className="section-news-contain display-grid grid-news-item p-t-24 font-size-4">
                                         {getPopularNewsApi?.data?.slice(0, 5).map((post, i) => (
                                             <li className={`cursor-initial flex-algn-stretch post-item post-item-${i}`} onClick={() => updatePost({id: post.id, count: +post.attributes.visitas + 1})} key={post.id}>
                                                 <div className="display-flex flex-algn-center flex-grow post-news-contain flex-algn-stretch width-100 post-item-container">
@@ -78,8 +78,8 @@ const NewsSection = () => {
                                                         <div className="post-body-container position-rel display-block box-sizing">
                                                             <div className="position-rel display-block box-sizing line-height-2">
                                                                 <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
-                                                                    <a className="post-title font-weight-2 text-black-var-1">
-                                                                        <h2 className="m-b-8">{post.attributes.title.toUpperCase()}</h2>
+                                                                    <a className="text-black-var-1">
+                                                                        <h2 className="m-b-8 post-title font-weight-2 font-size-4">{post.attributes.title.toUpperCase()}</h2>
                                                                     </a>
                                                                 </Link>
                                                                 <p className="mask-text-line3 m-b-12 post-content">{post.attributes.metadata}</p>
@@ -115,7 +115,7 @@ const NewsSection = () => {
                                             <>
                                                 <div className="display-flex flex-algn-center">
                                                     <div className="display-flex m-r-8 flex-grow">
-                                                        <h3 className="font-weight-2 let-Spac-sub landing-page-center width-100">{t`Latest IOCs`}</h3>
+                                                        <p className="font-weight-2 let-Spac-sub landing-page-center width-100">{t`Latest IOCs`}</p>
                                                     </div>
                                                 </div>
                                                 <ul className="display-flex flex-col p-t-16 latest-wrap">
@@ -133,12 +133,12 @@ const NewsSection = () => {
                                                                     <div className="post-body-container position-rel display-block box-sizing">
                                                                         <div className="position-rel display-block box-sizing line-height-2">
                                                                             <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
-                                                                                <a className="font-weight-3 font-size-5 post-title small-post text-black-var-1">
-                                                                                    <div className="m-b-4 overflow-wrap">{post.attributes.title.toUpperCase()}</div>
+                                                                                <a className=" font-size-5 small-post text-black-var-1">
+                                                                                    <h3 className="m-b-4 overflow-wrap font-weight-3 post-title">{post.attributes.title.toUpperCase()}</h3>
                                                                                 </a>
                                                                             </Link>
                                                                             <div className="display-flex flex-algn-center font-size-6 neutral-color-2">
-                                                                                <div className="display-flex flex-grow">{getCurrentDate(post.attributes.publishedAt)}</div>
+                                                                                <h3 className="display-flex flex-grow">{getCurrentDate(post.attributes.publishedAt)}</h3>
                                                                             </div>
                                                                         </div>
                                                                     </div>
