@@ -113,7 +113,7 @@ const NewsListPage = ({post}) => {
                                                                                     </div>
 
                                                                                     <div className="publishedAt display-flex font-weight-3 neutral-color-1 m-t-16 m-b-8">{`${t`Published at`} ${getCurrentDate(post.attributes.publishedAt)} ${t`on service companies`}`}</div>
-                                                                                    <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title.toUpperCase()}</div>
+                                                                                    <h1 className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title.toUpperCase()}</h1>
                                                                                     <div className="post-item-body">
                                                                                         <div className="box-sizing position-rel">
                                                                                             {post.attributes && post.attributes.video && (

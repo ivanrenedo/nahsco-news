@@ -56,7 +56,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                                     <div className='post-title font-inherit position-rel'>{job.attributes.companyName.toUpperCase()}</div>
                                                 </a>
                                             </Link>
-                                            <p className="mask-text-line3 m-t-8 post-content">{job.attributes.title}</p>
+                                            <h2 className="mask-text-line3 m-t-8 h2ost-content">{job.attributes.title}</h2>
                                             <p className="mask-text-line3 post-content font-size-5">{job.attributes.location}</p>
                                             <div className="display-flex flex-algn-center post-date neutral-color-2">
                                                 <div className="display-flex font-size-5">{getCurrentDate(job.attributes.publishedAt)}</div>

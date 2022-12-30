@@ -62,7 +62,7 @@ const ServiceCompanies = () => {
                                                             <div className="overflow-h-x overflow-h-y position-rel post-image service-image">
                                                                 <Image layout='fill' objectFit='cover' src={`${baseURL}${post.attributes.image?.data?.attributes?.url}`} alt={post.attributes.title} className="image" />
                                                             </div>
-                                                            <div className="service-title font-weight-2 position-abs bottom-0 left-0 right-0 text-white-var-1 p-l-8 p-b-8 p-r-8 z-index-10 overflow-wrap">{post.attributes.title.toUpperCase()}</div>
+                                                            <h2 className="service-title font-weight-2 position-abs bottom-0 left-0 right-0 text-white-var-1 p-l-8 p-b-8 p-r-8 z-index-10 overflow-wrap">{post.attributes.title.toUpperCase()}</h2>
                                                         </a>
                                                     </Link>
                                                 </div>

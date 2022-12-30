@@ -111,7 +111,7 @@ const AllPosts = () => {
                         <div className="position-rel m-t-32">
                             <div className="display-flex flex-algn-center">
                                 <div className="display-flex m-r-8 flex-grow">
-                                    <h3 className="font-weight-2 let-Spac-sub landing-page-center width-100">{t`Latest jobs`}</h3>
+                                    <p className="font-weight-2 let-Spac-sub landing-page-center width-100">{t`Latest jobs`}</p>
                                 </div>
                             </div>
                             <ul className="display-flex flex-col p-t-16 popular-wrap-post-view display-grid">
@@ -134,7 +134,7 @@ const AllPosts = () => {
                                                             </a>
                                                         </Link>
                                                     </div>
-                                                    <div className="font-size-6 overflow-wrap">{job.attributes.title}</div>
+                                                    <h2 className="font-size-6 overflow-wrap">{job.attributes.title}</h2>
                                                 </div>
                                             </div>
                                         </div>

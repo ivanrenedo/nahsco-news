@@ -118,12 +118,12 @@ const PeoplePage = ({post}) => {
                                                                                     </div>
 
                                                                                     <div className="publishedAt display-flex font-weight-3 neutral-color-1 m-t-16 m-b-8">{`${t`Published at`} ${getCurrentDate(post.attributes.publishedAt)} ${t`on people`}`}</div>
-                                                                                    <div className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title.toUpperCase()}</div>
+                                                                                    <h1 className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title.toUpperCase()}</h1>
                                                                                     <div className="display-flex flex-col width-100 m-b-8">
                                                                                         <div className="display-flex">
-                                                                                            <div className=" font-size-3 font-weight-3 text-error">{post.attributes.fullname}</div>
+                                                                                            <h2 className=" font-size-3 font-weight-3 text-error">{post.attributes.fullname}</h2>
                                                                                         </div>
-                                                                                        <div className="display-flex flex-shrink-1">{post.attributes.sector}</div>
+                                                                                        <h3 className="display-flex flex-shrink-1">{post.attributes.sector}</h3>
                                                                                     </div>
                                                                                     <div className="post-item-body">
                                                                                         <div className="box-sizing position-rel">

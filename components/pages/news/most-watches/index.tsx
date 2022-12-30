@@ -43,8 +43,8 @@ const MostWatches = () => {
                                                             <Image layout='fill' objectFit='cover' src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
                                                         </div>
                                                         <div className="position-abs bottom-0 left-0 right-0 text-white-var-1 p-l-8 p-b-8 p-r-8 z-index-10">
-                                                            <div className="service-title font-weight-2">{post.attributes.title.toUpperCase()}</div>
-                                                            <div className="service-content mask-text m-t-8">{post.attributes.metadata}</div>
+                                                            <h2 className="service-title font-weight-2">{post.attributes.title.toUpperCase()}</h2>
+                                                            <p className="service-content mask-text m-t-8">{post.attributes.metadata}</p>
                                                         </div>
                                                     </a>
                                                 </Link>

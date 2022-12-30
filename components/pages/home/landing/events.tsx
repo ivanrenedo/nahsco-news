@@ -45,7 +45,7 @@ const EventSection = () => {
                 <div className="display-block width-100 box-sizing font-inherit section-collab-contain">
                     <div className="format-div-2">
                         <div className="display-block position-rel font-inherit">
-                            <h2 className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8 secundary-text-1">{t`Events`}</h2>
+                            <div className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8 secundary-text-1">{t`Events`}</div>
                             <div className="hr"></div>
                         </div>
                         <div className="content-wrap-post">
@@ -66,7 +66,7 @@ const EventSection = () => {
                                                         <div className="position-rel display-block box-sizing line-height-2">
                                                             <Link  href="/event/[slug]" as={`/event/${event.attributes.Slug}`}>
                                                                 <a className="font-size-4 font-weight-2 text-white-var-2 event-title">
-                                                                    <div className="m-b-8">{event.attributes.title.toUpperCase()}</div>
+                                                                    <h2 className="m-b-8">{event.attributes.title.toUpperCase()}</h2>
                                                                 </a>
                                                             </Link> 
                                                             <p className="mask-text-line3 font-size-5 event-content neutral-color-3">{event.attributes.location}</p>

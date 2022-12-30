@@ -57,7 +57,7 @@ const NewsSection = () => {
                 <div className="display-block width-100 box-sizing font-inherit">
                     <div className="format-div-2">
                         <div className="display-block position-rel font-inherit">
-                            <h2 className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8 text-primary-var-1">{t`News`}</h2>
+                            <p className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8 text-primary-var-1">{t`News`}</p>
                             <div className="hr"></div>
                         </div>
                         <div className="content-wrap-post width-100">
@@ -79,7 +79,7 @@ const NewsSection = () => {
                                                             <div className="position-rel display-block box-sizing line-height-2">
                                                                 <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                                     <a className="post-title font-weight-2 text-black-var-1">
-                                                                        <div className="m-b-8">{post.attributes.title.toUpperCase()}</div>
+                                                                        <h2 className="m-b-8">{post.attributes.title.toUpperCase()}</h2>
                                                                     </a>
                                                                 </Link>
                                                                 <p className="mask-text-line3 m-b-12 post-content">{post.attributes.metadata}</p>

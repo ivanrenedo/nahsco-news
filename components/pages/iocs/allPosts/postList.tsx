@@ -53,7 +53,7 @@ const PostListComponent: React.FC<PostListComponent> = ({data}) => {
                                         <div className="position-rel display-block box-sizing line-height-2">
                                             <Link href="/ioc/[slug]" as={`/ioc/${post.attributes.Slug}`}>
                                                 <a className="font-weight-3 text-black-var-1">
-                                                    <div className='post-title font-inherit position-rel overflow-wrap'>{post.attributes.title.toUpperCase()}</div>
+                                                    <h2 className='post-title font-inherit position-rel overflow-wrap'>{post.attributes.title.toUpperCase()}</h2>
                                                 </a>
                                             </Link>
                                             <p className="mask-text-line3 m-t-8 post-content">{post.attributes.metadata}</p>

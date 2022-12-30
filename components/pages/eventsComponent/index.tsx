@@ -75,7 +75,7 @@ const AllEventComponent = () => {
         <section className="section-list-post  z-index-0 font-inherit min-height-inherit box-sizing display-flex">
             <div className="font-inherit display-block width-100">
                 <div className="display-block position-rel font-inherit">
-                    <h2 className="font-size-1 font-weight-2 let-Spac-sub landing-page-center m-r-8">{t`Events`}</h2>
+                    <h1 className="font-size-1 font-weight-2 let-Spac-sub landing-page-center m-r-8">{t`Events`}</h1>
                     <div className="hr"></div>
                 </div>
                 <div className="position-rel display-block m-t-16 m-b-32">
@@ -128,7 +128,7 @@ const AllEventComponent = () => {
                                                     <div className="position-rel display-block box-sizing line-height-2">
                                                         <Link href="/service-company/[slug]" as={`/service-company/${post.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-4 post-title text-black-var-1">
-                                                                <div className="m-b-4 overflow-wrap overflow-wrap">{post.attributes.title.toUpperCase()}</div>
+                                                                <h4 className="m-b-4 overflow-wrap overflow-wrap">{post.attributes.title.toUpperCase()}</h4>
                                                             </a>
                                                         </Link>
                                                     </div>

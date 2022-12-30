@@ -103,7 +103,7 @@ const AllServiceCompanies = () => {
                         <div className="position-rel m-t-16">
                             <div className="display-flex flex-algn-center">
                                 <div className="display-flex m-r-8 flex-grow">
-                                    <h3 className="font-weight-2 let-Spac-sub landing-page-center width-100">{t`Latest events`}</h3>
+                                    <p className="font-weight-2 let-Spac-sub landing-page-center width-100">{t`Latest events`}</p>
                                 </div>
                             </div>
                             <ul className="display-flex flex-col p-t-16 latest-wrap">
@@ -122,7 +122,7 @@ const AllServiceCompanies = () => {
                                                     <div className="position-rel display-block box-sizing line-height-2">
                                                         <Link href="/event/[slug]" as={`/event/${event.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-4 small-post text-black-var-1">
-                                                                <div className="m-b-4 overflow-wrap">{event.attributes.title.toUpperCase()}</div>
+                                                                <h3 className="m-b-4 overflow-wrap">{event.attributes.title.toUpperCase()}</h3>
                                                             </a>
                                                         </Link>
                                                     </div>

@@ -37,7 +37,7 @@ const PeopleSection = () => {
           <div className="display-block width-100 box-sizing font-inherit section-collab-contain">
           <div className="format-div-2">
               <div className="display-block position-rel font-inherit">
-                  <h2 className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8 text-white-var-1">{t`People`}</h2>
+                  <p className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8 text-white-var-1">{t`People`}</p>
                   <div className="hr"></div>
               </div>
               <div className="display-block box-sizing position-rel font-inherit p-t-24">
@@ -51,7 +51,7 @@ const PeopleSection = () => {
                                   <Image layout='fill' objectFit='cover' src={`${baseURL}${people.attributes.image.data.attributes.url}`} alt={people.attributes.title} className="image" />
                                 </div>
                                 <div className="text-white-var-1 display-block position-abs left-0 bottom-0 p-l-8 p-b-8 z-index-1">
-                                  <span className='font-weight-3 font-size-4 line-height-2'>{people.attributes.title.toUpperCase()}</span>
+                                  <h2 className='font-weight-3 font-size-4 line-height-2'>{people.attributes.title.toUpperCase()}</h2>
                                 </div>
                               </a>
                             </Link>

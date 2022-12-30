@@ -42,7 +42,7 @@ const JobSection = () => {
           <div className="display-block width-100 box-sizing font-inherit section-collab-contain">
             <div className="format-div-2">
                 <div className="display-block position-rel font-inherit">
-                    <h2 className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8">{t`Jobs`}</h2>
+                    <p className="font-size-2 font-weight-2 let-Spac-sub landing-page-center m-r-8">{t`Jobs`}</p>
                     <div className="hr"></div>
                 </div>
                 <div className="display-block box-sizing position-rel font-inherit p-t-24">
@@ -60,7 +60,7 @@ const JobSection = () => {
                             <div className="p-l-8 p-t-8 p-b-8">
                               <div className="font-weight-2 m-b-2 m-b-8 font-size-4 mask-text">{job.attributes.companyName.toUpperCase()}</div>
                               <div className="text-black-var-1 display-block z-index-1">
-                                <span className='line-height-2 mask-text-line3'>{job.attributes.title.toUpperCase()}</span>
+                                <h2 className='line-height-2 mask-text-line3'>{job.attributes.title.toUpperCase()}</h2>
                               </div>
                               <div className="display-block box-sizing font-inherit text-black-var-3">
                                 <div className='font-size-5 m-t-4'>{job.attributes.location}</div>

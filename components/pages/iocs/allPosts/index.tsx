@@ -82,7 +82,7 @@ const AllIocsCompanies = () => {
         <section className="section-list-post  z-index-0 font-inherit min-height-inherit box-sizing display-flex">
             <div className="font-inherit display-block width-100">
                 <div className="display-block position-rel font-inherit">
-                    <h2 className="font-size-1 font-weight-2 let-Spac-sub landing-page-center m-r-8">IOCs</h2>
+                    <p className="font-size-1 font-weight-2 let-Spac-sub landing-page-center m-r-8">IOCs</p>
                     <div className="hr"></div>
                 </div>
                 <div className="position-rel display-block m-t-16 m-b-32">
@@ -116,7 +116,7 @@ const AllIocsCompanies = () => {
                         <div className="position-rel m-t-32">
                             <div className="display-flex flex-algn-center">
                                 <div className="display-flex m-r-8 flex-grow">
-                                    <h3 className="font-weight-2 let-Spac-sub landing-page-center width-100">{t`Latest people`}</h3>
+                                    <p className="font-weight-2 let-Spac-sub landing-page-center width-100">{t`Latest people`}</p>
                                 </div>
                             </div>
                             <ul className="display-flex flex-col p-t-16 popular-wrap-post-view display-grid">
@@ -135,11 +135,11 @@ const AllIocsCompanies = () => {
                                                     <div className="position-rel display-block box-sizing line-height-2">
                                                         <Link href="/people/[slug]" as={`/people/${people.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-4 post-title text-black-var-1">
-                                                                <div className="m-b-4 overflow-wrap">{people.attributes.fullname.toUpperCase()}</div>
+                                                                <h4 className="m-b-4 overflow-wrap">{people.attributes.fullname.toUpperCase()}</h4>
                                                             </a>
                                                         </Link>
                                                     </div>
-                                                    <div className="font-size-5 overflow-wrap">{people.attributes.title}</div>
+                                                    <h3 className="font-size-5 overflow-wrap">{people.attributes.title}</h3>
                                                 </div>
                                             </div>
                                         </div>
