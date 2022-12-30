@@ -1,4 +1,4 @@
-import { skipWaiting, clientsClaim } from 'workbox-core'
+import { clientsClaim } from 'workbox-core'
 import { ExpirationPlugin } from 'workbox-expiration'
 import { NetworkOnly, NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'workbox-strategies'
 import { registerRoute, setDefaultHandler, setCatchHandler, Route } from 'workbox-routing'
@@ -7,10 +7,7 @@ import { warmStrategyCache} from 'workbox-recipes'
 import * as navigationPreload from 'workbox-navigation-preload';
 
 clientsClaim()
-skipWaiting()
 
-
-navigationPreload.enable();
 
 // must include following lines when using inject manifest module from workbox
 // https://developers.google.com/web/tools/workbox/guides/precache-files/workbox-build#add_an_injection_point
@@ -186,3 +183,5 @@ setCatchHandler(({ event }) => {
       return Response.error()
   }
 })  
+
+navigationPreload.enable();
