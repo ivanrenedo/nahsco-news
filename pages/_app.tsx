@@ -3,14 +3,12 @@ import {DefaultSeo} from 'next-seo';
 import { I18nProvider } from '@lingui/react';
 import { i18n } from '@lingui/core';
 import { useRouter } from 'next/router'
-import { Analytics } from '@vercel/analytics/react';
 
 import '../public/css/index.css';
 import '../public/css/normalize.css';
 import seo from '../seo.config';
 import { AppProvider } from '@components/hook/context/mainContext';
 import { activate } from '@utils/i18n';
-import * as gtag from '@utils/gtag';
 
 
 function MyApp({ Component, pageProps}) {
@@ -22,15 +20,6 @@ function MyApp({ Component, pageProps}) {
     }, [locale]);
 
     // Google analitic
-   /*  useEffect(() => {
-        const handleRouteChange = (url) => {
-          gtag.pageview(url)
-        }
-        events.on('routeChangeComplete', handleRouteChange)
-        return () => {
-          events.off('routeChangeComplete', handleRouteChange)
-        }
-    }, [events]) */
 
     useEffect(() => {
         const isLocalhost = Boolean(
@@ -39,12 +28,12 @@ function MyApp({ Component, pageProps}) {
             window.location.hostname === '[::1]' ||
             // 127.0.0.1/8 is considered localhost for IPv4.
             window.location.hostname.match(
-                /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+                /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/ 
             )
         );
         
         function register(config?:any) {
-            if ('serviceWorker' in navigator) {
+            if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
                 // The URL constructor is available in all browsers that support SW.
                 const publicUrl = new URL(process?.env?.PUBLIC_URL!, window.location.href);
                 if (publicUrl.origin !== window.location.origin) {
@@ -53,10 +42,10 @@ function MyApp({ Component, pageProps}) {
                     // serve assets; see https://github.com/facebook/create-react-app/issues/2374
                     return;
                 }
-               
+        
                 window.addEventListener('load', () => {
                     const swUrl = '{REGISTER_SW_PREFIX}/service-worker.js';
-                    
+        
                     if (isLocalhost) {
                         // This is running on localhost. Let's check if a service worker still exists or not.
                         checkValidServiceWorker(swUrl, config);
@@ -158,11 +147,12 @@ function MyApp({ Component, pageProps}) {
             }
         }
 
-        register();
+        unregister()
+       
 
         return () => {
             function register(config?:any) {
-                if ('serviceWorker' in navigator) {
+                if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
                     // The URL constructor is available in all browsers that support SW.
                     const publicUrl = new URL(process?.env?.PUBLIC_URL!, window.location.href);
                     if (publicUrl.origin !== window.location.origin) {
@@ -206,7 +196,6 @@ function MyApp({ Component, pageProps}) {
             <AppProvider>
                 <DefaultSeo {...seo} />
                 <Component {...pageProps} />
-                <Analytics mode='production' />
             </AppProvider> 
         </I18nProvider>
     )

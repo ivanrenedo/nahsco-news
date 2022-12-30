@@ -22,6 +22,10 @@
     border: 1px solid #1D749B;
 }
 
+.text-dec {
+    text-decoration: underline;
+}
+
 .main-page{
     width: 100%;
     min-height: calc(100vh);
@@ -134,8 +138,12 @@
     font-weight: 600;
 }
 
+button.contact-us {
+    background-color: rgba(29, 116, 155);
+    color: #ffffff;
+}
 button.contact-us:hover {
-    background-color: rgba(29, 116, 155, .2);
+    background-color: rgba(29, 116, 155, .9);
     will-change: background-color;
     transition: background-color 100ms ease;
 }

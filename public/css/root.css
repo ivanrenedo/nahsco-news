@@ -97,6 +97,10 @@ button.background-var1:active {
     background-color: #f8a604;
 }
 
+.hightlight {
+    color: #f8a604;
+}
+
 .secundary-var-1 {
     background-color: #14913c;
     will-change: background-color;
@@ -728,7 +732,7 @@ button.background-var1:active {
     margin-top: 0px;
 } 
 .m-b-0 {
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
 }
 .m-l-2 {
     margin-left: 2px;

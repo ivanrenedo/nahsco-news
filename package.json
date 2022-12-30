@@ -13,7 +13,6 @@
     "@lingui/react": "^3.15.0",
     "@types/jsmediatags": "^3.9.2",
     "@types/moment": "^2.13.0",
-    "@vercel/analytics": "^0.1.6",
     "@zeit/next-typescript": "^1.1.1",
     "axios": "^0.26.0",
     "cookie": "^0.4.2",

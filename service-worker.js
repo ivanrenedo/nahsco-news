@@ -81,6 +81,15 @@ registerRoute(
 )
 
 registerRoute(
+  /^https:\/\/www\.(?:googletagmanager)\.com\/.*/i,
+  new NetworkOnly({
+    cacheName: 'google-analytic',
+    plugins: [new ExpirationPlugin({ maxEntries: 5, maxAgeSeconds: 3153648, purgeOnQuotaError: !0 })]
+  }),
+  'GET'
+)
+
+registerRoute(
   /\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,
   new CacheFirst({
     cacheName: 'static-font-assets',
@@ -100,7 +109,7 @@ registerRoute(
 
 registerRoute(
   /\.(?:js)$/i,
-  new CacheFirst({
+  new StaleWhileRevalidate({
     cacheName: 'static-js-assets',
     plugins: [new ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 86400, purgeOnQuotaError: !0 })]
   }),

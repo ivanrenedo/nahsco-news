@@ -11,7 +11,7 @@ import LocaleSwitcher from './locale-switcher';
 const HeaderMainComponent = ({openSidebar}) => {
     let [windowWidth, setWindowWidth] = React.useState<number | undefined>();
 
-    const { asPath, locale } = useRouter();
+    const { asPath, locale, push } = useRouter();
 
 
 
@@ -85,9 +85,15 @@ const HeaderMainComponent = ({openSidebar}) => {
                             </div>
                         </div>
                     </div>
-                    <div className='display-flex flex-algn-center'>
+                    <div className='display-flex flex-algn-center position-abs header-p-r right-0'>
                     {/* class for local lingui-trans */}
-                        <div className="position-abs right-0 header-p-r"><LocaleSwitcher /></div>
+                        <div className=""><LocaleSwitcher /></div>
+                        <button 
+                        onClick={()=> push('contact-us')}
+                        className='contact-us p-t-8 p-b-8 p-r-16 p-l-16 border-r-20 contact-wrap m-l-16'
+                        >
+                            {t`Contact us`}
+                        </button>
                         {/* <SearchComponent searchArr={allPost} /> */}
                     </div>
                 </div>

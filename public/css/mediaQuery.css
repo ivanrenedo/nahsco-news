@@ -193,6 +193,10 @@
         justify-content: center;
     }
 
+    .contact-wrap{
+        display: block;
+    }
+
 
     /* item page */
     .post-item-container-page {
@@ -245,9 +249,6 @@
     }
 
     .navegation-wrap {
-        display: block;
-    }
-    .contact-wrap{
         display: block;
     }
     .hamburguer-wrap{

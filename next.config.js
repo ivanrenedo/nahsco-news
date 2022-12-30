@@ -1,6 +1,11 @@
 const { locales, sourceLocale } = require('./lingui.config.js')
 const withPlugins = require('next-compose-plugins');
+
+const prod = process.env.NODE_ENV === 'production'
+
 const withPWA = require('next-pwa')({
+    disable: prod ? false : true,
+    register: true,
     dest: 'public',
     swSrc: 'service-worker.js'
 });
