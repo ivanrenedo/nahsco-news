@@ -135,11 +135,11 @@ const AllIocsCompanies = () => {
                                                     <div className="position-rel display-block box-sizing line-height-2">
                                                         <Link href="/people/[slug]" as={`/people/${people.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-4 post-title text-black-var-1">
-                                                                <h4 className="m-b-4 overflow-wrap">{people.attributes.fullname.toUpperCase()}</h4>
+                                                                <h4 className="m-b-4 font-weight-2 overflow-wrap">{people.attributes.fullname.toUpperCase()}</h4>
                                                             </a>
                                                         </Link>
                                                     </div>
-                                                    <h3 className="font-size-5 overflow-wrap">{people.attributes.title}</h3>
+                                                    <h3 className="font-size-5 font-weight-3 overflow-wrap">{people.attributes.title}</h3>
                                                 </div>
                                             </div>
                                         </div>

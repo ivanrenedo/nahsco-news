@@ -128,8 +128,8 @@ const AllPeople = () => {
                                                 <div className="post-body-container position-rel display-block box-sizing">
                                                     <div className="position-rel display-block box-sizing line-height-2">
                                                         <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
-                                                            <a className="font-weight-3 font-size-4 post-title text-black-var-1">
-                                                                <h3 className="m-b-4 overflow-wrap overflow-wrap">{post.attributes.title.toUpperCase()}</h3>
+                                                            <a className="font-weight-3 post-title text-black-var-1">
+                                                                <h3 className="m-b-4 font-size-4 font-weight-3 overflow-wrap overflow-wrap">{post.attributes.title.toUpperCase()}</h3>
                                                             </a>
                                                         </Link>
                                                     </div>

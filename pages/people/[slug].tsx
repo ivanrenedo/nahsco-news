@@ -121,9 +121,9 @@ const PeoplePage = ({post}) => {
                                                                                     <h1 className="post-item-title m-b-12 m-t-8 font-size-1 font-weight-2 line-height-2">{post.attributes.title.toUpperCase()}</h1>
                                                                                     <div className="display-flex flex-col width-100 m-b-8">
                                                                                         <div className="display-flex">
-                                                                                            <h2 className=" font-size-3 font-weight-3 text-error">{post.attributes.fullname}</h2>
+                                                                                            <h2 className=" font-size-3 font-weight-3 text-error ">{post.attributes.fullname}</h2>
                                                                                         </div>
-                                                                                        <h3 className="display-flex flex-shrink-1">{post.attributes.sector}</h3>
+                                                                                        <span className="display-flex flex-shrink-1 ">{post.attributes.sector}</span>
                                                                                     </div>
                                                                                     <div className="post-item-body">
                                                                                         <div className="box-sizing position-rel">
@@ -206,8 +206,8 @@ const PeoplePage = ({post}) => {
                                                                                             <div className="post-body-container position-rel display-block box-sizing">
                                                                                                 <div className="position-rel display-block box-sizing line-height-2">
                                                                                                     <Link href="/people/[slug]" as={`/people/${post.attributes.Slug}`}>
-                                                                                                        <a className="font-weight-3 post-title text-black-var-1">
-                                                                                                            <div className="m-b-4">{post.attributes.title.toUpperCase()}</div>
+                                                                                                        <a className="post-title text-black-var-1">
+                                                                                                            <div className="m-b-4 font-weight-3 font-size-4">{post.attributes.title.toUpperCase()}</div>
                                                                                                         </a>
                                                                                                     </Link>
                                                                                                 </div>

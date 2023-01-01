@@ -199,8 +199,8 @@ const NewsListPage = ({post}) => {
                                                                                             <div className="post-body-container position-rel display-block box-sizing">
                                                                                                 <div className="position-rel display-block box-sizing line-height-2">
                                                                                                     <Link href="/event/[slug]" as={`/event/${post.attributes.Slug}`}>
-                                                                                                        <a className="font-weight-3 post-title text-black-var-1">
-                                                                                                            <div className="m-b-4">{post.attributes.title.toUpperCase()}</div>
+                                                                                                        <a className="post-title text-black-var-1">
+                                                                                                            <div className="m-b-4 font-weight-3 font-size-4">{post.attributes.title.toUpperCase()}</div>
                                                                                                         </a>
                                                                                                     </Link>
                                                                                                 </div>

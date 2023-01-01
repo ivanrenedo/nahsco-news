@@ -194,7 +194,7 @@ const NewsListPage = ({post}) => {
                                                                                         <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">
                                                                                             <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
                                                                                                 <a className="overflow-h-x overflow-h-y position-rel lastest-image">
-                                                                                                <Image layout='fill' objectFit='cover'src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
+                                                                                                    <Image layout='fill' objectFit='cover'src={`${baseURL}${post.attributes.image.data.attributes.url}`} alt={post.attributes.title} className="image" />
                                                                                                 </a>
                                                                                             </Link> 
                                                                                         </div>
@@ -202,8 +202,8 @@ const NewsListPage = ({post}) => {
                                                                                             <div className="post-body-container position-rel display-block box-sizing">
                                                                                                 <div className="position-rel display-block box-sizing line-height-2">
                                                                                                     <Link href="/news/[slug]" as={`/news/${post.attributes.Slug}`}>
-                                                                                                        <a className="font-weight-3 post-title text-black-var-1">
-                                                                                                            <div className="m-b-4">{post.attributes.title.toUpperCase()}</div>
+                                                                                                        <a className="post-title text-black-var-1">
+                                                                                                            <div className="m-b-4 font-weight-3 font-size-4">{post.attributes.title.toUpperCase()}</div>
                                                                                                         </a>
                                                                                                     </Link>
                                                                                                 </div>

@@ -130,11 +130,11 @@ const AllPosts = () => {
                                                     <div className="position-rel display-block box-sizing line-height-2">
                                                         <Link href="/job/[slug]" as={`/job/${job.attributes.Slug}`}>
                                                             <a className="font-weight-3 font-size-5 post-title text-black-var-1">
-                                                                <div className="m-b-4 overflow-wrap">{job.attributes.companyName.toUpperCase()}</div>
+                                                                <h4 className="m-b-4 font-weight-3 overflow-wrap">{job.attributes.companyName.toUpperCase()}</h4>
                                                             </a>
                                                         </Link>
                                                     </div>
-                                                    <h2 className="font-size-6 overflow-wrap">{job.attributes.title}</h2>
+                                                    <h2 className="font-size-6 font-weight-3 overflow-wrap">{job.attributes.title}</h2>
                                                 </div>
                                             </div>
                                         </div>

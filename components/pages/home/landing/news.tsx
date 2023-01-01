@@ -138,7 +138,7 @@ const NewsSection = () => {
                                                                                 </a>
                                                                             </Link>
                                                                             <div className="display-flex flex-algn-center font-size-6 neutral-color-2">
-                                                                                <h3 className="display-flex flex-grow">{getCurrentDate(post.attributes.publishedAt)}</h3>
+                                                                                <span className="display-flex flex-grow">{getCurrentDate(post.attributes.publishedAt)}</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
