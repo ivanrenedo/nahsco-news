@@ -18,18 +18,18 @@ const JobSection = () => {
         return moment(date).format("DD MMM YYYY")
     }
 
-    const {fetchPopularJobs} = jobsApi();
+    const {fetchLatestJobs} = jobsApi();
     
     //popular events
-    const getPopulaJobApi = useApi(fetchPopularJobs);
+    const getLatestJobApi = useApi(fetchLatestJobs);
 
 
     React.useEffect(() => {
        
-        getPopulaJobApi.request();
+        getLatestJobApi.request();
 
         return () => {
-          getPopulaJobApi.request();
+          getLatestJobApi.request();
         }
        
     }, []);
@@ -37,7 +37,7 @@ const JobSection = () => {
 
   return (
     <>
-      {getPopulaJobApi.data  && (
+      {getLatestJobApi.data  && (
         <section className='section-collab section-jobs position-rel'>
           <div className="display-block width-100 box-sizing font-inherit section-collab-contain">
             <div className="format-div-2">
@@ -47,7 +47,7 @@ const JobSection = () => {
                 </div>
                 <div className="display-block box-sizing position-rel font-inherit p-t-24">
                   <ul className="position-rel display-flex overflow-auto-x overflow-h-y people-gap section-event-contain section-event-wrap" ref={scrollRef}>
-                    {getPopulaJobApi.data.map((job, i) => (
+                    {getLatestJobApi.data.map((job, i) => (
                         <li key={i} className="position-rel cursor-initial flex-algn-stretch" > 
                           <div className="display-block job-item-container">
                             <Link href="/job/[slug]" as={`/job/${job.attributes.Slug}`}>

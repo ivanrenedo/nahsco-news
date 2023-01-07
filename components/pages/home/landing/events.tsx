@@ -19,18 +19,18 @@ const EventSection = () => {
         return moment(date).format("DD MMM YYYY")
     }
 
-    const {fetchPopularEvents} = eventsApi();
+    const {fetchLatestEvents} = eventsApi();
 
     //popular events
-    const getPopulaEventApi = useApi(fetchPopularEvents);
+    const getLatestEventApi = useApi(fetchLatestEvents);
 
 
     React.useEffect(() => {
        
-        getPopulaEventApi.request();
+        getLatestEventApi.request();
 
         return () => {
-            getPopulaEventApi.request();
+            getLatestEventApi.request();
         }
        
     }, []);
@@ -40,7 +40,7 @@ const EventSection = () => {
 
   return (
     <>
-        {getPopulaEventApi.data && (
+        {getLatestEventApi.data && (
             <section className='section-collab position-rel primary-bg-1'>
                 <div className="display-block width-100 box-sizing font-inherit section-collab-contain">
                     <div className="format-div-2">
@@ -51,7 +51,7 @@ const EventSection = () => {
                         <div className="content-wrap-post">
                             <div className="">
                                 <ul className="section-event-contain display-grid section-event-wrap people-gap p-t-24">
-                                    {getPopulaEventApi.data.map((event, i) => (
+                                    {getLatestEventApi.data.map((event, i) => (
                                         <li className={`cursor-initial flex-algn-stretch event-item post-item-${i}`} key={event.id}>
                                             <div className="display-flex flex-algn-center flex-grow flex-col flex-algn-stretch width-100 post-item-container">
                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel event-image-container">

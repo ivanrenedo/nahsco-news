@@ -20,14 +20,14 @@ const NewsSection = () => {
         return moment(date).format("DD MMM YYYY")
     }
 
-    const {fetchPopularNews, fetchPopularIocs, updatePost} = newsApi(); 
+    const {fetchLatestNews, fetchRecentIocs, updatePost} = newsApi(); 
     const {fetchPopularVideoHome} = AdsApi();
 
    //popular news
-    const getPopularNewsApi = useApi(fetchPopularNews);
+    const getLatestNewsApi = useApi(fetchLatestNews);
 
     //popular iocs
-    const getPopularIocsApi = useApi(fetchPopularIocs);
+    const getLatestIocsApi = useApi(fetchRecentIocs);
     
     //video ads 
     const getVideoHomeApi = useApi(fetchPopularVideoHome);
@@ -39,13 +39,13 @@ const NewsSection = () => {
 
     React.useEffect(() => {
        
-        getPopularNewsApi.request();
-        getPopularIocsApi.request();
+        getLatestNewsApi.request();
+        getLatestIocsApi.request();
         getVideoHomeApi.request();
 
         return () => {
-            getPopularNewsApi.request();
-            getPopularIocsApi.request();
+            getLatestNewsApi.request();
+            getLatestIocsApi.request();
             getVideoHomeApi.request();
         }
     }, []);
@@ -62,9 +62,9 @@ const NewsSection = () => {
                         </div>
                         <div className="content-wrap-post width-100">
                             <div className=" width-100">
-                                {getPopularNewsApi?.data && (
+                                {getLatestNewsApi?.data && ( 
                                     <ul className="section-news-contain display-grid grid-news-item p-t-24 font-size-4">
-                                        {getPopularNewsApi?.data?.slice(0, 5).map((post, i) => (
+                                        {getLatestNewsApi?.data?.slice(0, 5).map((post, i) => (
                                             <li className={`cursor-initial flex-algn-stretch post-item post-item-${i}`} onClick={() => updatePost({id: post.id, count: +post.attributes.visitas + 1})} key={post.id}>
                                                 <div className="display-flex flex-algn-center flex-grow post-news-contain flex-algn-stretch width-100 post-item-container">
                                                     <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container">
@@ -111,7 +111,7 @@ const NewsSection = () => {
                                     </PubSpace>
                                     </div>
                                     <div className="position-rel m-t-24">
-                                        {getPopularIocsApi?.data && (
+                                        {getLatestIocsApi?.data && (
                                             <>
                                                 <div className="display-flex flex-algn-center">
                                                     <div className="display-flex m-r-8 flex-grow">
@@ -119,7 +119,7 @@ const NewsSection = () => {
                                                     </div>
                                                 </div>
                                                 <ul className="display-flex flex-col p-t-16 latest-wrap">
-                                                    {getPopularIocsApi?.data?.slice(0, 3).map((post, i) => (
+                                                    {getLatestIocsApi?.data?.slice(0, 3).map((post, i) => (
                                                         <li className=" cursor-initial" key={i} onClick={() => updatePost({id: post.id, count: +post.attributes.visitas + 1})}>
                                                             <div className="display-flex flex-algn-center flex-grow displey-flex flex-algn-stretch width-100">
                                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel">

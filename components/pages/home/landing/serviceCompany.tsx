@@ -20,11 +20,11 @@ const ServiceCompanies = () => {
     }
 
     const {updatePost} = newsApi();
-    const {fetchPopularService} = serviceCompanyApi();
+    const {fetchLatestService} = serviceCompanyApi();
     const {fetchPopularLateralHome} = AdsApi();
 
     //popular services
-    const getPopulaServiceApi = useApi(fetchPopularService);
+    const getLatestServiceApi = useApi(fetchLatestService);
 
     //lateral ads 
     const getLateralHomeApi = useApi(fetchPopularLateralHome);
@@ -32,18 +32,18 @@ const ServiceCompanies = () => {
 
     React.useEffect(() => {
         getLateralHomeApi.request();
-        getPopulaServiceApi.request();
+        getLatestServiceApi.request();
 
         return () => {
             getLateralHomeApi.request();
-            getPopulaServiceApi.request();
+            getLatestServiceApi.request();
         }
     }, []);
 
 
     return (
         <>  
-            {getPopulaServiceApi.data && (
+            {getLatestServiceApi.data && (
                 <section className="section section-news flex-algn-center display-flex flex-col position-rel">
                     <div className="display-block width-100 box-sizing font-inherit">
                         <div className="format-div-2">
@@ -54,7 +54,7 @@ const ServiceCompanies = () => {
                             <div className="content-wrap-post width-100">
                                 <div className=" width-100">
                                     <ul className="display-grid grid-news-item grid-news-item grid-service-item p-t-24 people-gap">
-                                        {getPopulaServiceApi.data?.slice(0, 4).map((post, i) => (
+                                        {getLatestServiceApi.data?.slice(0, 4).map((post, i) => (
                                             <li className={`cursor-initial flex-algn-stretch service-item service-item-${i}`} onClick={() => updatePost({id: post.id, count: +post.attributes.visitas + 1})} key={post.id}>
                                                 <div className="display-flex flex-algn-center flex-grow flex-algn-stretch width-100 post-item-container">
                                                     <Link  href="/service-company/[slug]" as={`/service-company/${post.attributes.Slug}`}>

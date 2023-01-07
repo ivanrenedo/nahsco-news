@@ -13,7 +13,7 @@ const eventsApi = () => {
 
       //populatePostService
       const queryPopularEvents = qs.stringify({
-        sort: ['publishedAt:desc'],
+        sort: ['visitas:desc'],
         populate: '*',
         pagination: {
             start: 0,
@@ -24,6 +24,20 @@ const eventsApi = () => {
       });
       
     const fetchPopularEvents = () => apiClient.get(`/events?locale=${localeState}&${queryPopularEvents}`);
+
+     //populatePostService
+     const queryLatestEvents = qs.stringify({
+      sort: ['publishedAt:desc'],
+      populate: '*',
+      pagination: {
+          start: 0,
+          limit: 6,
+      },
+    }, {
+      encodeValuesOnly: true, // prettify URL
+    });
+    
+  const fetchLatestEvents = () => apiClient.get(`/events?locale=${localeState}&${queryLatestEvents}`);
 
     //RecentPostService
     const queryRecentEvents = qs.stringify({
@@ -42,7 +56,8 @@ const eventsApi = () => {
 
     return {
         fetchPopularEvents,
-        fetchRecentEvents
+        fetchRecentEvents,
+        fetchLatestEvents
     }
 }
 

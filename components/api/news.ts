@@ -34,6 +34,27 @@ const newsApi = () => {
     const fetchPopularNews = () => apiClient.get(`/posts?locale=${localeState}&${queryPopularNews}`);
 
     //populatePostNews
+    const queryLatestNews = qs.stringify({
+        sort: ['publishedAt:desc'],
+        filters: {
+            tags: {
+                name: {
+                    $eq: "news"
+                }
+            }
+        },
+        pagination: {
+            start: 0,
+            limit: 6,
+        },
+        populate: '*'
+      }, {
+        encodeValuesOnly: true, // prettify URL
+      });
+      
+    const fetchLatestNews = () => apiClient.get(`/posts?locale=${localeState}&${queryLatestNews}`);
+
+    //populatePostNews
     const queryRecentNews = qs.stringify({
         sort: ['publishedAt:desc'],
         filters: {
@@ -112,7 +133,8 @@ const newsApi = () => {
         fetchPopularIocs,
         fetchRecentNews,
         fetchRecentIocs,
-        updatePost
+        updatePost,
+        fetchLatestNews
     }
 }
 

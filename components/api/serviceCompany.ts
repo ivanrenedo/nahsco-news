@@ -32,6 +32,27 @@ const serviceCompanyApi = () => {
       
     const fetchPopularService = () => apiClient.get(`/posts?locale=${localeState}&${queryPopularService}`);
 
+    //populatePostService
+    const queryLatestService = qs.stringify({
+        sort: ['publishedAt:desc'],
+        filters: {
+            tags: {
+                name: {
+                    $eq: "service-company"
+                }
+            }
+        },
+        pagination: {
+            start: 0,
+            limit: 6,
+        },
+        populate: '*'
+      }, {
+        encodeValuesOnly: true, // prettify URL
+      });
+      
+    const fetchLatestService = () => apiClient.get(`/posts?locale=${localeState}&${queryLatestService}`);
+
 
     //populatePostService
     const queryRecentService = qs.stringify({
@@ -57,7 +78,8 @@ const serviceCompanyApi = () => {
 
     return {
         fetchPopularService,
-        fetchRecentService
+        fetchRecentService,
+        fetchLatestService
     }
 }
 

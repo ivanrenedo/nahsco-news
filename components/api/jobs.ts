@@ -13,7 +13,7 @@ const jobsApi = () => {
 
     //populatePostService
     const queryPopularJobs = qs.stringify({
-        sort: ['publishedAt:desc'],
+        sort: ['visitas:desc'],
         pagination: {
             start: 0,
             limit: 6,
@@ -24,6 +24,20 @@ const jobsApi = () => {
     });
       
     const fetchPopularJobs = () => apiClient.get(`/jobs?locale=${localeState}&${queryPopularJobs}`);
+
+     //populatePostService
+     const queryLatestJobs = qs.stringify({
+        sort: ['publishedAt:desc'],
+        pagination: {
+            start: 0,
+            limit: 6,
+        },
+        populate: '*'
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
+      
+    const fetchLatestJobs = () => apiClient.get(`/jobs?locale=${localeState}&${queryLatestJobs}`);
 
     //populatePostService
     const queryRecentJobs = qs.stringify({
@@ -41,7 +55,8 @@ const jobsApi = () => {
 
     return {
         fetchPopularJobs,
-        fetchRecentJobs
+        fetchRecentJobs,
+        fetchLatestJobs
     }
 }
 
