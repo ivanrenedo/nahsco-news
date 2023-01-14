@@ -73,12 +73,12 @@ function LandingPage() {
                                             <PeopleSection />
                                             <AdsLeaderBoard>
                                                 <div className="display-flex flex-col box-sizing flex-algn-stretch position-rel post-item-image-container cursor-point" onClick={() => goto('https://www.nahsco.com/')}>
-                                                    <ins className="adsbygoogle"
-                                                    style={{display: "block"}}
-                                                    data-ad-client="ca-pub-2621121538375000"
-                                                    data-ad-slot="5460592153"
-                                                    data-ad-format="auto"
-                                                    data-full-width-responsive="true"></ins>
+                                                <ins className="adsbygoogle"
+                                                style={{display: "block"}}
+                                                data-ad-client="ca-pub-3145765907918273"
+                                                data-ad-slot="5421631927"
+                                                data-ad-format="auto"
+                                                data-full-width-responsive="true"></ins>
                                                 </div>
                                             </AdsLeaderBoard>
                                             <ServiceCompanies />
